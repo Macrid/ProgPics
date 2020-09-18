@@ -13,6 +13,7 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
     
 
     @IBOutlet weak var progressionsTableView: UITableView!
+    var tableViewCells = [UserCategoryTableViewCell]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,21 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell") as! UserCategoryTableViewCell
+        tableViewCells.append(cell)
+        return cell
+    }
+    
+    @IBAction func cellButtonPress(_ sender: AnyObject) {
+        //let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.progressionsTableView)
+        //let indexPath = self.progressionsTableView.indexPathForRow(at: buttonPosition)
+
         
-        return cell!
+        //performSegue(withIdentifier: "segue", sender: nil)
     }
 }

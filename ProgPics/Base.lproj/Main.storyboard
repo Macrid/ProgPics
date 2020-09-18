@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hZg-db-uym">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hZg-db-uym">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIi-JN-P8q">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIi-JN-P8q">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -26,11 +25,17 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JIi-JN-P8q" secondAttribute="trailing" id="BrN-0T-mp2"/>
+                            <constraint firstItem="JIi-JN-P8q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="FWq-8x-VBC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="JIi-JN-P8q" secondAttribute="bottom" id="M9i-CB-Rps"/>
+                            <constraint firstItem="JIi-JN-P8q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Sw7-4X-J4O"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-719" y="78"/>
+            <point key="canvasLocation" x="-720.28985507246387" y="77.678571428571431"/>
         </scene>
         <!--Your Progressions-->
         <scene sceneID="uFE-fX-Y4B">
@@ -44,14 +49,14 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="38I-zC-pQo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="38I-zC-pQo" customClass="UserCategoryTableViewCell" customModule="ProgPics" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="38I-zC-pQo" id="Jzu-b0-sdX">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGG-6L-21R">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lGG-6L-21R" userLabel="Thumbnail">
                                                     <rect key="frame" x="5" y="5" width="80" height="80"/>
                                                     <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                                     <constraints>
@@ -70,16 +75,26 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Snh-y7-65C" userLabel="cellButton">
+                                                    <rect key="frame" x="20" y="11" width="374" height="68"/>
+                                                    <connections>
+                                                        <action selector="cellButtonPress:" destination="hRO-22-x7J" eventType="touchUpInside" id="33I-53-YK7"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="c4o-52-q3D" firstAttribute="top" secondItem="Jzu-b0-sdX" secondAttribute="topMargin" constant="5" id="2DF-M0-8nx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Snh-y7-65C" secondAttribute="bottom" id="8kD-hF-hK1"/>
                                                 <constraint firstItem="c4o-52-q3D" firstAttribute="leading" secondItem="lGG-6L-21R" secondAttribute="trailing" constant="10" id="CZf-Ps-oVd"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ja7-P2-iBk" secondAttribute="bottom" constant="5" id="EdP-FT-ec7"/>
                                                 <constraint firstItem="ja7-P2-iBk" firstAttribute="leading" secondItem="lGG-6L-21R" secondAttribute="trailing" constant="10" id="JEP-GI-uTM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ja7-P2-iBk" secondAttribute="trailing" constant="5" id="KKr-JH-DT8"/>
                                                 <constraint firstAttribute="bottom" secondItem="lGG-6L-21R" secondAttribute="bottom" constant="5" id="NTR-Hv-slM"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="c4o-52-q3D" secondAttribute="trailing" constant="5" id="TkK-Fj-W8K"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Snh-y7-65C" secondAttribute="trailing" id="gfY-0c-jnk"/>
+                                                <constraint firstItem="Snh-y7-65C" firstAttribute="top" secondItem="Jzu-b0-sdX" secondAttribute="topMargin" id="jeH-bp-iAg"/>
                                                 <constraint firstItem="lGG-6L-21R" firstAttribute="top" secondItem="Jzu-b0-sdX" secondAttribute="top" constant="5" id="joO-cE-w99"/>
+                                                <constraint firstItem="Snh-y7-65C" firstAttribute="leading" secondItem="Jzu-b0-sdX" secondAttribute="leadingMargin" id="pTc-E9-l8K"/>
                                                 <constraint firstItem="lGG-6L-21R" firstAttribute="leading" secondItem="Jzu-b0-sdX" secondAttribute="leading" constant="5" id="w3G-pN-87B"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -99,12 +114,12 @@
                     <navigationItem key="navigationItem" title="Your Progressions" id="FTD-DP-uJf"/>
                     <connections>
                         <outlet property="ProgressionsTableView" destination="uaP-vQ-a0N" id="ers-1s-gqn"/>
-                        <segue destination="g3t-D9-OP1" kind="show" id="peD-D3-HFE"/>
+                        <segue destination="g3t-D9-OP1" kind="show" identifier="segue" id="peD-D3-HFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVs-AH-qbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1328.985507246377" y="77.678571428571431"/>
+            <point key="canvasLocation" x="1316" y="78"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="MXz-8H-jkL">
