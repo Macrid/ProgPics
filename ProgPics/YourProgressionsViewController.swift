@@ -11,7 +11,7 @@ import UIKit
 
 class YourProgressionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var numberOfCategories = 2
+    var numberOfCategories = 8
     @IBOutlet weak var progressionsTableView: UITableView!
     //var tableViewCells = [UserCategoryTableViewCell]()
     
