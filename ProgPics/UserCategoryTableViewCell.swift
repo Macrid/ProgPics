@@ -5,6 +5,7 @@
 //  Created by Erik Persson on 2020-09-18.
 //
 
+import Foundation
 import UIKit
 
 class UserCategoryTableViewCell: UITableViewCell {

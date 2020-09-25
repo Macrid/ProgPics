@@ -134,7 +134,7 @@
         <!--New Progression-->
         <scene sceneID="X83-E9-jWP">
             <objects>
-                <viewController id="phH-W8-kb1" sceneMemberID="viewController">
+                <viewController id="phH-W8-kb1" customClass="NewProgressionViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pgc-WR-CM0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -174,7 +174,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="v0k-us-7rd">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.on.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="v0k-us-7rd">
                                 <rect key="frame" x="167" y="496" width="80" height="79.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="v0k-us-7rd" secondAttribute="height" multiplier="1:1" id="VUi-3k-DfF"/>
@@ -207,6 +207,19 @@
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AXb-z3-Tag">
+                                <rect key="frame" x="160.5" y="495.5" width="93" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="104" id="0R5-ba-xqf"/>
+                                    <constraint firstAttribute="width" constant="93" id="H7d-8G-KnN"/>
+                                </constraints>
+                                <state key="normal" title="Add picture">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addPicture:" destination="phH-W8-kb1" eventType="touchUpInside" id="MBi-vI-X4k"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t5E-ZF-SBT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -217,6 +230,7 @@
                             <constraint firstItem="QKb-AY-tmY" firstAttribute="leading" secondItem="t5E-ZF-SBT" secondAttribute="leading" id="6uJ-G3-pYT"/>
                             <constraint firstItem="Zr6-4j-c9B" firstAttribute="leading" secondItem="t5E-ZF-SBT" secondAttribute="leading" id="7Yh-my-IU2"/>
                             <constraint firstItem="t5E-ZF-SBT" firstAttribute="trailing" secondItem="hzK-tl-dab" secondAttribute="trailing" constant="8" id="FMx-gV-tGD"/>
+                            <constraint firstItem="AXb-z3-Tag" firstAttribute="top" secondItem="aA4-mN-Axq" secondAttribute="bottom" constant="8" id="HuC-RA-sAB"/>
                             <constraint firstItem="Zr6-4j-c9B" firstAttribute="top" secondItem="t5E-ZF-SBT" secondAttribute="top" constant="5" id="Hz2-re-VyN"/>
                             <constraint firstItem="j8M-x8-D5i" firstAttribute="leading" secondItem="t5E-ZF-SBT" secondAttribute="leading" constant="8" id="IJd-sF-fE3"/>
                             <constraint firstItem="aA4-mN-Axq" firstAttribute="leading" secondItem="t5E-ZF-SBT" secondAttribute="leading" id="IZa-8a-w99"/>
@@ -228,6 +242,7 @@
                             <constraint firstItem="cC0-vz-Uw4" firstAttribute="leading" secondItem="t5E-ZF-SBT" secondAttribute="leading" constant="20" id="V5x-qs-ZMv"/>
                             <constraint firstItem="X0b-tS-mDE" firstAttribute="leading" secondItem="t5E-ZF-SBT" secondAttribute="leading" id="X7E-Xa-iJ0"/>
                             <constraint firstItem="QKb-AY-tmY" firstAttribute="top" secondItem="Zr6-4j-c9B" secondAttribute="bottom" constant="20" id="dX2-zX-Rds"/>
+                            <constraint firstItem="AXb-z3-Tag" firstAttribute="centerX" secondItem="pgc-WR-CM0" secondAttribute="centerX" id="fKa-uo-TSN"/>
                             <constraint firstItem="aA4-mN-Axq" firstAttribute="top" secondItem="X0b-tS-mDE" secondAttribute="bottom" constant="3" id="gWZ-qA-oec"/>
                             <constraint firstItem="t5E-ZF-SBT" firstAttribute="trailing" secondItem="Ins-EF-846" secondAttribute="trailing" constant="20" id="jhj-Sb-THe"/>
                             <constraint firstItem="vea-re-rmD" firstAttribute="top" secondItem="Ins-EF-846" secondAttribute="bottom" constant="8" id="kAt-xH-EzF"/>
@@ -241,6 +256,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Progression" id="xNh-Kb-GfF"/>
+                    <connections>
+                        <outlet property="firstImage" destination="v0k-us-7rd" id="41N-Th-TvQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5S-1i-7i0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -255,12 +273,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="HZd-bk-Kdq">
-                                <rect key="frame" x="18" y="690" width="378" height="31"/>
+                                <rect key="frame" x="18" y="643" width="378" height="31"/>
                             </slider>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lasso" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="39M-Ul-AnY">
-                                <rect key="frame" x="20" y="216" width="374" height="466.5"/>
+                                <rect key="frame" x="20" y="262.5" width="374" height="373"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="39M-Ul-AnY" secondAttribute="height" multiplier="4:5" id="td2-Pl-MPy"/>
+                                    <constraint firstAttribute="width" secondItem="39M-Ul-AnY" secondAttribute="height" multiplier="1:1" id="td2-Pl-MPy"/>
                                 </constraints>
                             </imageView>
                         </subviews>

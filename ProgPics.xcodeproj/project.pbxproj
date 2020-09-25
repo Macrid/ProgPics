@@ -14,6 +14,7 @@
 		84324C452510C754001BD9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84324C442510C754001BD9C5 /* Assets.xcassets */; };
 		84324C482510C754001BD9C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84324C462510C754001BD9C5 /* LaunchScreen.storyboard */; };
 		84324C70251371F4001BD9C5 /* YourProgressionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */; };
+		844392A3251CAAD100DD5DA5 /* NewProgressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */; };
 		84CA550E2514E8930040FD79 /* UserCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */; };
 		84DDB1772518BF1E00FA6F69 /* LastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		84324C472510C754001BD9C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84324C492510C754001BD9C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProgressionsViewController.swift; sourceTree = "<group>"; };
+		844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressionViewController.swift; sourceTree = "<group>"; };
 		84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -66,6 +68,7 @@
 				84324C3D2510C751001BD9C5 /* SceneDelegate.swift */,
 				84324C3F2510C751001BD9C5 /* ViewController.swift */,
 				84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */,
+				844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */,
 				84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */,
 				84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */,
 				84324C412510C751001BD9C5 /* Main.storyboard */,
@@ -152,6 +155,7 @@
 				84324C3E2510C751001BD9C5 /* SceneDelegate.swift in Sources */,
 				84CA550E2514E8930040FD79 /* UserCategoryTableViewCell.swift in Sources */,
 				84324C70251371F4001BD9C5 /* YourProgressionsViewController.swift in Sources */,
+				844392A3251CAAD100DD5DA5 /* NewProgressionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
