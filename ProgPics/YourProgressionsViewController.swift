@@ -11,7 +11,7 @@ import UIKit
 
 class YourProgressionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var numberOfCategories = 8
+    var numberOfCategories = 2
     @IBOutlet weak var progressionsTableView: UITableView!
     //var tableViewCells = [UserCategoryTableViewCell]()
     
@@ -21,7 +21,6 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         progressionsTableView.dataSource = self
         progressionsTableView.delegate = self
     }
-
 
     
     
@@ -46,6 +45,7 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.row == numberOfCategories)
         {
+            addCell()
             performSegue(withIdentifier: "segue to new", sender: nil)
         }
         else
@@ -55,6 +55,15 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
 
     }
     
+    func addCell()
+    {
+        numberOfCategories += 1
+        progressionsTableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
     //@IBAction func cellButtonPress(_ sender: AnyObject) {
         //let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.progressionsTableView)
         //let indexPath = self.progressionsTableView.indexPathForRow(at: buttonPosition)
