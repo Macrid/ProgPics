@@ -12,7 +12,9 @@
         <!--Auth-->
         <scene sceneID="9Vc-Yj-Xkt">
             <objects>
-                <viewControllerPlaceholder storyboardName="Auth" id="Ant-dS-vnq" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Auth" id="Ant-dS-vnq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ilD-3q-zNZ"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2I-D8-KtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="420" y="-374"/>
@@ -100,11 +102,23 @@
                             <constraint firstItem="uaP-vQ-a0N" firstAttribute="top" secondItem="AMS-wd-swh" secondAttribute="top" id="jkl-bv-n7w"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Your Progressions" id="FTD-DP-uJf"/>
+                    <navigationItem key="navigationItem" title="Your Progressions" id="FTD-DP-uJf">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="7y9-Bq-79a">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="2J8-h5-JIu">
+                                <rect key="frame" x="20" y="7" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="doLogout:" destination="hRO-22-x7J" eventType="touchUpInside" id="Sqf-DR-tNs"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ProgressionsTableView" destination="uaP-vQ-a0N" id="ers-1s-gqn"/>
                         <segue destination="phH-W8-kb1" kind="showDetail" identifier="segue to new" id="mnv-uY-1pc"/>
                         <segue destination="2V1-Pn-Fik" kind="show" identifier="segue to category" id="jaN-Tb-7ek"/>
+                        <segue destination="Ant-dS-vnq" kind="show" identifier="segue to auth" animates="NO" id="Ck5-0R-7IO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVs-AH-qbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -114,7 +128,6 @@
         <!--New Progression-->
         <scene sceneID="X83-E9-jWP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J5S-1i-7i0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="phH-W8-kb1" customClass="NewProgressionViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pgc-WR-CM0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
@@ -268,6 +281,7 @@
                         <outlet property="firstImage" destination="v0k-us-7rd" id="41N-Th-TvQ"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J5S-1i-7i0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1677" y="909"/>
         </scene>

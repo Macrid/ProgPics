@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 import UIKit
 
@@ -17,7 +18,6 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         progressionsTableView.dataSource = self
         progressionsTableView.delegate = self
     }
@@ -61,8 +61,24 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         progressionsTableView.reloadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if(Auth.auth().currentUser == nil)
+        {
+            performSegue(withIdentifier: "segue to auth", sender: nil)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+    }
+    
+    @IBAction func doLogout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "segue to auth", sender: nil)
+        } catch {
+
+        }
     }
     //@IBAction func cellButtonPress(_ sender: AnyObject) {
         //let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.progressionsTableView)
