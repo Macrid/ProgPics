@@ -18,6 +18,8 @@
 		844392A3251CAAD100DD5DA5 /* NewProgressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */; };
 		8486445B25220AE400F9C8AD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445A25220AE400F9C8AD /* ProgressViewController.swift */; };
 		8486445F25220E5900F9C8AD /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445E25220E5900F9C8AD /* GalleryViewController.swift */; };
+		8486446B25231AB300F9C8AD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8486446A25231AB300F9C8AD /* Auth.storyboard */; };
+		8486447025231D1800F9C8AD /* InspectProgression.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8486446F25231D1800F9C8AD /* InspectProgression.storyboard */; };
 		8496D7CC251DFE8500B3FAB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8496D7CB251DFE8500B3FAB4 /* GoogleService-Info.plist */; };
 		84CA550E2514E8930040FD79 /* UserCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */; };
 		84DDB1772518BF1E00FA6F69 /* LastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */; };
@@ -36,6 +38,8 @@
 		844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressionViewController.swift; sourceTree = "<group>"; };
 		8486445A25220AE400F9C8AD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		8486445E25220E5900F9C8AD /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		8486446A25231AB300F9C8AD /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		8486446F25231D1800F9C8AD /* InspectProgression.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InspectProgression.storyboard; sourceTree = "<group>"; };
 		8496D7CB251DFE8500B3FAB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTableViewCell.swift; sourceTree = "<group>"; };
@@ -77,22 +81,48 @@
 		84324C3A2510C751001BD9C5 /* ProgPics */ = {
 			isa = PBXGroup;
 			children = (
+				8486446D25231AC500F9C8AD /* Storyboards */,
+				8486447225231E7500F9C8AD /* ViewControllers */,
+				8486447525231E9B00F9C8AD /* Tableviewcells */,
 				84324C3B2510C751001BD9C5 /* AppDelegate.swift */,
 				84324C3D2510C751001BD9C5 /* SceneDelegate.swift */,
-				84324C3F2510C751001BD9C5 /* LoginViewController.swift */,
-				84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */,
-				8486445A25220AE400F9C8AD /* ProgressViewController.swift */,
-				8486445E25220E5900F9C8AD /* GalleryViewController.swift */,
-				844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */,
-				84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */,
-				84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */,
-				84324C412510C751001BD9C5 /* Main.storyboard */,
 				84324C442510C754001BD9C5 /* Assets.xcassets */,
-				84324C462510C754001BD9C5 /* LaunchScreen.storyboard */,
 				84324C492510C754001BD9C5 /* Info.plist */,
 				8496D7CB251DFE8500B3FAB4 /* GoogleService-Info.plist */,
 			);
 			path = ProgPics;
+			sourceTree = "<group>";
+		};
+		8486446D25231AC500F9C8AD /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				84324C462510C754001BD9C5 /* LaunchScreen.storyboard */,
+				84324C412510C751001BD9C5 /* Main.storyboard */,
+				8486446F25231D1800F9C8AD /* InspectProgression.storyboard */,
+				8486446A25231AB300F9C8AD /* Auth.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		8486447225231E7500F9C8AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8486445E25220E5900F9C8AD /* GalleryViewController.swift */,
+				844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */,
+				8486445A25220AE400F9C8AD /* ProgressViewController.swift */,
+				84324C3F2510C751001BD9C5 /* LoginViewController.swift */,
+				84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8486447525231E9B00F9C8AD /* Tableviewcells */ = {
+			isa = PBXGroup;
+			children = (
+				84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */,
+				84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */,
+			);
+			path = Tableviewcells;
 			sourceTree = "<group>";
 		};
 		A1F7DA7980A86E07E55D4270 /* Pods */ = {
@@ -173,8 +203,10 @@
 			files = (
 				84324C482510C754001BD9C5 /* LaunchScreen.storyboard in Resources */,
 				8496D7CC251DFE8500B3FAB4 /* GoogleService-Info.plist in Resources */,
+				8486446B25231AB300F9C8AD /* Auth.storyboard in Resources */,
 				84324C452510C754001BD9C5 /* Assets.xcassets in Resources */,
 				84324C432510C751001BD9C5 /* Main.storyboard in Resources */,
+				8486447025231D1800F9C8AD /* InspectProgression.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

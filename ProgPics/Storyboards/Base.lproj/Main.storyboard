@@ -9,91 +9,13 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Register-->
-        <scene sceneID="c9T-ML-hhn">
+        <!--Auth-->
+        <scene sceneID="9Vc-Yj-Xkt">
             <objects>
-                <viewController id="I3R-Ik-iKx" userLabel="Register" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8Yl-6n-ma4">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="BpY-yC-W9J"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nAr-5g-8ki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Auth" id="Ant-dS-vnq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A2I-D8-KtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="419" y="-1402"/>
-        </scene>
-        <!--Login View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zSu-Bb-Ocn" userLabel="UserNameTextField">
-                                <rect key="frame" x="30" y="347" width="354" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K64-9G-EEn" userLabel="PasswordTextField">
-                                <rect key="frame" x="30" y="431" width="354" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2EC-zz-HEc">
-                                <rect key="frame" x="50" y="533" width="314" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="ZaU-ex-043"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Login"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8l-V4-Wog">
-                                <rect key="frame" x="128.5" y="473" width="157" height="30"/>
-                                <state key="normal" title="Forgot your password?"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jb-fX-TB8">
-                                <rect key="frame" x="50" y="653" width="207" height="33"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="fd9-dJ-OJr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p1P-yn-d7N">
-                                <rect key="frame" x="265" y="653" width="79" height="33"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Register"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="K64-9G-EEn" firstAttribute="top" secondItem="zSu-Bb-Ocn" secondAttribute="bottom" constant="50" id="1e8-Fx-Dgf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zSu-Bb-Ocn" secondAttribute="trailing" constant="30" id="41g-Yj-go0"/>
-                            <constraint firstItem="p1P-yn-d7N" firstAttribute="leading" secondItem="9jb-fX-TB8" secondAttribute="trailing" constant="8" id="Bx5-Ji-fM8"/>
-                            <constraint firstItem="9jb-fX-TB8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="C5X-Ac-bPk"/>
-                            <constraint firstItem="b8l-V4-Wog" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EjP-rV-AkC"/>
-                            <constraint firstItem="2EC-zz-HEc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="NfV-c2-Wqp"/>
-                            <constraint firstItem="K64-9G-EEn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="TDN-jE-cuc"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="K64-9G-EEn" secondAttribute="trailing" constant="30" id="U7S-XK-WhP"/>
-                            <constraint firstItem="9jb-fX-TB8" firstAttribute="top" secondItem="2EC-zz-HEc" secondAttribute="bottom" constant="70" id="YSz-Z0-ujF"/>
-                            <constraint firstItem="zSu-Bb-Ocn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="b4u-7r-1Ww"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2EC-zz-HEc" secondAttribute="trailing" constant="50" id="eHS-pv-UW0"/>
-                            <constraint firstItem="K64-9G-EEn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="h3U-6y-Bz4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="p1P-yn-d7N" secondAttribute="trailing" constant="70" id="hxj-Zj-SNk"/>
-                            <constraint firstItem="p1P-yn-d7N" firstAttribute="top" secondItem="2EC-zz-HEc" secondAttribute="bottom" constant="70" id="qRO-fc-o2B"/>
-                            <constraint firstItem="2EC-zz-HEc" firstAttribute="top" secondItem="b8l-V4-Wog" secondAttribute="bottom" constant="30" id="v6C-3q-coJ"/>
-                            <constraint firstItem="b8l-V4-Wog" firstAttribute="top" secondItem="K64-9G-EEn" secondAttribute="bottom" constant="8" id="zn2-oD-WZD"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="419" y="-704"/>
+            <point key="canvasLocation" x="420" y="-374"/>
         </scene>
         <!--Your Progressions-->
         <scene sceneID="uFE-fX-Y4B">
@@ -182,16 +104,17 @@
                     <connections>
                         <outlet property="ProgressionsTableView" destination="uaP-vQ-a0N" id="ers-1s-gqn"/>
                         <segue destination="phH-W8-kb1" kind="showDetail" identifier="segue to new" id="mnv-uY-1pc"/>
-                        <segue destination="cFf-3u-awn" kind="show" identifier="segue to category" id="8uh-Zd-pBS"/>
+                        <segue destination="2V1-Pn-Fik" kind="show" identifier="segue to category" id="jaN-Tb-7ek"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVs-AH-qbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1275" y="78"/>
+            <point key="canvasLocation" x="1342" y="78"/>
         </scene>
         <!--New Progression-->
         <scene sceneID="X83-E9-jWP">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J5S-1i-7i0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="phH-W8-kb1" customClass="NewProgressionViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pgc-WR-CM0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
@@ -345,126 +268,18 @@
                         <outlet property="firstImage" destination="v0k-us-7rd" id="41N-Th-TvQ"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J5S-1i-7i0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1677" y="909"/>
         </scene>
-        <!--Progression Slider-->
-        <scene sceneID="jmb-hl-ftd">
+        <!--InspectProgression-->
+        <scene sceneID="GVj-Hj-Uuy">
             <objects>
-                <viewController title="Progression Slider" id="Ona-qW-8sc" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6Jd-XT-xQF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="HZd-bk-Kdq">
-                                <rect key="frame" x="18" y="643" width="378" height="31"/>
-                            </slider>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lasso" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="39M-Ul-AnY">
-                                <rect key="frame" x="20" y="262.5" width="374" height="373"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="39M-Ul-AnY" secondAttribute="height" multiplier="1:1" id="td2-Pl-MPy"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="VUm-LZ-7eN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="39M-Ul-AnY" firstAttribute="leading" secondItem="VUm-LZ-7eN" secondAttribute="leading" constant="20" id="7DE-qO-yGr"/>
-                            <constraint firstItem="VUm-LZ-7eN" firstAttribute="trailing" secondItem="HZd-bk-Kdq" secondAttribute="trailing" constant="20" id="CgA-Kr-N9S"/>
-                            <constraint firstItem="VUm-LZ-7eN" firstAttribute="trailing" secondItem="39M-Ul-AnY" secondAttribute="trailing" constant="20" id="ZV1-jn-6cO"/>
-                            <constraint firstItem="39M-Ul-AnY" firstAttribute="centerY" secondItem="6Jd-XT-xQF" secondAttribute="centerY" id="chg-x5-gKR"/>
-                            <constraint firstItem="HZd-bk-Kdq" firstAttribute="top" secondItem="39M-Ul-AnY" secondAttribute="bottom" constant="8" id="l5u-jn-TNK"/>
-                            <constraint firstItem="HZd-bk-Kdq" firstAttribute="leading" secondItem="VUm-LZ-7eN" secondAttribute="leading" constant="20" id="rXQ-xf-fY9"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Progression Slider" id="rK6-iv-iKM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nQR-p2-bwH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="InspectProgression" id="2V1-Pn-Fik" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="RTC-vw-epI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1wF-tp-zJ9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4347.826086956522" y="-232.36607142857142"/>
-        </scene>
-        <!--Before/After-->
-        <scene sceneID="PWv-cG-dW8">
-            <objects>
-                <viewController title="Before/After" id="Hna-os-oe6" customClass="BeforeAfterViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="SPB-XO-NnB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="NgN-9z-AhP"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Before/After" id="UPb-0I-k5x"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="olg-0r-aCp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5047.826086956522" y="-232.36607142857142"/>
-        </scene>
-        <!--Gallery-->
-        <scene sceneID="gcb-CQ-C7O">
-            <objects>
-                <viewController title="Gallery" id="lFs-wm-vaq" customClass="GalleryViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0Ac-z2-T3q">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0i-SL-XxL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZv-8i-g2J">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
-                                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="1500" id="irX-Cv-ifb"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <constraints>
-                                    <constraint firstItem="cZv-8i-g2J" firstAttribute="top" secondItem="KuP-jf-O96" secondAttribute="top" id="GZo-Rg-Lrm"/>
-                                    <constraint firstItem="cZv-8i-g2J" firstAttribute="leading" secondItem="KuP-jf-O96" secondAttribute="leading" id="N4P-Xg-ZMV"/>
-                                    <constraint firstItem="cZv-8i-g2J" firstAttribute="width" secondItem="5tc-rO-ch6" secondAttribute="width" id="O6X-pV-8nx"/>
-                                    <constraint firstItem="cZv-8i-g2J" firstAttribute="bottom" secondItem="KuP-jf-O96" secondAttribute="bottom" id="XG8-xx-ANU"/>
-                                    <constraint firstItem="cZv-8i-g2J" firstAttribute="trailing" secondItem="KuP-jf-O96" secondAttribute="trailing" id="r95-Ml-4yO"/>
-                                </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="KuP-jf-O96"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="5tc-rO-ch6"/>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="naK-ak-3LZ"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="g0i-SL-XxL" firstAttribute="top" secondItem="0Ac-z2-T3q" secondAttribute="top" id="ICl-K3-rZ3"/>
-                            <constraint firstItem="naK-ak-3LZ" firstAttribute="bottom" secondItem="g0i-SL-XxL" secondAttribute="bottom" id="MDr-Mc-rRI"/>
-                            <constraint firstItem="g0i-SL-XxL" firstAttribute="leading" secondItem="naK-ak-3LZ" secondAttribute="leading" id="UcP-U9-jtI"/>
-                            <constraint firstItem="naK-ak-3LZ" firstAttribute="trailing" secondItem="g0i-SL-XxL" secondAttribute="trailing" id="ogz-ed-eTW"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Gallery" id="IID-8s-D1a"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xru-SV-e53" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3576.811594202899" y="-232.36607142857142"/>
-        </scene>
-        <!--Progress View Controller-->
-        <scene sceneID="h6W-gO-btc">
-            <objects>
-                <tabBarController id="cFf-3u-awn" customClass="ProgressViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="za7-CL-DNo"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ke4-wQ-F8z">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="lFs-wm-vaq" kind="relationship" relationship="viewControllers" destinationCreationSelector="segue to gallery" id="xY8-FD-DUM"/>
-                        <segue destination="Ona-qW-8sc" kind="relationship" relationship="viewControllers" id="z6R-vG-WTc"/>
-                        <segue destination="Hna-os-oe6" kind="relationship" relationship="viewControllers" id="qGv-C0-dpb"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="C0I-sa-3qW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2206" y="78"/>
+            <point key="canvasLocation" x="1970" y="5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LnN-Wg-00e">
@@ -488,7 +303,6 @@
     <resources>
         <image name="camera.on.rectangle" catalog="system" width="128" height="96"/>
         <image name="checkmark" catalog="system" width="128" height="114"/>
-        <image name="lasso" catalog="system" width="128" height="118"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
@@ -499,9 +313,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
