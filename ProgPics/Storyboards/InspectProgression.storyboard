@@ -46,7 +46,7 @@
         <!--Before/After-->
         <scene sceneID="nud-d7-zlz">
             <objects>
-                <viewController title="Before/After" id="Ycn-aC-SNn" customClass="BeforeAfterViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Before/After" id="Ycn-aC-SNn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X3T-PL-0J7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -116,7 +116,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="wMD-kh-fcp" kind="relationship" relationship="viewControllers" destinationCreationSelector="segue to gallery" id="gd6-RM-CBt"/>
+                        <segue destination="wMD-kh-fcp" kind="relationship" relationship="viewControllers" id="gd6-RM-CBt"/>
                         <segue destination="aga-l1-Cx3" kind="relationship" relationship="viewControllers" id="he4-RT-ktu"/>
                         <segue destination="Ycn-aC-SNn" kind="relationship" relationship="viewControllers" id="msX-VE-Y3W"/>
                     </connections>
