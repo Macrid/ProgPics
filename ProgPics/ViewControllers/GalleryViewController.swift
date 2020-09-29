@@ -9,8 +9,10 @@ import UIKit
 
 class GalleryViewController: UIViewController {
 
+    var testString = "fail"
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(testString)
         // Do any additional setup after loading the view.
     }
     

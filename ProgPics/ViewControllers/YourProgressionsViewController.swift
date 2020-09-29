@@ -13,6 +13,7 @@ import UIKit
 class YourProgressionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var numberOfCategories = 2
+    var clickedRow:Int? = nil
     @IBOutlet weak var progressionsTableView: UITableView!
     //var tableViewCells = [UserCategoryTableViewCell]()
     
@@ -50,6 +51,7 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         }
         else
         {
+            clickedRow = indexPath.row
             performSegue(withIdentifier: "segue to category", sender: nil)
         }
 
@@ -68,10 +70,6 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-    }
-    
     @IBAction func doLogout(_ sender: Any) {
         do {
             try Auth.auth().signOut()
@@ -79,6 +77,17 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         } catch {
 
         }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segue to category")
+        {
+            let tabBarController = segue.destination as! UITabBarController
+            let galleryViewController = tabBarController.viewControllers?[0] as! GalleryViewController
+            galleryViewController.testString = String(clickedRow!)
+        }
+        
     }
     //@IBAction func cellButtonPress(_ sender: AnyObject) {
         //let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.progressionsTableView)
