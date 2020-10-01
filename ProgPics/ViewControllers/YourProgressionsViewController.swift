@@ -42,7 +42,7 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         //tableViewCells.append(cell)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.row == numberOfCategories)
         {
