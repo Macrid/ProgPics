@@ -14,6 +14,7 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
     
     var numberOfCategories = 2
     var clickedRow:Int? = nil
+    var ref = Database.database().reference()
     @IBOutlet weak var progressionsTableView: UITableView!
     //var tableViewCells = [UserCategoryTableViewCell]()
     

@@ -6,10 +6,13 @@
 //
 
 import UIKit
+import Firebase
 
 class NewProgressionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+    @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var firstImage: UIImageView!
+    var ref = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,6 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
             
         }
     }
-
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
         {
@@ -40,6 +42,19 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
             print("ERORR MED VALD BILD")
         }
         
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func doneButton(_ sender: Any) {
+       
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let date = Date()
+        let todaysDate = formatter.string(from: date)
+
+        let prog : [String : Any] = ["Progression Title" : titleTextBox.text, "Date Started" : todaysDate]
+        
+        self.ref.child(Auth.auth().currentUser!.uid).child("Progressions").childByAutoId().setValue(prog)
         self.dismiss(animated: true, completion: nil)
     }
 }

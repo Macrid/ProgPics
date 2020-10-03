@@ -149,6 +149,9 @@
                                                 <state key="normal" backgroundImage="checkmark" catalog="system">
                                                     <color key="titleColor" systemColor="systemGreenColor"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="doneButton:" destination="phH-W8-kb1" eventType="touchUpInside" id="UMK-nG-34U"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Progression" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zr6-4j-c9B">
                                                 <rect key="frame" x="0.0" y="8" width="414" height="21"/>
@@ -279,6 +282,7 @@
                     <size key="freeformSize" width="414" height="1200"/>
                     <connections>
                         <outlet property="firstImage" destination="v0k-us-7rd" id="41N-Th-TvQ"/>
+                        <outlet property="titleTextBox" destination="cC0-vz-Uw4" id="k7M-fm-jQo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J5S-1i-7i0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -301,7 +305,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hZg-db-uym" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mex-p3-C2R">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
