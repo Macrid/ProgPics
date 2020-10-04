@@ -17,7 +17,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2I-D8-KtV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1678" y="-390"/>
+            <point key="canvasLocation" x="869" y="-572"/>
         </scene>
         <!--Your Progressions-->
         <scene sceneID="uFE-fX-Y4B">
@@ -70,6 +70,11 @@
                                                 <constraint firstItem="lGG-6L-21R" firstAttribute="leading" secondItem="Jzu-b0-sdX" secondAttribute="leading" constant="5" id="w3G-pN-87B"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dateTextbox" destination="ja7-P2-iBk" id="FrS-b3-oF4"/>
+                                            <outlet property="thumbnailView" destination="lGG-6L-21R" id="UpC-WE-kqx"/>
+                                            <outlet property="titleTextbox" destination="c4o-52-q3D" id="31v-Fu-Xcg"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="lastCell" id="yi3-CD-fXP" userLabel="lastCell" customClass="LastTableViewCell" customModule="ProgPics" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="118" width="414" height="90"/>
@@ -118,12 +123,12 @@
                         <outlet property="ProgressionsTableView" destination="uaP-vQ-a0N" id="ers-1s-gqn"/>
                         <segue destination="phH-W8-kb1" kind="showDetail" identifier="segue to new" id="mnv-uY-1pc"/>
                         <segue destination="2V1-Pn-Fik" kind="show" identifier="segue to category" id="jaN-Tb-7ek"/>
-                        <segue destination="Ant-dS-vnq" kind="show" identifier="segue to auth" animates="NO" id="Ck5-0R-7IO"/>
+                        <segue destination="Ant-dS-vnq" kind="show" identifier="segue to auth" id="Ck5-0R-7IO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVs-AH-qbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1342" y="78"/>
+            <point key="canvasLocation" x="1300" y="78"/>
         </scene>
         <!--New Progression-->
         <scene sceneID="X83-E9-jWP">
@@ -305,6 +310,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hZg-db-uym" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Mex-p3-C2R">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -314,7 +320,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lEm-El-89i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="418.84057971014494" y="77.678571428571431"/>
+            <point key="canvasLocation" x="406" y="78"/>
         </scene>
     </scenes>
     <resources>

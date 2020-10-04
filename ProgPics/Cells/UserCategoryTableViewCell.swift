@@ -10,8 +10,14 @@ import UIKit
 
 class UserCategoryTableViewCell: UITableViewCell {
 
+    var title:String?
+    var date:String?
+    @IBOutlet weak var titleTextbox: UILabel!
+    @IBOutlet weak var dateTextbox: UILabel!
+    @IBOutlet weak var thumbnailView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
