@@ -33,35 +33,40 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
     }
 
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cellList.count
+        if (cellList.count != 0)
+        {
+            return cellList.count + 1
+        }
+        else
+        {
+            return cellList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(indexPath.row)
+        print(cellList.count)
         
-       //if (indexPath.row == numberOfCategories)
-        //{
-            //let cell = tableView.dequeueReusableCell(withIdentifier: "lastCell") as! LastTableViewCell
-            //tableViewCells.append(cell)
-            //return cell
-        //}
+        if (indexPath.row == cellList.count)
+        {
+            print(indexPath.row)
+            print(cellList.count)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "lastCell") as! LastTableViewCell
+            return cell
+        }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell") as! UserCategoryTableViewCell
         
-        //let cell = cellList[indexPath.row]
-        
         cell.titleTextbox.text = cellList[indexPath.row].title
         cell.dateTextbox.text = cellList[indexPath.row].date
-        print(cellList)
-        return cell
         
-        //tableViewCells.append(cell)
-       // return cell
+        return cell
+
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (indexPath.row == numberOfCategories)
+        if (indexPath.row == cellList.count)
         {
             performSegue(withIdentifier: "segue to new", sender: nil)
         }
@@ -82,24 +87,19 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
                 let progressionSnapshot = p as! DataSnapshot
                 
                 let newCell = UserCategoryTableViewCell()
-                newCell.title = progressionSnapshot.childSnapshot(forPath: "Progression Title").value as! String
+                newCell.title = (progressionSnapshot.childSnapshot(forPath: "Progression Title").value as! String)
                 newCell.date = progressionSnapshot.childSnapshot(forPath: "Date Started").value as! String
                 
                 self.cellList.append(newCell)
             }
             self.progressionsTableView.reloadData()
-        
+            
+            
         
         }) { (error) in
             print(error.localizedDescription)
             
         }
-    }
-    
-    func addCell(title: String, date: String)
-    {
-        
-        progressionsTableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -132,16 +132,4 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         }
         
     }
-    //@IBAction func cellButtonPress(_ sender: AnyObject) {
-        //let buttonPosition:CGPoint = sender.convert(CGPoint.zero, to:self.progressionsTableView)
-        //let indexPath = self.progressionsTableView.indexPathForRow(at: buttonPosition)
-
-        
-        //performSegue(withIdentifier: "segue to category", sender: nil)
-    //}
-    
-    //@IBAction func newCategoryButton(_ sender: Any) {
-        
-        
-    //}
 }
