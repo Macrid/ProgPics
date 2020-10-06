@@ -13,10 +13,10 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var firstImage: UIImageView!
     var ref = Database.database().reference()
+    var imagePicked:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -37,6 +37,7 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
         if let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage
         {
             firstImage.image = image
+            imagePicked = true
         }
         else{
             print("ERORR MED VALD BILD")
@@ -46,7 +47,10 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
     }
     
     @IBAction func doneButton(_ sender: Any) {
-       
+        if (titleTextBox.text == "") {
+            return
+        }
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
         let date = Date()
@@ -55,6 +59,29 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
         let prog : [String : Any] = ["Progression Title" : titleTextBox.text, "Date Started" : todaysDate]
         
         self.ref.child(Auth.auth().currentUser!.uid).child("Progressions").childByAutoId().setValue(prog)
+        
+        if (imagePicked == true)
+        {
+            uploadImage(imageView: firstImage)
+        }
+        
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func uploadImage(imageView: UIImageView)
+    {
+        let jpegImage = imageView.image?.jpegData(compressionQuality: 1.0)
+        
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let imageRef = storageRef.child(Auth.auth().currentUser!.uid).child(titleTextBox.text!)
+        
+        let uploadTask = imageRef.putData(jpegImage!, metadata: nil) {(metadata, error) in
+            guard let metadata = metadata else {
+                print("Error with upload")
+                return
+            }
+            
+        }
     }
 }
