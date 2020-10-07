@@ -78,6 +78,15 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
 
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        true
+    }
+    
+    func tableview(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath)
+    {
+        
+    }
+    
     func loadCells()
     {
         ref?.child(Auth.auth().currentUser!.uid).child("Progressions").observeSingleEvent(of: .value, with: {(snapshot) in
