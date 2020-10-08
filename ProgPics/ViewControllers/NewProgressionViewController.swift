@@ -14,6 +14,7 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var firstImage: UIImageView!
     var ref = Database.database().reference()
     var imagePicked:Bool = false
+    let progID = UUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,15 +51,10 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
         if (titleTextBox.text == "") {
             return
         }
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy/MM/dd"
-        let date = Date()
-        let todaysDate = formatter.string(from: date)
 
-        let prog : [String : Any] = ["Progression Title" : titleTextBox.text, "Date Started" : todaysDate]
+        let prog : [String : Any] = ["Progression Title" : titleTextBox.text!, "Date Started" : getTodaysDate()]
         
-        self.ref.child(Auth.auth().currentUser!.uid).child("Progressions").childByAutoId().setValue(prog)
+        self.ref.child(Auth.auth().currentUser!.uid).child("Progressions").child(progID).setValue(prog)
         
         if (imagePicked == true)
         {
@@ -72,9 +68,13 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
     {
         let jpegImage = imageView.image?.jpegData(compressionQuality: 1.0)
         
+        let imageID = UUID().uuidString
+        //GÖRA DTUM GREJ ISTÄLLET?
+        self.ref.child(Auth.auth().currentUser!.uid).child("Progressions").child(progID).child("Images").child(imageID).child("Date").setValue(getTodaysDate())
+        
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        let imageRef = storageRef.child(Auth.auth().currentUser!.uid).child(titleTextBox.text!)
+        let imageRef = storageRef.child(Auth.auth().currentUser!.uid).child(imageID)
         
         let uploadTask = imageRef.putData(jpegImage!, metadata: nil) {(metadata, error) in
             guard let metadata = metadata else {
@@ -83,5 +83,14 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
             }
             
         }
+    }
+    
+    func getTodaysDate() -> String
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let date = Date()
+        let todaysDate = formatter.string(from: date)
+        return todaysDate
     }
 }

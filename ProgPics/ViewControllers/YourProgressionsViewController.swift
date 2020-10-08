@@ -40,18 +40,14 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         }
         else
         {
-            return cellList.count
+            return 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexPath.row)
-        print(cellList.count)
         
         if (indexPath.row == cellList.count)
         {
-            print(indexPath.row)
-            print(cellList.count)
             let cell = tableView.dequeueReusableCell(withIdentifier: "lastCell") as! LastTableViewCell
             return cell
         }
@@ -82,9 +78,23 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         true
     }
     
-    func tableview(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath)
-    {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){_, _, complete in
+            let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
+                
+                self.cellList.remove(at: indexPath.row)
+                tableView.reloadData()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
+                
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
         
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        
+        return configuration
     }
     
     func loadCells()
@@ -102,13 +112,15 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
                 self.cellList.append(newCell)
             }
             self.progressionsTableView.reloadData()
-            
-            
-        
+
         }) { (error) in
             print(error.localizedDescription)
             
         }
+        
+        
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -131,6 +143,10 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         }
     }
     
+    func deleteCellFromDB(title: String)
+    {
+        ref?.child(Auth.auth().currentUser!.uid).child("Progressions")
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "segue to category")
