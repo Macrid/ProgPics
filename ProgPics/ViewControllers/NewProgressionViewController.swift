@@ -64,6 +64,10 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func cancelButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     func uploadImage(imageView: UIImageView)
     {
         let jpegImage = imageView.image?.jpegData(compressionQuality: 1.0)

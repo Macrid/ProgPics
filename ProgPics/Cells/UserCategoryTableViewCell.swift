@@ -12,6 +12,7 @@ class UserCategoryTableViewCell: UITableViewCell {
 
     var title:String?
     var date:String?
+    var ID:String?
     @IBOutlet weak var titleTextbox: UILabel!
     @IBOutlet weak var dateTextbox: UILabel!
     @IBOutlet weak var thumbnailView: UIView!

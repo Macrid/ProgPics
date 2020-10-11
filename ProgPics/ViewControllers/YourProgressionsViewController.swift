@@ -22,14 +22,12 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
     //var tableViewCells = [UserCategoryTableViewCell]()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
-        ref = Database.database().reference()
-        loadCells()
         
         progressionsTableView.dataSource = self
         progressionsTableView.delegate = self
+        
+        ref = Database.database().reference()
     }
 
     
@@ -71,7 +69,6 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
             clickedRow = indexPath.row
             performSegue(withIdentifier: "segue to category", sender: nil)
         }
-
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -79,12 +76,17 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        if(indexPath.row == cellList.count)
+        {
+            return nil
+        }
+        
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){_, _, complete in
             let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
                 
-                self.cellList.remove(at: indexPath.row)
-                tableView.reloadData()
+                self.ref?.child(Auth.auth().currentUser!.uid).child("Progressions").child(self.cellList[indexPath.row].ID!).removeValue()
+                self.loadCells()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
                 
@@ -92,7 +94,24 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
             self.present(alert, animated: true, completion: nil)
         }
         
-        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        let editAction = UIContextualAction(style: .normal, title: "Edit"){_,_, complete in
+            let alert = UIAlertController(title: "", message: "Change title", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: {(textfield) in
+                
+                textfield.text = self.cellList[indexPath.row].title
+            })
+            alert.addAction(UIAlertAction(title: "Save", style: .default, handler: {_ in
+                
+                self.ref?.child(Auth.auth().currentUser!.uid).child("Progressions").child(self.cellList[indexPath.row].ID!).child("Progression Title").setValue(alert.textFields!.first?.text!)
+                self.loadCells()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            
+            self.present(alert, animated: false)
+            
+        }
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction, editAction])
         
         return configuration
     }
@@ -107,8 +126,8 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
                 
                 let newCell = UserCategoryTableViewCell()
                 newCell.title = (progressionSnapshot.childSnapshot(forPath: "Progression Title").value as! String)
-                newCell.date = progressionSnapshot.childSnapshot(forPath: "Date Started").value as! String
-                
+                newCell.date = (progressionSnapshot.childSnapshot(forPath: "Date Started").value as! String)
+                newCell.ID = progressionSnapshot.key
                 self.cellList.append(newCell)
             }
             self.progressionsTableView.reloadData()
@@ -117,10 +136,6 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
             print(error.localizedDescription)
             
         }
-        
-        
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
