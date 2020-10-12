@@ -6,17 +6,18 @@
 //
 
 import UIKit
+import Firebase
 
 class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
-    var testString = "fail"
-    var numberOfPictures:Int?
+    var progID:String?
+    var numberOfPictures = 0
+    var progRef:DatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(testString)
-        numberOfPictures = 15
-        
+        progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
+        print(progID)
         // Do any additional setup after loading the view.
     }
     
@@ -25,15 +26,18 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     //}
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfPictures!
+        progRef?.child("Images").observe(.value, with: { snapshot in
+            let count = snapshot.childrenCount
+            self.numberOfPictures = Int(count)
+            print(self.numberOfPictures)
+        })
+        print(numberOfPictures)
+        return numberOfPictures
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thumbnail cell" , for: indexPath) as! ThumbnailCollectionViewCell
-        
-        
-        
         
         return cell
     }

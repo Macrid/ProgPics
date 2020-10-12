@@ -7,16 +7,14 @@
 
 import Foundation
 import Firebase
-
 import UIKit
 
 class YourProgressionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var numberOfCategories:Int?
-    var clickedRow:Int?
+    var clickedCellID:String?
     var ref:DatabaseReference?
     var cellList = [UserCategoryTableViewCell]()
-    
     
     @IBOutlet weak var progressionsTableView: UITableView!
     //var tableViewCells = [UserCategoryTableViewCell]()
@@ -66,20 +64,20 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         }
         else
         {
-            clickedRow = indexPath.row
+            clickedCellID = cellList[indexPath.row].ID
             performSegue(withIdentifier: "segue to category", sender: nil)
         }
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        true
+        if(indexPath.row == cellList.count)
+        {
+            return false
+        }
+        return true
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        if(indexPath.row == cellList.count)
-        {
-            return nil
-        }
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){_, _, complete in
             let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
@@ -158,17 +156,17 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         }
     }
     
-    func deleteCellFromDB(title: String)
+   /* func deleteCellFromDB(title: String)
     {
         ref?.child(Auth.auth().currentUser!.uid).child("Progressions")
-    }
+    }*/
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "segue to category")
         {
             let tabBarController = segue.destination as! UITabBarController
             let galleryViewController = tabBarController.viewControllers?[0] as! GalleryViewController
-            galleryViewController.testString = String(clickedRow!)
+            galleryViewController.progID = clickedCellID
         }
         
     }

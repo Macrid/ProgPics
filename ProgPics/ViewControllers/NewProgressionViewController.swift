@@ -13,11 +13,14 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var firstImage: UIImageView!
     var ref = Database.database().reference()
+    var progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").childByAutoId()
     var imagePicked:Bool = false
     let progID = UUID().uuidString
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(progRef)
         // Do any additional setup after loading the view.
     }
     
@@ -54,7 +57,8 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
 
         let prog : [String : Any] = ["Progression Title" : titleTextBox.text!, "Date Started" : getTodaysDate()]
         
-        self.ref.child(Auth.auth().currentUser!.uid).child("Progressions").child(progID).setValue(prog)
+        //self.ref.child(Auth.auth().currentUser!.uid).child("Progressions").child(progID).setValue(prog)
+        progRef.setValue(prog)
         
         if (imagePicked == true)
         {
@@ -73,8 +77,8 @@ class NewProgressionViewController: UIViewController, UIImagePickerControllerDel
         let jpegImage = imageView.image?.jpegData(compressionQuality: 1.0)
         
         let imageID = UUID().uuidString
-        //GÖRA DTUM GREJ ISTÄLLET?
-        self.ref.child(Auth.auth().currentUser!.uid).child("Progressions").child(progID).child("Images").child(imageID).child("Date").setValue(getTodaysDate())
+        //self.ref.child(Auth.auth().currentUser!.uid).child("Progressions").child(progID).child("Images").child(imageID).child("Date").setValue(getTodaysDate())
+        self.progRef.child("Images").child(imageID).child("Date").setValue(getTodaysDate())
         
         let storage = Storage.storage()
         let storageRef = storage.reference()
