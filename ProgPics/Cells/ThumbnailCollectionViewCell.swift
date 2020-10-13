@@ -10,6 +10,8 @@ import UIKit
 class ThumbnailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var view: UIView!
+    var date:String?
+    var ID:String?
     
     
 }

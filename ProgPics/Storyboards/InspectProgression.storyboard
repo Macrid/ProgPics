@@ -86,9 +86,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6y3-R2-49d">
-                                                    <rect key="frame" x="0.0" y="-1" width="128" height="129"/>
-                                                    <color key="backgroundColor" systemColor="labelColor"/>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Rjx-qD-daa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                </activityIndicatorView>
+                                                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6y3-R2-49d">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="128" id="02l-7G-6wk"/>
@@ -99,6 +101,10 @@
                                             <gestureRecognizers/>
                                             <constraints>
                                                 <constraint firstItem="6y3-R2-49d" firstAttribute="centerX" secondItem="edm-GM-ldm" secondAttribute="centerX" id="IpK-st-Mbg"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rjx-qD-daa" secondAttribute="trailing" id="M3s-Y1-fbU"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rjx-qD-daa" secondAttribute="bottom" id="UXi-Oi-ydM"/>
+                                                <constraint firstItem="Rjx-qD-daa" firstAttribute="top" secondItem="edm-GM-ldm" secondAttribute="top" id="bDg-fG-mNb"/>
+                                                <constraint firstItem="Rjx-qD-daa" firstAttribute="leading" secondItem="edm-GM-ldm" secondAttribute="leading" id="fJX-OW-9Fg"/>
                                                 <constraint firstItem="6y3-R2-49d" firstAttribute="centerY" secondItem="edm-GM-ldm" secondAttribute="centerY" id="g2z-fa-fWq"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -118,6 +124,17 @@
                                 <rect key="frame" x="87" y="384" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWQ-6T-IRr">
+                                <rect key="frame" x="319" y="718.5" width="75" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="DVu-4n-Krp"/>
+                                    <constraint firstAttribute="height" constant="75" id="pAW-Bm-ziV"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="plus.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="addNewImage:" destination="wMD-kh-fcp" eventType="touchUpInside" id="NkO-zx-eBh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sxo-rd-IE1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -125,10 +142,15 @@
                             <constraint firstItem="WpD-HY-X4X" firstAttribute="leading" secondItem="Sxo-rd-IE1" secondAttribute="leading" id="6YR-ba-reZ"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="WpD-HY-X4X" secondAttribute="trailing" id="NRd-lD-GLb"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="bottom" secondItem="WpD-HY-X4X" secondAttribute="bottom" id="O0z-vP-fZF"/>
+                            <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="tWQ-6T-IRr" secondAttribute="trailing" constant="20" id="Ufk-Fa-Ntt"/>
                             <constraint firstItem="WpD-HY-X4X" firstAttribute="top" secondItem="Sxo-rd-IE1" secondAttribute="top" id="UwP-qR-60H"/>
+                            <constraint firstItem="Sxo-rd-IE1" firstAttribute="bottom" secondItem="tWQ-6T-IRr" secondAttribute="bottom" constant="20" id="nNR-Sq-L5w"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gallery" id="M1H-cp-K54"/>
+                    <connections>
+                        <outlet property="imageCollectionView" destination="WpD-HY-X4X" id="5FQ-1W-hLn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pef-EL-V1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,10 +179,7 @@
     </scenes>
     <resources>
         <image name="lasso" catalog="system" width="128" height="118"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="plus.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

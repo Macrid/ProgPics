@@ -13,11 +13,15 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     var progID:String?
     var numberOfPictures = 0
     var progRef:DatabaseReference?
+    var storage = Storage.storage()
+    var storageRef:StorageReference?
+    var cellList = [ThumbnailCollectionViewCell]()
+    @IBOutlet weak var imageCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
-        print(progID)
+        storageRef = storage.reference()
         // Do any additional setup after loading the view.
     }
     
@@ -26,18 +30,21 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     //}
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        progRef?.child("Images").observe(.value, with: { snapshot in
-            let count = snapshot.childrenCount
-            self.numberOfPictures = Int(count)
-            print(self.numberOfPictures)
-        })
-        print(numberOfPictures)
         return numberOfPictures
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thumbnail cell" , for: indexPath) as! ThumbnailCollectionViewCell
+        storageRef?.child(Auth.auth().currentUser!.uid).child(cellList[indexPath.row].ID!).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+            if let error = error {
+                print("Error bildhämt")
+            }
+            else {
+                cell.imageView.image = UIImage(data: data!)
+            }
+            })
+        
         
         return cell
     }
@@ -53,6 +60,35 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadCells()
+    }
+    
+    func loadCells()
+    {
+        progRef?.child("Images").observe(.value, with: { snapshot in
+            let count = snapshot.childrenCount
+            self.numberOfPictures = Int(count)
+
+            self.cellList.removeAll()
+            
+            for p in snapshot.children
+            {
+                let imagesSnapshot = p as! DataSnapshot
+                let newCell = ThumbnailCollectionViewCell()
+                newCell.ID = imagesSnapshot.key
+                self.cellList.append(newCell)
+            }
+            self.imageCollectionView.reloadData()
+
+        }) { (error) in
+            print(error.localizedDescription)
+            
+        }
+    }
+    
+    @IBAction func addNewImage(_ sender: Any) {
+    }
     /*func imageTapped(_ sender: nil) {
         let imageView = sender.view as! UIImageView
         let newImageView = UIImageView(image: imageView.image)
