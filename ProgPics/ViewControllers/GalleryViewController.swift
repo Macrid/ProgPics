@@ -36,11 +36,19 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thumbnail cell" , for: indexPath) as! ThumbnailCollectionViewCell
+       
+        if(cellList[indexPath.item].image != nil)
+        {
+            cell.imageView.image = UIImage(data: cellList[indexPath.row].image!)
+        }
+        
         storageRef?.child(Auth.auth().currentUser!.uid).child(cellList[indexPath.row].ID!).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
             if let error = error {
                 print("Error bildhämt")
+                
             }
             else {
+                cell.image = data
                 cell.imageView.image = UIImage(data: data!)
             }
             })
@@ -56,6 +64,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
+        print(cellList[0].image)
         //LADDA RÄTT BILD o GÖR IMAGEVY SOM TÄCKER SKÄRMEN SYNLIG
 
     }
@@ -66,18 +75,37 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     
     func loadCells()
     {
+        self.cellList.removeAll()
+
+        
         progRef?.child("Images").observe(.value, with: { snapshot in
             let count = snapshot.childrenCount
             self.numberOfPictures = Int(count)
-
-            self.cellList.removeAll()
-            
+            self.imageCollectionView.reloadData()
+            //var counter = 0
             for p in snapshot.children
             {
+                
                 let imagesSnapshot = p as! DataSnapshot
                 let newCell = ThumbnailCollectionViewCell()
                 newCell.ID = imagesSnapshot.key
+                
+                /*self.storageRef?.child(Auth.auth().currentUser!.uid).child(imagesSnapshot.key).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+                    if let error = error {
+                        print("Error bildhämt")
+                        
+                    }
+                    else {
+                        newCell.image = data
+                        self.cellList[counter].image = data
+                        let indexPath = IndexPath(row: counter , section: 0)
+                        self.imageCollectionView.reloadItems(at: [indexPath])
+                        counter += 1
+                    }
+                    })*/
+                    
                 self.cellList.append(newCell)
+                
             }
             self.imageCollectionView.reloadData()
 
@@ -86,8 +114,12 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
             
         }
     }
-    
-    @IBAction func addNewImage(_ sender: Any) {
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segue to camera") {
+            let cameraVC = segue.destination as! CameraVC
+            cameraVC.progID = self.progID
+        }
     }
     /*func imageTapped(_ sender: nil) {
         let imageView = sender.view as! UIImageView

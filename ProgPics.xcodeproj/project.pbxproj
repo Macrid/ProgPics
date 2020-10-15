@@ -16,6 +16,7 @@
 		84324C482510C754001BD9C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84324C462510C754001BD9C5 /* LaunchScreen.storyboard */; };
 		84324C70251371F4001BD9C5 /* YourProgressionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */; };
 		844392A3251CAAD100DD5DA5 /* NewProgressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */; };
+		8458681F25373B83008E31B6 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458681E25373B83008E31B6 /* CameraVC.swift */; };
 		8486445B25220AE400F9C8AD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445A25220AE400F9C8AD /* ProgressViewController.swift */; };
 		8486445F25220E5900F9C8AD /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445E25220E5900F9C8AD /* GalleryViewController.swift */; };
 		8486446B25231AB300F9C8AD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8486446A25231AB300F9C8AD /* Auth.storyboard */; };
@@ -38,6 +39,7 @@
 		84324C492510C754001BD9C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProgressionsViewController.swift; sourceTree = "<group>"; };
 		844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressionViewController.swift; sourceTree = "<group>"; };
+		8458681E25373B83008E31B6 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		8486445A25220AE400F9C8AD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		8486445E25220E5900F9C8AD /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		8486446A25231AB300F9C8AD /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		8486447225231E7500F9C8AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8458681E25373B83008E31B6 /* CameraVC.swift */,
 				848644772523258B00F9C8AD /* RegisterViewController.swift */,
 				8486445E25220E5900F9C8AD /* GalleryViewController.swift */,
 				844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */,
@@ -272,6 +275,7 @@
 				84324C3E2510C751001BD9C5 /* SceneDelegate.swift in Sources */,
 				84CA550E2514E8930040FD79 /* UserCategoryTableViewCell.swift in Sources */,
 				84E60A982524AB85002D67CD /* ThumbnailCollectionViewCell.swift in Sources */,
+				8458681F25373B83008E31B6 /* CameraVC.swift in Sources */,
 				84324C70251371F4001BD9C5 /* YourProgressionsViewController.swift in Sources */,
 				8486445F25220E5900F9C8AD /* GalleryViewController.swift in Sources */,
 				8486445B25220AE400F9C8AD /* ProgressViewController.swift in Sources */,
@@ -424,6 +428,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28QJ5365R9;
 				INFOPLIST_FILE = ProgPics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -443,6 +448,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 28QJ5365R9;
 				INFOPLIST_FILE = ProgPics/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
