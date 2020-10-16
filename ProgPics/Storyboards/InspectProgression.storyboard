@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fvO-8Y-vzO">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,14 +13,14 @@
             <objects>
                 <viewController title="Progression Slider" id="aga-l1-Cx3" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yv2-d6-APt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="8" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Av-bd-Emy">
-                                <rect key="frame" x="18" y="643" width="378" height="31"/>
+                                <rect key="frame" x="18" y="588" width="564" height="31"/>
                             </slider>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lasso" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2gJ-XB-w3H">
-                                <rect key="frame" x="20" y="262.5" width="374" height="373"/>
+                                <rect key="frame" x="20" y="21.5" width="560" height="559"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2gJ-XB-w3H" secondAttribute="height" multiplier="1:1" id="L36-RO-krr"/>
                                 </constraints>
@@ -49,7 +48,7 @@
             <objects>
                 <viewController title="Before/After" id="Ycn-aC-SNn" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X3T-PL-0J7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="swR-d7-C1y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -63,13 +62,13 @@
         <!--Gallery-->
         <scene sceneID="2pe-aH-JOr">
             <objects>
-                <viewController title="Gallery" id="wMD-kh-fcp" customClass="GalleryViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Gallery" id="wMD-kh-fcp" customClass="GalleryVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AJf-mO-H2s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WpD-HY-X4X">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="xyX-7O-gRB">
@@ -125,7 +124,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWQ-6T-IRr">
-                                <rect key="frame" x="319" y="718.5" width="75" height="74"/>
+                                <rect key="frame" x="505" y="456.5" width="75" height="74"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="DVu-4n-Krp"/>
                                     <constraint firstAttribute="height" constant="75" id="pAW-Bm-ziV"/>
@@ -161,11 +160,11 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="Xzx-qe-V7s" customClass="CameraVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xXR-Xm-YG9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-wW-wI6">
-                                <rect key="frame" x="0.0" y="64" width="414" height="517.5"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="750"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-AQ-cg3">
                                         <rect key="frame" x="360" y="8" width="46" height="30"/>
@@ -179,7 +178,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftI-4b-ec6">
-                                <rect key="frame" x="165.5" y="771.5" width="83" height="82"/>
+                                <rect key="frame" x="240" y="472.5" width="120" height="119"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ftI-4b-ec6" secondAttribute="height" multiplier="1:1" id="O0G-uv-b8A"/>
                                 </constraints>
@@ -202,16 +201,16 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSd-wu-yA8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MvD-QP-Gfd">
-                                        <rect key="frame" x="0.0" y="189.5" width="414" height="517.5"/>
+                                        <rect key="frame" x="0.0" y="-75" width="600" height="750"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="MvD-QP-Gfd" secondAttribute="height" multiplier="4:5" id="mOa-MR-REX"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14T-bL-jgF">
-                                        <rect key="frame" x="366" y="824" width="34" height="30"/>
+                                        <rect key="frame" x="552" y="528" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="savePicture:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="zik-w9-ujp"/>

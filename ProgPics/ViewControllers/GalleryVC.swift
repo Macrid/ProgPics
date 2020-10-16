@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class GalleryViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     var progID:String?
     var numberOfPictures = 0
@@ -36,11 +36,6 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thumbnail cell" , for: indexPath) as! ThumbnailCollectionViewCell
-       
-        if(cellList[indexPath.item].image != nil)
-        {
-            cell.imageView.image = UIImage(data: cellList[indexPath.row].image!)
-        }
         
         storageRef?.child(Auth.auth().currentUser!.uid).child(cellList[indexPath.row].ID!).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
             if let error = error {
@@ -70,7 +65,7 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        loadCells()
+        //loadCells()
     }
     
     func loadCells()
@@ -89,6 +84,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
                 let imagesSnapshot = p as! DataSnapshot
                 let newCell = ThumbnailCollectionViewCell()
                 newCell.ID = imagesSnapshot.key
+                newCell.date = imagesSnapshot.childSnapshot(forPath: "Date").value as! String
+                print(newCell.date)
                 
                 /*self.storageRef?.child(Auth.auth().currentUser!.uid).child(imagesSnapshot.key).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
                     if let error = error {
@@ -105,6 +102,8 @@ class GalleryViewController: UIViewController, UICollectionViewDelegate, UIColle
                     })*/
                     
                 self.cellList.append(newCell)
+                self.cellList.sort(by: {$0.date! < $1.date!})
+                print(self.cellList)
                 
             }
             self.imageCollectionView.reloadData()

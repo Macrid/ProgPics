@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HpG-cC-VkZ">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -24,26 +23,26 @@
             </objects>
             <point key="canvasLocation" x="-475" y="-704"/>
         </scene>
-        <!--Login View Controller-->
+        <!--LoginVC-->
         <scene sceneID="TOU-YM-Bby">
             <objects>
-                <viewController id="KEU-JP-ewA" customClass="LoginViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KEU-JP-ewA" customClass="LoginVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HyC-Ne-wWf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D2v-QM-L9l" userLabel="UserNameTextField">
-                                <rect key="frame" x="30" y="347" width="354" height="34"/>
+                                <rect key="frame" x="30" y="199" width="540" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NrX-Rf-0Bo" userLabel="PasswordTextField">
-                                <rect key="frame" x="30" y="431" width="354" height="34"/>
+                                <rect key="frame" x="30" y="283" width="540" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MGJ-CE-Uic">
-                                <rect key="frame" x="50" y="533" width="314" height="50"/>
+                                <rect key="frame" x="50" y="385" width="500" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="b2x-8W-zQ7"/>
                                 </constraints>
@@ -54,14 +53,14 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0uG-UY-OMs">
-                                <rect key="frame" x="128.5" y="473" width="157" height="30"/>
+                                <rect key="frame" x="221.5" y="325" width="157" height="30"/>
                                 <state key="normal" title="Forgot your password?"/>
                                 <connections>
                                     <segue destination="QvM-0U-Sgt" kind="show" id="1u4-K7-nPd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account yet?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5F-hV-Pd4">
-                                <rect key="frame" x="0.0" y="653" width="273" height="33"/>
+                                <rect key="frame" x="0.0" y="505" width="396" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="Upt-hf-s7g"/>
                                 </constraints>
@@ -70,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgr-8P-I03">
-                                <rect key="frame" x="281" y="653" width="63" height="33"/>
+                                <rect key="frame" x="404" y="505" width="63" height="33"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
@@ -114,7 +113,7 @@
             <objects>
                 <viewController id="QvM-0U-Sgt" userLabel="Forgot password" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WOm-Mk-n7a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="PbN-Tc-OTy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -128,29 +127,29 @@
         <!--Register-->
         <scene sceneID="zFn-eK-dEC">
             <objects>
-                <viewController modalPresentationStyle="overCurrentContext" id="GLO-DR-Gyq" userLabel="Register" customClass="RegisterViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overCurrentContext" id="GLO-DR-Gyq" userLabel="Register" customClass="RegisterVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nR2-9w-FcN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create new account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Qz-Cv-hc3">
-                                <rect key="frame" x="0.0" y="188" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="144" width="600" height="34"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IUb-AD-IBh">
-                                <rect key="frame" x="30" y="297" width="354" height="34"/>
+                                <rect key="frame" x="30" y="253" width="540" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="email"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uvp-Qv-Juk">
-                                <rect key="frame" x="30" y="465" width="354" height="34"/>
+                                <rect key="frame" x="30" y="421" width="540" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mif-K3-C0g">
-                                <rect key="frame" x="157" y="574" width="100" height="46"/>
+                                <rect key="frame" x="250" y="530" width="100" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Register"/>
                                 <connections>
@@ -158,7 +157,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZwN-Ck-474">
-                                <rect key="frame" x="30" y="381" width="354" height="34"/>
+                                <rect key="frame" x="30" y="337" width="540" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="new-password"/>
                             </textField>

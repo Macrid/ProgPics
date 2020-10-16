@@ -10,18 +10,18 @@
 		3D4AB07AA73892DBE566C3B2 /* Pods_ProgPics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB7D79828CE9E89BD9DCF177 /* Pods_ProgPics.framework */; };
 		84324C3C2510C751001BD9C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C3B2510C751001BD9C5 /* AppDelegate.swift */; };
 		84324C3E2510C751001BD9C5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C3D2510C751001BD9C5 /* SceneDelegate.swift */; };
-		84324C402510C751001BD9C5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C3F2510C751001BD9C5 /* LoginViewController.swift */; };
+		84324C402510C751001BD9C5 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C3F2510C751001BD9C5 /* LoginVC.swift */; };
 		84324C432510C751001BD9C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84324C412510C751001BD9C5 /* Main.storyboard */; };
 		84324C452510C754001BD9C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84324C442510C754001BD9C5 /* Assets.xcassets */; };
 		84324C482510C754001BD9C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84324C462510C754001BD9C5 /* LaunchScreen.storyboard */; };
-		84324C70251371F4001BD9C5 /* YourProgressionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */; };
-		844392A3251CAAD100DD5DA5 /* NewProgressionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */; };
+		84324C70251371F4001BD9C5 /* YourProgressionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C6F251371F4001BD9C5 /* YourProgressionsVC.swift */; };
+		844392A3251CAAD100DD5DA5 /* NewProgressionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844392A2251CAAD100DD5DA5 /* NewProgressionVC.swift */; };
 		8458681F25373B83008E31B6 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458681E25373B83008E31B6 /* CameraVC.swift */; };
 		8486445B25220AE400F9C8AD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445A25220AE400F9C8AD /* ProgressViewController.swift */; };
-		8486445F25220E5900F9C8AD /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445E25220E5900F9C8AD /* GalleryViewController.swift */; };
+		8486445F25220E5900F9C8AD /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445E25220E5900F9C8AD /* GalleryVC.swift */; };
 		8486446B25231AB300F9C8AD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8486446A25231AB300F9C8AD /* Auth.storyboard */; };
 		8486447025231D1800F9C8AD /* InspectProgression.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8486446F25231D1800F9C8AD /* InspectProgression.storyboard */; };
-		848644782523258B00F9C8AD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848644772523258B00F9C8AD /* RegisterViewController.swift */; };
+		848644782523258B00F9C8AD /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848644772523258B00F9C8AD /* RegisterVC.swift */; };
 		8496D7CC251DFE8500B3FAB4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8496D7CB251DFE8500B3FAB4 /* GoogleService-Info.plist */; };
 		84CA550E2514E8930040FD79 /* UserCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */; };
 		84DDB1772518BF1E00FA6F69 /* LastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */; };
@@ -32,19 +32,19 @@
 		84324C382510C751001BD9C5 /* ProgPics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProgPics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84324C3B2510C751001BD9C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84324C3D2510C751001BD9C5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		84324C3F2510C751001BD9C5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		84324C3F2510C751001BD9C5 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		84324C422510C751001BD9C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84324C442510C754001BD9C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84324C472510C754001BD9C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84324C492510C754001BD9C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProgressionsViewController.swift; sourceTree = "<group>"; };
-		844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressionViewController.swift; sourceTree = "<group>"; };
+		84324C6F251371F4001BD9C5 /* YourProgressionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProgressionsVC.swift; sourceTree = "<group>"; };
+		844392A2251CAAD100DD5DA5 /* NewProgressionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressionVC.swift; sourceTree = "<group>"; };
 		8458681E25373B83008E31B6 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		8486445A25220AE400F9C8AD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
-		8486445E25220E5900F9C8AD /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		8486445E25220E5900F9C8AD /* GalleryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
 		8486446A25231AB300F9C8AD /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		8486446F25231D1800F9C8AD /* InspectProgression.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InspectProgression.storyboard; sourceTree = "<group>"; };
-		848644772523258B00F9C8AD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		848644772523258B00F9C8AD /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		8496D7CB251DFE8500B3FAB4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTableViewCell.swift; sourceTree = "<group>"; };
@@ -114,12 +114,12 @@
 			isa = PBXGroup;
 			children = (
 				8458681E25373B83008E31B6 /* CameraVC.swift */,
-				848644772523258B00F9C8AD /* RegisterViewController.swift */,
-				8486445E25220E5900F9C8AD /* GalleryViewController.swift */,
-				844392A2251CAAD100DD5DA5 /* NewProgressionViewController.swift */,
+				848644772523258B00F9C8AD /* RegisterVC.swift */,
+				8486445E25220E5900F9C8AD /* GalleryVC.swift */,
+				844392A2251CAAD100DD5DA5 /* NewProgressionVC.swift */,
 				8486445A25220AE400F9C8AD /* ProgressViewController.swift */,
-				84324C3F2510C751001BD9C5 /* LoginViewController.swift */,
-				84324C6F251371F4001BD9C5 /* YourProgressionsViewController.swift */,
+				84324C3F2510C751001BD9C5 /* LoginVC.swift */,
+				84324C6F251371F4001BD9C5 /* YourProgressionsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -268,18 +268,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84324C402510C751001BD9C5 /* LoginViewController.swift in Sources */,
-				848644782523258B00F9C8AD /* RegisterViewController.swift in Sources */,
+				84324C402510C751001BD9C5 /* LoginVC.swift in Sources */,
+				848644782523258B00F9C8AD /* RegisterVC.swift in Sources */,
 				84DDB1772518BF1E00FA6F69 /* LastTableViewCell.swift in Sources */,
 				84324C3C2510C751001BD9C5 /* AppDelegate.swift in Sources */,
 				84324C3E2510C751001BD9C5 /* SceneDelegate.swift in Sources */,
 				84CA550E2514E8930040FD79 /* UserCategoryTableViewCell.swift in Sources */,
 				84E60A982524AB85002D67CD /* ThumbnailCollectionViewCell.swift in Sources */,
 				8458681F25373B83008E31B6 /* CameraVC.swift in Sources */,
-				84324C70251371F4001BD9C5 /* YourProgressionsViewController.swift in Sources */,
-				8486445F25220E5900F9C8AD /* GalleryViewController.swift in Sources */,
+				84324C70251371F4001BD9C5 /* YourProgressionsVC.swift in Sources */,
+				8486445F25220E5900F9C8AD /* GalleryVC.swift in Sources */,
 				8486445B25220AE400F9C8AD /* ProgressViewController.swift in Sources */,
-				844392A3251CAAD100DD5DA5 /* NewProgressionViewController.swift in Sources */,
+				844392A3251CAAD100DD5DA5 /* NewProgressionVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

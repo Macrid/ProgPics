@@ -94,7 +94,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     
     func uploadImage(imageView: UIImageView)
     {
-        let jpegImage = imageView.image?.jpegData(compressionQuality: 0.1)
+        let jpegImage = imageView.image?.jpegData(compressionQuality: 0.01)
         
         let progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
 

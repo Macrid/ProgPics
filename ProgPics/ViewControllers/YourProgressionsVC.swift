@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 import UIKit
 
-class YourProgressionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var numberOfCategories:Int?
     var clickedCellID:String?
@@ -165,7 +165,7 @@ class YourProgressionsViewController: UIViewController, UITableViewDataSource, U
         if(segue.identifier == "segue to category")
         {
             let tabBarController = segue.destination as! UITabBarController
-            let galleryViewController = tabBarController.viewControllers?[0] as! GalleryViewController
+            let galleryViewController = tabBarController.viewControllers?[0] as! GalleryVC
             galleryViewController.progID = clickedCellID
         }
         

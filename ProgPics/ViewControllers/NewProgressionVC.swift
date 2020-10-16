@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class NewProgressionViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class NewProgressionVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     @IBOutlet weak var titleTextBox: UITextField!
     @IBOutlet weak var firstImage: UIImageView!
