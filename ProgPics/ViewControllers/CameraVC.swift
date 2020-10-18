@@ -30,7 +30,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        imageRef = storageRef.child(Auth.auth().currentUser!.uid).child(imageID!)
+        imageRef = storageRef.child(Auth.auth().currentUser!.uid).child("\(imageID!).jpg")
         
         captureSession = AVCaptureSession()
                captureSession.sessionPreset = AVCaptureSession.Preset.photo
@@ -94,7 +94,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     
     func uploadImage(imageView: UIImageView)
     {
-        let jpegImage = imageView.image?.jpegData(compressionQuality: 0.01)
+        let jpegImage = imageView.image?.jpegData(compressionQuality: 0.1)
         
         let progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
 

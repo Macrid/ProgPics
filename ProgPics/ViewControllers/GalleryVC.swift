@@ -16,12 +16,16 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     var storage = Storage.storage()
     var storageRef:StorageReference?
     var cellList = [ThumbnailCollectionViewCell]()
+    var sliderVC:SliderVC?
+    
+    
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
         storageRef = storage.reference()
+        sliderVC = self.tabBarController!.viewControllers![1] as? SliderVC
         // Do any additional setup after loading the view.
     }
     
@@ -37,14 +41,15 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thumbnail cell" , for: indexPath) as! ThumbnailCollectionViewCell
         
-        storageRef?.child(Auth.auth().currentUser!.uid).child(cellList[indexPath.row].ID!).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+        storageRef?.child(Auth.auth().currentUser!.uid).child("\(cellList[indexPath.row].ID!).jpg").getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
             if let error = error {
                 print("Error bildhämt")
                 
             }
             else {
-                cell.image = data
+                cell.image = UIImage(data: data!)
                 cell.imageView.image = UIImage(data: data!)
+                self.sliderVC!.cellList[indexPath.row].image = UIImage(data: data!)
             }
             })
         
@@ -59,24 +64,24 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
-        print(cellList[0].image)
         //LADDA RÄTT BILD o GÖR IMAGEVY SOM TÄCKER SKÄRMEN SYNLIG
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        //loadCells()
+        loadCells()
     }
     
     func loadCells()
     {
         self.cellList.removeAll()
+        self.sliderVC!.cellList.removeAll()
 
         
         progRef?.child("Images").observe(.value, with: { snapshot in
             let count = snapshot.childrenCount
             self.numberOfPictures = Int(count)
-            self.imageCollectionView.reloadData()
+            //self.imageCollectionView.reloadData()
             //var counter = 0
             for p in snapshot.children
             {
@@ -85,25 +90,12 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 let newCell = ThumbnailCollectionViewCell()
                 newCell.ID = imagesSnapshot.key
                 newCell.date = imagesSnapshot.childSnapshot(forPath: "Date").value as! String
-                print(newCell.date)
+
                 
-                /*self.storageRef?.child(Auth.auth().currentUser!.uid).child(imagesSnapshot.key).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
-                    if let error = error {
-                        print("Error bildhämt")
-                        
-                    }
-                    else {
-                        newCell.image = data
-                        self.cellList[counter].image = data
-                        let indexPath = IndexPath(row: counter , section: 0)
-                        self.imageCollectionView.reloadItems(at: [indexPath])
-                        counter += 1
-                    }
-                    })*/
-                    
                 self.cellList.append(newCell)
+                self.sliderVC?.cellList.append(newCell)
                 self.cellList.sort(by: {$0.date! < $1.date!})
-                print(self.cellList)
+                self.sliderVC!.cellList.sort(by: {$0.date! < $1.date!})
                 
             }
             self.imageCollectionView.reloadData()

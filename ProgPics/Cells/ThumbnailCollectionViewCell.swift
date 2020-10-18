@@ -12,7 +12,7 @@ class ThumbnailCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var view: UIView!
     var date:String?
     var ID:String?
-    var image:Data?
+    var image:UIImage?
     
     
 }
