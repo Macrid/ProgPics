@@ -11,13 +11,11 @@ import Firebase
 class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     var progID:String?
-    var numberOfPictures = 0
     var progRef:DatabaseReference?
     var storage = Storage.storage()
     var storageRef:StorageReference?
     var cellList = [ThumbnailCollectionViewCell]()
     var sliderVC:SliderVC?
-    
     
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
@@ -29,29 +27,46 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         // Do any additional setup after loading the view.
     }
     
-    //func numberOfSections(in collectionView: UICollectionView) -> Int {
-        
-    //}
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfPictures
+        return cellList.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "thumbnail cell" , for: indexPath) as! ThumbnailCollectionViewCell
         
-        storageRef?.child(Auth.auth().currentUser!.uid).child("\(cellList[indexPath.row].ID!).jpg").getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
-            if let error = error {
-                print("Error bildhämt")
-                
-            }
-            else {
-                cell.image = UIImage(data: data!)
-                cell.imageView.image = UIImage(data: data!)
-                self.sliderVC!.cellList[indexPath.row].image = UIImage(data: data!)
-            }
+        cell.imageView.image = nil
+        
+        let imageFilename = "\(cellList[indexPath.row].ID!).jpg"
+        
+        let tempFile = try! URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageFilename)
+
+        if(FileManager.default.fileExists(atPath: tempFile.path))
+        {
+            let imageData = try? Data(contentsOf: tempFile)
+
+            cell.image = UIImage(data: imageData!)
+            cell.imageView.image = UIImage(data: imageData!)
+            self.sliderVC!.cellList[indexPath.row].image = UIImage(data: imageData!)
+        } else {
+            storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+                if let error = error {
+                    print("Error bildhämt")
+                    
+                }
+                else {
+                    try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
+                    
+                    
+                    cell.image = UIImage(data: data!)
+                    cell.imageView.image = UIImage(data: data!)
+                    self.sliderVC!.cellList[indexPath.row].image = UIImage(data: data!)
+                }
             })
+        }
+        
+        
         
         
         return cell
@@ -76,13 +91,10 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     {
         self.cellList.removeAll()
         self.sliderVC!.cellList.removeAll()
-
+        self.imageCollectionView.reloadData()
         
         progRef?.child("Images").observe(.value, with: { snapshot in
             let count = snapshot.childrenCount
-            self.numberOfPictures = Int(count)
-            //self.imageCollectionView.reloadData()
-            //var counter = 0
             for p in snapshot.children
             {
                 
@@ -91,13 +103,11 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 newCell.ID = imagesSnapshot.key
                 newCell.date = imagesSnapshot.childSnapshot(forPath: "Date").value as! String
 
-                
                 self.cellList.append(newCell)
                 self.sliderVC?.cellList.append(newCell)
-                self.cellList.sort(by: {$0.date! < $1.date!})
-                self.sliderVC!.cellList.sort(by: {$0.date! < $1.date!})
-                
             }
+            self.cellList.sort(by: {$0.date! < $1.date!})
+            self.sliderVC!.cellList.sort(by: {$0.date! < $1.date!})
             self.imageCollectionView.reloadData()
 
         }) { (error) in

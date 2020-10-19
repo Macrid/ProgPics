@@ -17,6 +17,7 @@
 		84324C70251371F4001BD9C5 /* YourProgressionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C6F251371F4001BD9C5 /* YourProgressionsVC.swift */; };
 		844392A3251CAAD100DD5DA5 /* NewProgressionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844392A2251CAAD100DD5DA5 /* NewProgressionVC.swift */; };
 		8458681F25373B83008E31B6 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458681E25373B83008E31B6 /* CameraVC.swift */; };
+		846E61F6253DAD41003E91A2 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E61F5253DAD41003E91A2 /* ImageHelper.swift */; };
 		8486445B25220AE400F9C8AD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445A25220AE400F9C8AD /* ProgressViewController.swift */; };
 		8486445F25220E5900F9C8AD /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445E25220E5900F9C8AD /* GalleryVC.swift */; };
 		8486446B25231AB300F9C8AD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8486446A25231AB300F9C8AD /* Auth.storyboard */; };
@@ -41,6 +42,7 @@
 		84324C6F251371F4001BD9C5 /* YourProgressionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProgressionsVC.swift; sourceTree = "<group>"; };
 		844392A2251CAAD100DD5DA5 /* NewProgressionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressionVC.swift; sourceTree = "<group>"; };
 		8458681E25373B83008E31B6 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
+		846E61F5253DAD41003E91A2 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
 		8486445A25220AE400F9C8AD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		8486445E25220E5900F9C8AD /* GalleryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
 		8486446A25231AB300F9C8AD /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				84324C442510C754001BD9C5 /* Assets.xcassets */,
 				84324C492510C754001BD9C5 /* Info.plist */,
 				8496D7CB251DFE8500B3FAB4 /* GoogleService-Info.plist */,
+				846E61F5253DAD41003E91A2 /* ImageHelper.swift */,
 			);
 			path = ProgPics;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				8486445F25220E5900F9C8AD /* GalleryVC.swift in Sources */,
 				8486445B25220AE400F9C8AD /* ProgressViewController.swift in Sources */,
 				844392A3251CAAD100DD5DA5 /* NewProgressionVC.swift in Sources */,
+				846E61F6253DAD41003E91A2 /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

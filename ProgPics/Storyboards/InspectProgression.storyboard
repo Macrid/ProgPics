@@ -124,9 +124,8 @@
                                     <outlet property="delegate" destination="wMD-kh-fcp" id="roO-QS-Raz"/>
                                 </connections>
                             </collectionView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d6b-HO-EWq">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="d6b-HO-EWq">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWQ-6T-IRr">
                                 <rect key="frame" x="319" y="718.5" width="75" height="74"/>
@@ -144,11 +143,15 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="WpD-HY-X4X" firstAttribute="leading" secondItem="Sxo-rd-IE1" secondAttribute="leading" id="6YR-ba-reZ"/>
+                            <constraint firstAttribute="bottom" secondItem="d6b-HO-EWq" secondAttribute="bottom" id="9Ri-DE-F32"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="WpD-HY-X4X" secondAttribute="trailing" id="NRd-lD-GLb"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="bottom" secondItem="WpD-HY-X4X" secondAttribute="bottom" id="O0z-vP-fZF"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="tWQ-6T-IRr" secondAttribute="trailing" constant="20" id="Ufk-Fa-Ntt"/>
                             <constraint firstItem="WpD-HY-X4X" firstAttribute="top" secondItem="Sxo-rd-IE1" secondAttribute="top" id="UwP-qR-60H"/>
+                            <constraint firstItem="d6b-HO-EWq" firstAttribute="top" secondItem="AJf-mO-H2s" secondAttribute="top" id="Vry-1Y-6Te"/>
+                            <constraint firstItem="d6b-HO-EWq" firstAttribute="leading" secondItem="AJf-mO-H2s" secondAttribute="leading" id="glS-QF-wRO"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="bottom" secondItem="tWQ-6T-IRr" secondAttribute="bottom" constant="20" id="nNR-Sq-L5w"/>
+                            <constraint firstAttribute="trailing" secondItem="d6b-HO-EWq" secondAttribute="trailing" id="teP-5h-9aN"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gallery" id="M1H-cp-K54"/>

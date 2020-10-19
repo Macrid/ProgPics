@@ -14,11 +14,12 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
     var numberOfCategories:Int?
     var clickedCellID:String?
     var ref:DatabaseReference?
+    var storage = Storage.storage()
+    var storageRef:StorageReference?
     var cellList = [UserCategoryTableViewCell]()
     
     @IBOutlet weak var progressionsTableView: UITableView!
-    //var tableViewCells = [UserCategoryTableViewCell]()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +27,7 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         progressionsTableView.delegate = self
         
         ref = Database.database().reference()
+        storageRef = storage.reference()
     }
 
     
@@ -42,6 +44,8 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        var imageRef = [String]()
+        
         if (indexPath.row == cellList.count)
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "lastCell") as! LastTableViewCell
@@ -53,6 +57,32 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         cell.titleTextbox.text = cellList[indexPath.row].title
         cell.dateTextbox.text = cellList[indexPath.row].date
         
+        
+        
+    /*    ref!.child(Auth.auth().currentUser!.uid).child("Progressions").child(cellList[indexPath.row].ID!).child("Images").observe(.value, with: { snapshot in
+            
+            
+            for p in snapshot.children
+            {
+                let snapshot = p as! DataSnapshot
+                let bildID = snapshot.key
+                imageRef.append(bildID)
+                print(imageRef[0])
+            }
+              
+        })
+        
+        
+        storageRef?.child(Auth.auth().currentUser!.uid).child("Progressions").child(cellList[indexPath.row].ID!).child("Images").child("\(imageRef[0]).jpg").getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+            if let error = error {
+                print("Error bildhämt")
+                
+            }
+            else {
+                cell.thumbnailView.image = UIImage(data: data!)
+            }
+            })
+        */
         return cell
 
     }

@@ -15,7 +15,7 @@ class UserCategoryTableViewCell: UITableViewCell {
     var ID:String?
     @IBOutlet weak var titleTextbox: UILabel!
     @IBOutlet weak var dateTextbox: UILabel!
-    @IBOutlet weak var thumbnailView: UIView!
+    @IBOutlet weak var thumbnailView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
 

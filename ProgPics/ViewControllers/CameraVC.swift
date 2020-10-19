@@ -71,9 +71,11 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
         let imageData = photo.fileDataRepresentation()
-        let theImage = UIImage(data: imageData!)
+        var theImage = UIImage(data: imageData!)
         
-            imageView.image = theImage
+        theImage = ImageHelper().resizeImage(theImage!, newWidth: 500)
+        
+        imageView.image = theImage
         uploadImage(imageView: imageView)
     }
     
@@ -94,7 +96,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     
     func uploadImage(imageView: UIImageView)
     {
-        let jpegImage = imageView.image?.jpegData(compressionQuality: 0.1)
+        let jpegImage = imageView.image?.jpegData(compressionQuality: 0.8)
         
         let progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
 
