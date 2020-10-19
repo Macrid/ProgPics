@@ -81,7 +81,9 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     
     @IBAction func savePicture(_ sender: Any) {
         //uploadImage(imageView: imageView)
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
+        
+        performSegue(withIdentifier: "segue back to gallery", sender: nil)
     }
     
     @IBAction func cancelPicture(_ sender: Any) {
@@ -118,5 +120,13 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         let date = Date()
         let todaysDate = formatter.string(from: date)
         return todaysDate
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segue back to gallery")
+        {
+            let galleryViewController = segue.destination as! GalleryVC
+            galleryViewController.progID = progID
+        }
     }
 }

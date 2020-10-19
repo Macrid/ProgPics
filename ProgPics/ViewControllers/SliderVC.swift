@@ -17,7 +17,7 @@ class SliderVC: UIViewController {
         super.viewDidLoad()
         print(cellList)
         
-        imageView.image =  cellList[0].image
+        
         // Do any additional setup after loading the view.
     }
     

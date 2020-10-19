@@ -15,7 +15,6 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     var storage = Storage.storage()
     var storageRef:StorageReference?
     var cellList = [ThumbnailCollectionViewCell]()
-    var sliderVC:SliderVC?
     
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
@@ -23,12 +22,11 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         super.viewDidLoad()
         progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
         storageRef = storage.reference()
-        sliderVC = self.tabBarController!.viewControllers![1] as? SliderVC
-        // Do any additional setup after loading the view.
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(cellList.count)
         return cellList.count
     }
     
@@ -48,7 +46,6 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
 
             cell.image = UIImage(data: imageData!)
             cell.imageView.image = UIImage(data: imageData!)
-            self.sliderVC!.cellList[indexPath.row].image = UIImage(data: imageData!)
         } else {
             storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
                 if let error = error {
@@ -61,7 +58,6 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                     
                     cell.image = UIImage(data: data!)
                     cell.imageView.image = UIImage(data: data!)
-                    self.sliderVC!.cellList[indexPath.row].image = UIImage(data: data!)
                 }
             })
         }
@@ -90,7 +86,6 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func loadCells()
     {
         self.cellList.removeAll()
-        self.sliderVC!.cellList.removeAll()
         self.imageCollectionView.reloadData()
         
         progRef?.child("Images").observe(.value, with: { snapshot in
@@ -104,10 +99,8 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 newCell.date = imagesSnapshot.childSnapshot(forPath: "Date").value as! String
 
                 self.cellList.append(newCell)
-                self.sliderVC?.cellList.append(newCell)
             }
             self.cellList.sort(by: {$0.date! < $1.date!})
-            self.sliderVC!.cellList.sort(by: {$0.date! < $1.date!})
             self.imageCollectionView.reloadData()
 
         }) { (error) in
