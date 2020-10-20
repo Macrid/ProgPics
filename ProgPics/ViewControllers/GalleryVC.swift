@@ -22,6 +22,16 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         super.viewDidLoad()
         progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
         storageRef = storage.reference()
+        
+        for c in self.cellList
+        {
+            var sliderTab = self.tabBarController!.viewControllers![1] as! SliderVC
+            if let imageID = c.ID
+            {
+                sliderTab.imageIDList.append(imageID)
+            }
+            
+        }
     }
     
     
@@ -102,6 +112,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             }
             self.cellList.sort(by: {$0.date! < $1.date!})
             self.imageCollectionView.reloadData()
+            
 
         }) { (error) in
             print(error.localizedDescription)
@@ -113,6 +124,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         if(segue.identifier == "segue to camera") {
             let cameraVC = segue.destination as! CameraVC
             cameraVC.progID = self.progID
+            
         }
     }
     /*func imageTapped(_ sender: nil) {
