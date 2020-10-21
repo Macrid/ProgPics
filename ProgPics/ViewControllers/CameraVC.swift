@@ -76,20 +76,29 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         theImage = ImageHelper().resizeImage(theImage!, newWidth: 500)
         
         imageView.image = theImage
-        uploadImage(imageView: imageView)
+      //  uploadImage(imageView: imageView)
     }
     
     @IBAction func savePicture(_ sender: Any) {
+        //uploadImage(imageView: imageView)
+        //self.dismiss(animated: true, completion: nil)
+        
+       // performSegue(withIdentifier: "segue back to gallery", sender: nil)
+        
+        uploadImage(imageView: imageView)
         self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true, completion: {
+            
+        })
     }
     
     @IBAction func cancelPicture(_ sender: Any) {
-        let progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
+       /* let progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
         
         progRef.child("Images").child(imageID!).removeValue()
         
         imageRef?.delete(completion: nil)
-        
+        */
         overlayView.isHidden = true
     }
     
@@ -117,5 +126,15 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         let date = Date()
         let todaysDate = formatter.string(from: date)
         return todaysDate
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segue back to gallery")
+        {
+            //let tabBarController = segue.destination as! UITabBarController
+            //let galleryViewController = tabBarController.viewControllers?[0] as! GalleryVC
+            let galleryViewController = segue.destination as! GalleryVC
+            galleryViewController.progID = progID
+        }
     }
 }

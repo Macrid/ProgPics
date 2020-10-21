@@ -25,7 +25,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         for c in self.cellList
         {
-            var sliderTab = self.tabBarController!.viewControllers![1] as! SliderVC
+            let sliderTab = self.tabBarController!.viewControllers![1] as! SliderVC
             if let imageID = c.ID
             {
                 sliderTab.imageIDList.append(imageID)
@@ -89,17 +89,20 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
 
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.cellList.removeAll()
+        self.imageCollectionView.reloadData()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         loadCells()
     }
     
     func loadCells()
     {
-        self.cellList.removeAll()
-        self.imageCollectionView.reloadData()
+        //self.cellList.removeAll(keepingCapacity: false)
         
         progRef?.child("Images").observe(.value, with: { snapshot in
-            let count = snapshot.childrenCount
             for p in snapshot.children
             {
                 
