@@ -110,6 +110,19 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
 
         progRef.child("Images").child(imageID!).child("Date").setValue(getTodaysDate())
         
+        progRef.observeSingleEvent(of: .value, with: { (snapshot) in
+
+                if snapshot.hasChild("Thumbnail"){
+
+                    print("exist")
+
+                }else{
+
+                    progRef.child("Thumbnail").setValue(self.imageID)
+                    print("doesn't exist")
+                }
+        })
+        
         imageRef!.putData(jpegImage!, metadata: nil) {(metadata, error) in
             guard let metadata = metadata else {
                 print("Error with upload")

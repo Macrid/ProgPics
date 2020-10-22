@@ -19,8 +19,8 @@ class NewProgressionVC: UIViewController, UIImagePickerControllerDelegate, UINav
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(progRef)
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
         // Do any additional setup after loading the view.
     }
     
@@ -100,5 +100,9 @@ class NewProgressionVC: UIViewController, UIImagePickerControllerDelegate, UINav
         let date = Date()
         let todaysDate = formatter.string(from: date)
         return todaysDate
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

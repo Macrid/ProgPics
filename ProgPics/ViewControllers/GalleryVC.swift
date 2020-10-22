@@ -23,15 +23,6 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
         storageRef = storage.reference()
         
-        for c in self.cellList
-        {
-            let sliderTab = self.tabBarController!.viewControllers![1] as! SliderVC
-            if let imageID = c.ID
-            {
-                sliderTab.imageIDList.append(imageID)
-            }
-            
-        }
     }
     
     
@@ -90,12 +81,23 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("Will called")
         self.cellList.removeAll()
         self.imageCollectionView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        print("Did called")
         loadCells()
+      /*  for c in self.cellList
+        {
+            let sliderTab = self.tabBarController!.viewControllers![1] as! SliderVC
+            if let imageID = c.ID
+            {
+                sliderTab.imageIDList.append(imageID)
+            }
+            
+        }*/
     }
     
     func loadCells()
