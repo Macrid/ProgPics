@@ -17,6 +17,7 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
     var storage = Storage.storage()
     var storageRef:StorageReference?
     var cellList = [UserCategoryTableViewCell]()
+   // var thumbnails = [UIImage]()
     
     @IBOutlet weak var progressionsTableView: UITableView!
 
@@ -57,7 +58,105 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         cell.titleTextbox.text = cellList[indexPath.row].title
         cell.dateTextbox.text = cellList[indexPath.row].date
         
+        if(cellList[indexPath.row].thumbnailID != nil)
+        {
+            cell.imageView!.image = nil
+            
+            let imageFilename = "\(cellList[indexPath.row].thumbnailID!).jpg"
+            
+            let tempFile = try! URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageFilename)
+
+            if(FileManager.default.fileExists(atPath: tempFile.path))
+            {
+                let imageData = try? Data(contentsOf: tempFile)
+
+                cell.thumbnailView.image = UIImage(data: imageData!)
+            } else {
+                storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+                    if let error = error {
+                        print("Error bildhämt")
+                        
+                    }
+                    else {
+                        try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
+                        
+                        cell.thumbnailView.image = UIImage(data: data!)
+                    }
+                })
+            }
+        }
+
         
+        
+        
+        /*
+        ref!.child(Auth.auth().currentUser!.uid).child("Progressions").child(cellList[indexPath.row].ID!).observeSingleEvent(of: .value, with: { (snapshot) in
+
+             if snapshot.hasChild("Thumbnail"){
+
+                let thumbnailRef = snapshot.childSnapshot(forPath: "Thumbnail").value
+                
+                
+                let imageFilename = "\(thumbnailRef!).jpg"
+                
+                let tempFile = try! URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageFilename)
+
+                if(FileManager.default.fileExists(atPath: tempFile.path))
+                {
+                    let imageData = try? Data(contentsOf: tempFile)
+
+                    cell.imageView?.image = UIImage(data: imageData!)
+                    
+                } else {
+                    self.storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+                        if let error = error {
+                            print("Error bildhämt")
+                            
+                        }
+                        else {
+                            try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
+                            
+                            
+                            cell.imageView?.image = UIImage(data: data!)
+                        }
+                    })
+                }
+                 print("exist")
+
+             }else{
+
+                 print("false room doesn't exist")
+             }
+
+
+         })*/
+        /*
+        let thumbnailRef = ref!.child(Auth.auth().currentUser!.uid).child("Progressions").child(cellList[indexPath.row].ID!).value(forKey: "Thumbnail")
+        
+        
+        let imageFilename = "\(thumbnailRef).jpg"
+        
+        let tempFile = try! URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageFilename)
+
+        if(FileManager.default.fileExists(atPath: tempFile.path))
+        {
+            let imageData = try? Data(contentsOf: tempFile)
+
+            cell.imageView?.image = UIImage(data: imageData!)
+        } else {
+            storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+                if let error = error {
+                    print("Error bildhämt")
+                    
+                }
+                else {
+                    try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
+                    
+                    
+                    cell.imageView?.image = UIImage(data: data!)
+                }
+            })
+        }*/
         
     /*    ref!.child(Auth.auth().currentUser!.uid).child("Progressions").child(cellList[indexPath.row].ID!).child("Images").observe(.value, with: { snapshot in
             
@@ -156,6 +255,12 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
                 newCell.title = (progressionSnapshot.childSnapshot(forPath: "Progression Title").value as! String)
                 newCell.date = (progressionSnapshot.childSnapshot(forPath: "Date Started").value as! String)
                 newCell.ID = progressionSnapshot.key
+                
+                if(progressionSnapshot.hasChild("Thumbnail"))
+                {
+                    newCell.thumbnailID = (progressionSnapshot.childSnapshot(forPath: "Thumbnail").value as! String)
+                }
+                
                 self.cellList.append(newCell)
             }
             self.progressionsTableView.reloadData()
@@ -185,6 +290,8 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
 
         }
     }
+    
+    
     
    /* func deleteCellFromDB(title: String)
     {
