@@ -47,6 +47,10 @@ class SliderVC: UIViewController {
         print(imageIDList)
         print(imageIDList.count)
         loadImageList()
+        if(imageList.count != 0)
+        {
+            imageView.image = imageList[0]
+        }
     }
     
     func loadImageList()
@@ -86,20 +90,12 @@ class SliderVC: UIViewController {
     }
     
     @IBAction func sliderChange(_ sender: Any) {
-        
-        imageView.image = imageList[Int(slider.value)]
+        if(imageList.count != 0)
+        {
+            imageView.image = imageList[Int(slider.value)]  
+        }
+
 
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

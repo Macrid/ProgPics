@@ -80,16 +80,18 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     }
     
     @IBAction func savePicture(_ sender: Any) {
+        if(imageView.image == nil)
+        {
+            return
+        }
         //uploadImage(imageView: imageView)
         //self.dismiss(animated: true, completion: nil)
         
        // performSegue(withIdentifier: "segue back to gallery", sender: nil)
         
         uploadImage(imageView: imageView)
-        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: {
-            
-        })
+        //self.navigationController?.popViewController(animated: true)
+        //self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelPicture(_ sender: Any) {
@@ -99,6 +101,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         
         imageRef?.delete(completion: nil)
         */
+        imageView.image = nil
         overlayView.isHidden = true
     }
     
@@ -107,8 +110,6 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         let jpegImage = imageView.image?.jpegData(compressionQuality: 0.8)
         
         let progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
-
-        progRef.child("Images").child(imageID!).child("Date").setValue(getTodaysDate())
         
         progRef.observeSingleEvent(of: .value, with: { (snapshot) in
 
@@ -123,13 +124,18 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
                 }
         })
         
-        imageRef!.putData(jpegImage!, metadata: nil) {(metadata, error) in
-            guard let metadata = metadata else {
+        imageRef!.putData(jpegImage!, metadata: nil, completion: {(metadata, error) in
+           
+            self.navigationController?.popViewController(animated: true)
+            
+            guard let metadata = metadata
+            else {
                 print("Error with upload")
                 return
             }
             
-        }
+        })
+        progRef.child("Images").child(imageID!).child("Date").setValue(getTodaysDate())
     }
     
     func getTodaysDate() -> String

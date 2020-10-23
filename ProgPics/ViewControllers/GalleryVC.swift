@@ -50,6 +50,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         } else {
             storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
                 if let error = error {
+                    print(imageFilename)
                     print("Error bildhämt")
                     
                 }
