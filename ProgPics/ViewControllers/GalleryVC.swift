@@ -16,6 +16,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     var storageRef:StorageReference?
     var cellList = [ThumbnailCollectionViewCell]()
     
+    @IBOutlet weak var fullscreenImageView: UIImageView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -24,7 +25,6 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         storageRef = storage.reference()
         
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(cellList.count)
@@ -77,7 +77,12 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
-        //LADDA RÄTT BILD o GÖR IMAGEVY SOM TÄCKER SKÄRMEN SYNLIG
+        print("clicked")
+        fullscreenImageView.isHidden = false
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
+        let cell = imageCollectionView.cellForItem(at: indexPath) as! ThumbnailCollectionViewCell
+        fullscreenImageView.image = cell.imageView.image
 
     }
     

@@ -50,7 +50,7 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VEL-l4-dId">
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VEL-l4-dId">
                                                     <rect key="frame" x="35" y="35" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </activityIndicatorView>
@@ -72,11 +72,6 @@
                                                 <constraint firstAttribute="bottom" secondItem="DdG-gZ-TJ1" secondAttribute="bottom" constant="5" id="xp7-Lg-d3E"/>
                                                 <constraint firstItem="DdG-gZ-TJ1" firstAttribute="top" secondItem="Jzu-b0-sdX" secondAttribute="top" constant="5" id="zST-6x-TT5"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="subviews">
-                                                    <exclude reference="VEL-l4-dId"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dateTextbox" destination="ja7-P2-iBk" id="FrS-b3-oF4"/>
