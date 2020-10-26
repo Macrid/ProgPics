@@ -211,8 +211,25 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){_, _, complete in
             let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
+
+                self.ref?.child(Auth.auth().currentUser!.uid).child("Progressions").child(self.cellList[indexPath.row].ID!).child("Images").observeSingleEvent(of: .value, with: {(snapshot) in
+                    
+                    for i in snapshot.children
+                    {
+                        let imageSnapshot = i as! DataSnapshot
+                        print(imageSnapshot.ref)
+                        self.storageRef?.child(Auth.auth().currentUser!.uid).child("\(imageSnapshot.key).jpg").delete(completion: nil)
+                    }
+                    
+                }) { (error) in
+                    print(error.localizedDescription)
+                    
+                }
+                
                 
                 self.ref?.child(Auth.auth().currentUser!.uid).child("Progressions").child(self.cellList[indexPath.row].ID!).removeValue()
+   
+                //storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename)
                 self.loadCells()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
