@@ -86,6 +86,13 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
 
     }
     
+    @IBAction func backFromFullscreen(_ sender: Any) {
+        fullscreenImageView.isHidden = true
+        self.navigationController?.isNavigationBarHidden = false
+        self.tabBarController?.tabBar.isHidden = false
+        fullscreenImageView.image = nil
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         print("Will called")
         self.cellList.removeAll()
