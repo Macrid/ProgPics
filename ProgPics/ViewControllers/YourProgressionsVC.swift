@@ -17,7 +17,6 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
     var storage = Storage.storage()
     var storageRef:StorageReference?
     var cellList = [UserCategoryTableViewCell]()
-   // var thumbnails = [UIImage]()
     
     @IBOutlet weak var progressionsTableView: UITableView!
 
@@ -89,99 +88,7 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         
-        /*
-        ref!.child(Auth.auth().currentUser!.uid).child("Progressions").child(cellList[indexPath.row].ID!).observeSingleEvent(of: .value, with: { (snapshot) in
-
-             if snapshot.hasChild("Thumbnail"){
-
-                let thumbnailRef = snapshot.childSnapshot(forPath: "Thumbnail").value
-                
-                
-                let imageFilename = "\(thumbnailRef!).jpg"
-                
-                let tempFile = try! URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageFilename)
-
-                if(FileManager.default.fileExists(atPath: tempFile.path))
-                {
-                    let imageData = try? Data(contentsOf: tempFile)
-
-                    cell.imageView?.image = UIImage(data: imageData!)
-                    
-                } else {
-                    self.storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
-                        if let error = error {
-                            print("Error bildhämt")
-                            
-                        }
-                        else {
-                            try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
-                            
-                            
-                            cell.imageView?.image = UIImage(data: data!)
-                        }
-                    })
-                }
-                 print("exist")
-
-             }else{
-
-                 print("false room doesn't exist")
-             }
-
-
-         })*/
-        /*
-        let thumbnailRef = ref!.child(Auth.auth().currentUser!.uid).child("Progressions").child(cellList[indexPath.row].ID!).value(forKey: "Thumbnail")
-        
-        
-        let imageFilename = "\(thumbnailRef).jpg"
-        
-        let tempFile = try! URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageFilename)
-
-        if(FileManager.default.fileExists(atPath: tempFile.path))
-        {
-            let imageData = try? Data(contentsOf: tempFile)
-
-            cell.imageView?.image = UIImage(data: imageData!)
-        } else {
-            storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
-                if let error = error {
-                    print("Error bildhämt")
-                    
-                }
-                else {
-                    try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
-                    
-                    
-                    cell.imageView?.image = UIImage(data: data!)
-                }
-            })
-        }*/
-        
-    /*    ref!.child(Auth.auth().currentUser!.uid).child("Progressions").child(cellList[indexPath.row].ID!).child("Images").observe(.value, with: { snapshot in
-            
-            
-            for p in snapshot.children
-            {
-                let snapshot = p as! DataSnapshot
-                let bildID = snapshot.key
-                imageRef.append(bildID)
-                print(imageRef[0])
-            }
-              
-        })
-        
-        
-        storageRef?.child(Auth.auth().currentUser!.uid).child("Progressions").child(cellList[indexPath.row].ID!).child("Images").child("\(imageRef[0]).jpg").getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
-            if let error = error {
-                print("Error bildhämt")
-                
-            }
-            else {
-                cell.thumbnailView.image = UIImage(data: data!)
-            }
-            })
-        */
+       
         return cell
 
     }
@@ -211,26 +118,9 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete"){_, _, complete in
             let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
+              
+                self.deleteProgression(indexPath: indexPath)
 
-                self.ref?.child(Auth.auth().currentUser!.uid).child("Progressions").child(self.cellList[indexPath.row].ID!).child("Images").observeSingleEvent(of: .value, with: {(snapshot) in
-                    
-                    for i in snapshot.children
-                    {
-                        let imageSnapshot = i as! DataSnapshot
-                        print(imageSnapshot.ref)
-                        self.storageRef?.child(Auth.auth().currentUser!.uid).child("\(imageSnapshot.key).jpg").delete(completion: nil)
-                    }
-                    
-                }) { (error) in
-                    print(error.localizedDescription)
-                    
-                }
-                
-                
-                self.ref?.child(Auth.auth().currentUser!.uid).child("Progressions").child(self.cellList[indexPath.row].ID!).removeValue()
-   
-                //storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename)
-                self.loadCells()
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
                 
@@ -308,12 +198,25 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    
-    
-   /* func deleteCellFromDB(title: String)
+    func deleteProgression(indexPath: IndexPath)
     {
-        ref?.child(Auth.auth().currentUser!.uid).child("Progressions")
-    }*/
+        self.ref?.child(Auth.auth().currentUser!.uid).child("Progressions").child(self.cellList[indexPath.row].ID!).child("Images").observeSingleEvent(of: .value, with: {(snapshot) in
+            
+            for i in snapshot.children
+            {
+                let imageSnapshot = i as! DataSnapshot
+                self.storageRef?.child(Auth.auth().currentUser!.uid).child("\(imageSnapshot.key).jpg").delete(completion: nil)
+            }
+            
+        }) { (error) in
+            print(error.localizedDescription)
+            
+        }
+
+        self.ref?.child(Auth.auth().currentUser!.uid).child("Progressions").child(self.cellList[indexPath.row].ID!).removeValue()
+
+        self.loadCells()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "segue to category")
