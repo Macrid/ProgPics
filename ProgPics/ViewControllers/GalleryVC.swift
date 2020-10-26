@@ -15,6 +15,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     var storage = Storage.storage()
     var storageRef:StorageReference?
     var cellList = [ThumbnailCollectionViewCell]()
+    @IBOutlet weak var closeFullscreenButton: UIButton!
     
     @IBOutlet weak var fullscreenImageView: UIImageView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
@@ -78,7 +79,9 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
         print("clicked")
+        
         fullscreenImageView.isHidden = false
+        closeFullscreenButton.isHidden = false
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
         let cell = imageCollectionView.cellForItem(at: indexPath) as! ThumbnailCollectionViewCell
@@ -88,6 +91,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     @IBAction func backFromFullscreen(_ sender: Any) {
         fullscreenImageView.isHidden = true
+        closeFullscreenButton.isHidden = true
         self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false
         fullscreenImageView.image = nil
