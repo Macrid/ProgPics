@@ -54,14 +54,30 @@
         <!--Before/After-->
         <scene sceneID="nud-d7-zlz">
             <objects>
-                <viewController title="Before/After" id="Ycn-aC-SNn" sceneMemberID="viewController">
+                <viewController title="Before/After" id="Ycn-aC-SNn" customClass="BeforeAfterVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X3T-PL-0J7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OMT-Tf-LSw">
+                                <rect key="frame" x="0.0" y="189.5" width="414" height="517.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="OMT-Tf-LSw" secondAttribute="height" multiplier="4:5" id="n8l-dl-OgJ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="swR-d7-C1y"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OMT-Tf-LSw" firstAttribute="leading" secondItem="swR-d7-C1y" secondAttribute="leading" id="XXv-Tk-fRk"/>
+                            <constraint firstItem="OMT-Tf-LSw" firstAttribute="centerY" secondItem="X3T-PL-0J7" secondAttribute="centerY" id="dwy-Os-UCw"/>
+                            <constraint firstItem="swR-d7-C1y" firstAttribute="trailing" secondItem="OMT-Tf-LSw" secondAttribute="trailing" id="xYK-jX-meb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Before/After" id="djF-vw-F3V"/>
+                    <connections>
+                        <outlet property="imageView" destination="OMT-Tf-LSw" id="v4o-WE-Vfn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bq-pa-DvG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -292,10 +308,10 @@
             </objects>
             <point key="canvasLocation" x="3393" y="747"/>
         </scene>
-        <!--Progress View Controller-->
+        <!--Progress Tab Bar Controller-->
         <scene sceneID="Cf6-yA-CO3">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="fvO-8Y-vzO" customClass="ProgressViewController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="fvO-8Y-vzO" customClass="ProgressTabBarController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="rlk-7I-A3X"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zf2-ip-SBn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

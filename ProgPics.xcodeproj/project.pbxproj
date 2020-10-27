@@ -18,7 +18,7 @@
 		844392A3251CAAD100DD5DA5 /* NewProgressionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844392A2251CAAD100DD5DA5 /* NewProgressionVC.swift */; };
 		8458681F25373B83008E31B6 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458681E25373B83008E31B6 /* CameraVC.swift */; };
 		846E61F6253DAD41003E91A2 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E61F5253DAD41003E91A2 /* ImageHelper.swift */; };
-		8486445B25220AE400F9C8AD /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445A25220AE400F9C8AD /* ProgressViewController.swift */; };
+		8486445B25220AE400F9C8AD /* ProgressTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445A25220AE400F9C8AD /* ProgressTabBarController.swift */; };
 		8486445F25220E5900F9C8AD /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445E25220E5900F9C8AD /* GalleryVC.swift */; };
 		8486446B25231AB300F9C8AD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8486446A25231AB300F9C8AD /* Auth.storyboard */; };
 		8486447025231D1800F9C8AD /* InspectProgression.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8486446F25231D1800F9C8AD /* InspectProgression.storyboard */; };
@@ -28,6 +28,7 @@
 		84CA550E2514E8930040FD79 /* UserCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */; };
 		84DDB1772518BF1E00FA6F69 /* LastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */; };
 		84E60A982524AB85002D67CD /* ThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E60A972524AB85002D67CD /* ThumbnailCollectionViewCell.swift */; };
+		84F3FEE425470BE700F2839D /* BeforeAfterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F3FEE325470BE700F2839D /* BeforeAfterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,7 +44,7 @@
 		844392A2251CAAD100DD5DA5 /* NewProgressionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewProgressionVC.swift; sourceTree = "<group>"; };
 		8458681E25373B83008E31B6 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		846E61F5253DAD41003E91A2 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
-		8486445A25220AE400F9C8AD /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		8486445A25220AE400F9C8AD /* ProgressTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTabBarController.swift; sourceTree = "<group>"; };
 		8486445E25220E5900F9C8AD /* GalleryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
 		8486446A25231AB300F9C8AD /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		8486446F25231D1800F9C8AD /* InspectProgression.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InspectProgression.storyboard; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		84CA550D2514E8930040FD79 /* UserCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		84DDB1762518BF1E00FA6F69 /* LastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastTableViewCell.swift; sourceTree = "<group>"; };
 		84E60A972524AB85002D67CD /* ThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
+		84F3FEE325470BE700F2839D /* BeforeAfterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeAfterVC.swift; sourceTree = "<group>"; };
 		C32A2DCA3409C80E0BA8A6F1 /* Pods-ProgPics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgPics.debug.xcconfig"; path = "Target Support Files/Pods-ProgPics/Pods-ProgPics.debug.xcconfig"; sourceTree = "<group>"; };
 		D2BA887A2C34B2097EF91B44 /* Pods-ProgPics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProgPics.release.xcconfig"; path = "Target Support Files/Pods-ProgPics/Pods-ProgPics.release.xcconfig"; sourceTree = "<group>"; };
 		DB7D79828CE9E89BD9DCF177 /* Pods_ProgPics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProgPics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,9 +125,10 @@
 				848644772523258B00F9C8AD /* RegisterVC.swift */,
 				8486445E25220E5900F9C8AD /* GalleryVC.swift */,
 				844392A2251CAAD100DD5DA5 /* NewProgressionVC.swift */,
-				8486445A25220AE400F9C8AD /* ProgressViewController.swift */,
+				8486445A25220AE400F9C8AD /* ProgressTabBarController.swift */,
 				84324C3F2510C751001BD9C5 /* LoginVC.swift */,
 				84324C6F251371F4001BD9C5 /* YourProgressionsVC.swift */,
+				84F3FEE325470BE700F2839D /* BeforeAfterVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -284,8 +287,9 @@
 				84E60A982524AB85002D67CD /* ThumbnailCollectionViewCell.swift in Sources */,
 				8458681F25373B83008E31B6 /* CameraVC.swift in Sources */,
 				84324C70251371F4001BD9C5 /* YourProgressionsVC.swift in Sources */,
+				84F3FEE425470BE700F2839D /* BeforeAfterVC.swift in Sources */,
 				8486445F25220E5900F9C8AD /* GalleryVC.swift in Sources */,
-				8486445B25220AE400F9C8AD /* ProgressViewController.swift in Sources */,
+				8486445B25220AE400F9C8AD /* ProgressTabBarController.swift in Sources */,
 				844392A3251CAAD100DD5DA5 /* NewProgressionVC.swift in Sources */,
 				846E61F6253DAD41003E91A2 /* ImageHelper.swift in Sources */,
 			);

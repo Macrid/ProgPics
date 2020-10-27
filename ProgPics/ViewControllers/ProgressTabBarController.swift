@@ -9,6 +9,7 @@ import UIKit
 
 class ProgressTabBarController: UITabBarController {
 
+    var progID:String?
     override func viewDidLoad() {
         super.viewDidLoad()
     }

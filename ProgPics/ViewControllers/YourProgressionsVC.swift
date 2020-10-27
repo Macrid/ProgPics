@@ -221,7 +221,8 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "segue to category")
         {
-            let tabBarController = segue.destination as! UITabBarController
+            let tabBarController = segue.destination as! ProgressTabBarController
+            tabBarController.progID = clickedCellID
             let galleryViewController = tabBarController.viewControllers?[0] as! GalleryVC
             galleryViewController.progID = clickedCellID
         }
