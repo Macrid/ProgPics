@@ -211,19 +211,23 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-wW-wI6">
                                 <rect key="frame" x="0.0" y="64" width="414" height="517.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-AQ-cg3">
-                                        <rect key="frame" x="360" y="8" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d9E-wW-wI6" secondAttribute="height" multiplier="4:5" id="es0-7J-Vec"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftI-4b-ec6">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-AQ-cg3" userLabel="Toggle flash">
+                                <rect key="frame" x="364" y="72.5" width="40" height="43.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="dfK-Uv-ITe"/>
+                                    <constraint firstAttribute="height" constant="42" id="hmg-sP-Lcf"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="lightbulb.slash.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="toggleFlash:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="fck-1i-MwN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftI-4b-ec6" userLabel="Take Picture">
                                 <rect key="frame" x="165.5" y="771.5" width="83" height="82"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ftI-4b-ec6" secondAttribute="height" multiplier="1:1" id="O0G-uv-b8A"/>
@@ -236,15 +240,24 @@
                                     <action selector="takePicture:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="vHr-Yg-ake"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwc-VZ-KT1">
-                                <rect key="frame" x="348" y="715" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwc-VZ-KT1" userLabel="Swap camera">
+                                <rect key="frame" x="355" y="592" width="49" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="BGv-c4-VNl"/>
+                                    <constraint firstAttribute="width" constant="49" id="TWb-D6-Tr2"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="camera.rotate.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="swapCamera:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="krj-zi-FAb"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRZ-8E-Lw9">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRZ-8E-Lw9" userLabel="Toggle seethrough">
                                 <rect key="frame" x="20" y="715" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="toggleSeethrough:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="ISx-Ad-Ffq"/>
+                                </connections>
                             </button>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSd-wu-yA8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -286,13 +299,17 @@
                         <constraints>
                             <constraint firstItem="d9E-wW-wI6" firstAttribute="top" secondItem="dHK-z8-Jnz" secondAttribute="top" constant="20" id="4jP-bh-boV"/>
                             <constraint firstAttribute="bottom" secondItem="lSd-wu-yA8" secondAttribute="bottom" id="6je-c1-gGi"/>
+                            <constraint firstItem="Yos-AQ-cg3" firstAttribute="top" secondItem="d9E-wW-wI6" secondAttribute="top" constant="10" id="7Dl-jb-V5N"/>
+                            <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="Yos-AQ-cg3" secondAttribute="trailing" constant="10" id="81a-NU-1dR"/>
                             <constraint firstItem="ftI-4b-ec6" firstAttribute="centerX" secondItem="xXR-Xm-YG9" secondAttribute="centerX" id="RTV-16-JgH"/>
                             <constraint firstAttribute="bottomMargin" secondItem="ftI-4b-ec6" secondAttribute="bottom" constant="8" id="Tjx-wl-zcT"/>
                             <constraint firstItem="d9E-wW-wI6" firstAttribute="leading" secondItem="dHK-z8-Jnz" secondAttribute="leading" id="Y9K-TU-Ynp"/>
                             <constraint firstItem="d9E-wW-wI6" firstAttribute="centerX" secondItem="xXR-Xm-YG9" secondAttribute="centerX" id="YIn-mf-DUe"/>
                             <constraint firstItem="lSd-wu-yA8" firstAttribute="top" secondItem="xXR-Xm-YG9" secondAttribute="top" id="chp-uJ-qFm"/>
                             <constraint firstAttribute="trailing" secondItem="lSd-wu-yA8" secondAttribute="trailing" id="e3J-4M-I2O"/>
+                            <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="Jwc-VZ-KT1" secondAttribute="trailing" constant="10" id="gBV-ci-tje"/>
                             <constraint firstItem="ftI-4b-ec6" firstAttribute="width" secondItem="xXR-Xm-YG9" secondAttribute="width" multiplier="0.2" id="lnI-oC-P0D"/>
+                            <constraint firstItem="Jwc-VZ-KT1" firstAttribute="top" secondItem="d9E-wW-wI6" secondAttribute="bottom" constant="10" id="npN-Nm-dv4"/>
                             <constraint firstItem="lSd-wu-yA8" firstAttribute="leading" secondItem="xXR-Xm-YG9" secondAttribute="leading" id="qBH-cK-Elb"/>
                             <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="d9E-wW-wI6" secondAttribute="trailing" id="v2K-uI-iUp"/>
                         </constraints>
@@ -302,11 +319,12 @@
                         <outlet property="imageView" destination="MvD-QP-Gfd" id="u1d-Lj-Bw0"/>
                         <outlet property="overlayView" destination="lSd-wu-yA8" id="PU9-Yw-Yx3"/>
                         <outlet property="previewView" destination="d9E-wW-wI6" id="Ovx-uY-CbC"/>
+                        <outlet property="toggleFlashButton" destination="Yos-AQ-cg3" id="ThR-pg-2X2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ai8-Ts-5wS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3393" y="747"/>
+            <point key="canvasLocation" x="3392.753623188406" y="746.65178571428567"/>
         </scene>
         <!--Progress Tab Bar Controller-->
         <scene sceneID="Cf6-yA-CO3">
@@ -330,10 +348,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.rotate.fill" catalog="system" width="128" height="94"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="lasso" catalog="system" width="128" height="118"/>
+        <image name="lightbulb.slash.fill" catalog="system" width="113" height="128"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

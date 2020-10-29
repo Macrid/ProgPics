@@ -14,10 +14,14 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBOutlet weak var previewView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var overlayView: UIView!
+    @IBOutlet weak var toggleFlashButton: UIButton!
     
     var captureSession : AVCaptureSession!
     var cameraOutput : AVCapturePhotoOutput!
     var previewLayer : AVCaptureVideoPreviewLayer!
+    var device : AVCaptureDevice!
+    var flashIsOn = false
+    var usingFrontCamera = false
     
     var progID:String?
     var imageID:String?
@@ -33,8 +37,8 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         imageRef = storageRef.child(Auth.auth().currentUser!.uid).child("\(imageID!).jpg")
         
         captureSession = AVCaptureSession()
-               captureSession.sessionPreset = AVCaptureSession.Preset.photo
-               cameraOutput = AVCapturePhotoOutput()
+        captureSession.sessionPreset = AVCaptureSession.Preset.photo
+        cameraOutput = AVCapturePhotoOutput()
         
         let device = AVCaptureDevice.default(for: AVMediaType.video)
         
@@ -61,22 +65,43 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBAction func takePicture(_ sender: Any) {
         let photoSettings : AVCapturePhotoSettings!
         photoSettings = AVCapturePhotoSettings.init(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
-        photoSettings.flashMode = .off
+        if (flashIsOn)
+        {
+            photoSettings.flashMode = .on
+        }
+        else
+        {
+            photoSettings.flashMode = .off
+        }
         photoSettings.isHighResolutionPhotoEnabled = false
         
+        
+        
         cameraOutput.capturePhoto(with: photoSettings, delegate: self)
-        overlayView.isHidden = false
     }
     
     func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         
         let imageData = photo.fileDataRepresentation()
-        var theImage = UIImage(data: imageData!)
+        let sourceImage = UIImage(data: imageData!)
         
-        theImage = ImageHelper().resizeImage(theImage!, newWidth: 500)
+        var finalImage:UIImage!
         
-        imageView.image = theImage
-      //  uploadImage(imageView: imageView)
+        if(usingFrontCamera)
+        {
+            finalImage = UIImage(cgImage: sourceImage!.cgImage!, scale: sourceImage!.scale, orientation: .leftMirrored)
+        }
+        else
+        {
+            finalImage = sourceImage
+        }
+        
+        
+        finalImage = ImageHelper().resizeImage(finalImage, newWidth: 500)
+        
+        imageView.image = finalImage
+        overlayView.isHidden = false
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func savePicture(_ sender: Any) {
@@ -84,25 +109,56 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         {
             return
         }
-        //uploadImage(imageView: imageView)
-        //self.dismiss(animated: true, completion: nil)
-        
-       // performSegue(withIdentifier: "segue back to gallery", sender: nil)
-        
         uploadImage(imageView: imageView)
-        //self.navigationController?.popViewController(animated: true)
-        //self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelPicture(_ sender: Any) {
-       /* let progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
-        
-        progRef.child("Images").child(imageID!).removeValue()
-        
-        imageRef?.delete(completion: nil)
-        */
+        self.navigationController?.isNavigationBarHidden = false
         imageView.image = nil
         overlayView.isHidden = true
+    }
+    
+    @IBAction func toggleFlash(_ sender: Any) {
+        if (flashIsOn)
+        {
+            toggleFlashButton.setBackgroundImage(UIImage(systemName: "lightbulb.slash.fill"), for: .normal)
+            flashIsOn = false
+        }
+        else
+        {
+            toggleFlashButton.setBackgroundImage(UIImage(systemName: "lightbulb.fill"), for: .normal)
+            flashIsOn = true
+        }
+    }
+    
+    @IBAction func swapCamera(_ sender: Any) {
+        usingFrontCamera = !usingFrontCamera
+          do{
+              captureSession.removeInput(captureSession.inputs.first!)
+
+              if(usingFrontCamera){
+                  device = getFrontCamera()
+              }else{
+                  device = getBackCamera()
+              }
+              let captureDeviceInput1 = try AVCaptureDeviceInput(device: device)
+              captureSession.addInput(captureDeviceInput1)
+          }catch{
+              print(error.localizedDescription)
+          }
+    }
+    
+    func getFrontCamera() -> AVCaptureDevice?{
+        return AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .front).devices.first
+        return nil
+    }
+
+    func getBackCamera() -> AVCaptureDevice?{
+        return AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .back).devices.first
+        return nil
+    }
+    
+    @IBAction func toggleSeethrough(_ sender: Any) {
     }
     
     func uploadImage(imageView: UIImageView)
