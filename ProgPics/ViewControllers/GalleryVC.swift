@@ -106,10 +106,19 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     @IBAction func deleteImage(_ sender: Any) {
         print(selectedImageID)
         progRef!.child("Images").child(selectedImageID!).removeValue()
+        if(selectedImageID == cellList.first?.ID)
+        {
+            progRef?.child("Thumbnail").removeValue()
+            cellList.remove(at: 0)
+            if(cellList.isEmpty == false)
+            {
+                progRef?.child("Thumbnail").setValue(cellList.first?.ID)
+            }
+        }
+        
         self.storageRef?.child(Auth.auth().currentUser!.uid).child("\(selectedImageID!).jpg").delete(completion: nil)
 
         backFromFullscreen(deleteImageButton!)
-        self.cellList.removeAll()
         self.loadCells()
     }
 
@@ -139,6 +148,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         //self.cellList.removeAll(keepingCapacity: false)
         
         progRef?.child("Images").observe(.value, with: { snapshot in
+            self.cellList.removeAll()
             for p in snapshot.children
             {
                 
