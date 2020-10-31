@@ -105,21 +105,34 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     @IBAction func deleteImage(_ sender: Any) {
         print(selectedImageID)
-        progRef!.child("Images").child(selectedImageID!).removeValue()
-        if(selectedImageID == cellList.first?.ID)
-        {
-            progRef?.child("Thumbnail").removeValue()
-            cellList.remove(at: 0)
-            if(cellList.isEmpty == false)
-            {
-                progRef?.child("Thumbnail").setValue(cellList.first?.ID)
-            }
-        }
         
-        self.storageRef?.child(Auth.auth().currentUser!.uid).child("\(selectedImageID!).jpg").delete(completion: nil)
+        
+        let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
+              
+            self.progRef!.child("Images").child(self.selectedImageID!).removeValue()
+            if(self.selectedImageID == self.cellList.first?.ID)
+            {
+                self.progRef?.child("Thumbnail").removeValue()
+                self.cellList.remove(at: 0)
+                if(self.cellList.isEmpty == false)
+                {
+                    self.progRef?.child("Thumbnail").setValue(self.cellList.first?.ID)
+                }
+            }
+                
+            self.storageRef?.child(Auth.auth().currentUser!.uid).child("\(self.selectedImageID!).jpg").delete(completion: nil)
 
-        backFromFullscreen(deleteImageButton!)
-        self.loadCells()
+            self.backFromFullscreen(self.deleteImageButton!)
+            self.loadCells()
+
+            }))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {_ in
+                
+            }))
+        self.present(alert, animated: true, completion: nil)
+        
+        
     }
 
     
