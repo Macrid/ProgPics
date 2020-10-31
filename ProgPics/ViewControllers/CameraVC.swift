@@ -15,6 +15,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var overlayView: UIView!
     @IBOutlet weak var toggleFlashButton: UIButton!
+    @IBOutlet weak var seethroughImage: UIImageView!
     
     var captureSession : AVCaptureSession!
     var cameraOutput : AVCapturePhotoOutput!
@@ -25,16 +26,22 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
     
     var progID:String?
     var imageID:String?
+    let storage = Storage.storage()
+    var storageRef:StorageReference?
     var imageRef:StorageReference?
+    var transPicID:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         imageID = UUID().uuidString
         
-        let storage = Storage.storage()
-        let storageRef = storage.reference()
-        imageRef = storageRef.child(Auth.auth().currentUser!.uid).child("\(imageID!).jpg")
+        storageRef = storage.reference()
+        imageRef = storageRef!.child(Auth.auth().currentUser!.uid).child("\(imageID!).jpg")
+        
+        if (transPicID != nil)
+        {
+            getTransparentPicture()
+        }
         
         captureSession = AVCaptureSession()
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
@@ -109,6 +116,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         {
             return
         }
+        self.navigationController?.isNavigationBarHidden = false
         uploadImage(imageView: imageView)
     }
     
@@ -158,7 +166,16 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         return nil
     }
     
-    @IBAction func toggleSeethrough(_ sender: Any) {
+    @IBAction func toggleSeethrough(_ sender: Any)
+    {
+        if(seethroughImage.isHidden == true)
+        {
+            seethroughImage.isHidden = false
+        }
+        else
+        {
+            seethroughImage.isHidden = true
+        }
     }
     
     func uploadImage(imageView: UIImageView)
@@ -201,6 +218,35 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         let date = Date()
         let todaysDate = formatter.string(from: date)
         return todaysDate
+    }
+    
+    func getTransparentPicture()
+    {
+        let imageFilename = "\(transPicID!).jpg"
+        
+        let tempFile = try! URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageFilename)
+
+        if(FileManager.default.fileExists(atPath: tempFile.path))
+        {
+            let imageData = try? Data(contentsOf: tempFile)
+            seethroughImage.image = UIImage(data: imageData!)
+
+        } else {
+            storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+                if let error = error {
+                    print(imageFilename)
+                    print("Error bildhämt")
+                    
+                }
+                else {
+                    try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
+                    
+                    self.seethroughImage.image = UIImage(data: data!)
+
+                }
+            })
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -15,8 +15,11 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     var storage = Storage.storage()
     var storageRef:StorageReference?
     var cellList = [ThumbnailCollectionViewCell]()
+    var selectedImageID:String?
+    
     @IBOutlet weak var closeFullscreenButton: UIButton!
     
+    @IBOutlet weak var deleteImageButton: UIButton!
     @IBOutlet weak var fullscreenImageView: UIImageView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     
@@ -46,7 +49,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         {
             let imageData = try? Data(contentsOf: tempFile)
 
-            cell.image = UIImage(data: imageData!)
+            cellList[indexPath.row].image = UIImage(data: imageData!)
             cell.imageView.image = UIImage(data: imageData!)
         } else {
             storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
@@ -59,7 +62,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                     try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
                     
                     
-                    cell.image = UIImage(data: data!)
+                    self.cellList[indexPath.row].image = UIImage(data: data!)
                     cell.imageView.image = UIImage(data: data!)
                 }
             })
@@ -82,20 +85,34 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         fullscreenImageView.isHidden = false
         closeFullscreenButton.isHidden = false
+        deleteImageButton.isHidden = false
         self.navigationController?.isNavigationBarHidden = true
         self.tabBarController?.tabBar.isHidden = true
         let cell = imageCollectionView.cellForItem(at: indexPath) as! ThumbnailCollectionViewCell
         fullscreenImageView.image = cell.imageView.image
+        selectedImageID = cellList[indexPath.row].ID
 
     }
     
     @IBAction func backFromFullscreen(_ sender: Any) {
         fullscreenImageView.isHidden = true
         closeFullscreenButton.isHidden = true
+        deleteImageButton.isHidden = true
         self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false
         fullscreenImageView.image = nil
     }
+    
+    @IBAction func deleteImage(_ sender: Any) {
+        print(selectedImageID)
+        progRef!.child("Images").child(selectedImageID!).removeValue()
+        self.storageRef?.child(Auth.auth().currentUser!.uid).child("\(selectedImageID!).jpg").delete(completion: nil)
+
+        backFromFullscreen(deleteImageButton!)
+        self.cellList.removeAll()
+        self.loadCells()
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
         print("Will called")
@@ -146,7 +163,10 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         if(segue.identifier == "segue to camera") {
             let cameraVC = segue.destination as! CameraVC
             cameraVC.progID = self.progID
-            
+            if(cellList.isEmpty == false)
+            {
+                cameraVC.transPicID = self.cellList[Int(cellList.count) - 1].ID!
+            }
         }
     }
     /*func imageTapped(_ sender: nil) {

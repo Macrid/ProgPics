@@ -171,10 +171,23 @@
                                     <action selector="backFromFullscreen:" destination="wMD-kh-fcp" eventType="touchUpInside" id="wL9-rD-L5K"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liM-XO-dtA" userLabel="Delete Image">
+                                <rect key="frame" x="355" y="43" width="39" height="40.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="UAl-I5-vkH"/>
+                                    <constraint firstAttribute="height" constant="40" id="oGD-sr-uCz"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="trash" catalog="system"/>
+                                <connections>
+                                    <action selector="deleteImage:" destination="wMD-kh-fcp" eventType="touchUpInside" id="oTS-S2-9ut"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sxo-rd-IE1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="liM-XO-dtA" firstAttribute="top" secondItem="Sxo-rd-IE1" secondAttribute="top" id="0EZ-lx-iNW"/>
+                            <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="liM-XO-dtA" secondAttribute="trailing" constant="20" id="4tn-5E-GHh"/>
                             <constraint firstItem="WpD-HY-X4X" firstAttribute="leading" secondItem="Sxo-rd-IE1" secondAttribute="leading" id="6YR-ba-reZ"/>
                             <constraint firstAttribute="bottom" secondItem="d6b-HO-EWq" secondAttribute="bottom" id="9Ri-DE-F32"/>
                             <constraint firstItem="Ezp-Ji-sx6" firstAttribute="leading" secondItem="Sxo-rd-IE1" secondAttribute="leading" constant="20" id="Fts-8u-JIH"/>
@@ -193,6 +206,7 @@
                     <navigationItem key="navigationItem" id="98n-sI-UnT"/>
                     <connections>
                         <outlet property="closeFullscreenButton" destination="Ezp-Ji-sx6" id="5Da-Sx-5qd"/>
+                        <outlet property="deleteImageButton" destination="liM-XO-dtA" id="3Pe-Lo-d81"/>
                         <outlet property="fullscreenImageView" destination="d6b-HO-EWq" id="Re8-fq-Kw2"/>
                         <outlet property="imageCollectionView" destination="WpD-HY-X4X" id="5FQ-1W-hLn"/>
                     </connections>
@@ -211,11 +225,17 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-wW-wI6">
                                 <rect key="frame" x="0.0" y="64" width="414" height="517.5"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d9E-wW-wI6" secondAttribute="height" multiplier="4:5" id="es0-7J-Vec"/>
                                 </constraints>
                             </view>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YgL-Em-KWp">
+                                <rect key="frame" x="0.0" y="63" width="414" height="518"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="YgL-Em-KWp" secondAttribute="height" multiplier="4:5" id="jeT-QE-ljT"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-AQ-cg3" userLabel="Toggle flash">
                                 <rect key="frame" x="364" y="72.5" width="40" height="43.5"/>
                                 <constraints>
@@ -251,10 +271,13 @@
                                     <action selector="swapCamera:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="krj-zi-FAb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRZ-8E-Lw9" userLabel="Toggle seethrough">
-                                <rect key="frame" x="20" y="715" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRZ-8E-Lw9" userLabel="Toggle seethrough">
+                                <rect key="frame" x="10" y="590.5" width="38" height="41.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gqh-tG-qLv"/>
+                                    <constraint firstAttribute="width" constant="38" id="iV4-Gq-LRM"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="square.stack" catalog="system"/>
                                 <connections>
                                     <action selector="toggleSeethrough:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="ISx-Ad-Ffq"/>
                                 </connections>
@@ -297,10 +320,13 @@
                         <viewLayoutGuide key="safeArea" id="dHK-z8-Jnz"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="YgL-Em-KWp" secondAttribute="trailing" id="2Zy-jc-rN8"/>
                             <constraint firstItem="d9E-wW-wI6" firstAttribute="top" secondItem="dHK-z8-Jnz" secondAttribute="top" constant="20" id="4jP-bh-boV"/>
                             <constraint firstAttribute="bottom" secondItem="lSd-wu-yA8" secondAttribute="bottom" id="6je-c1-gGi"/>
                             <constraint firstItem="Yos-AQ-cg3" firstAttribute="top" secondItem="d9E-wW-wI6" secondAttribute="top" constant="10" id="7Dl-jb-V5N"/>
                             <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="Yos-AQ-cg3" secondAttribute="trailing" constant="10" id="81a-NU-1dR"/>
+                            <constraint firstItem="YgL-Em-KWp" firstAttribute="leading" secondItem="dHK-z8-Jnz" secondAttribute="leading" id="GMV-HR-UOe"/>
+                            <constraint firstItem="YgL-Em-KWp" firstAttribute="centerY" secondItem="d9E-wW-wI6" secondAttribute="centerY" id="LmE-ew-g6R"/>
                             <constraint firstItem="ftI-4b-ec6" firstAttribute="centerX" secondItem="xXR-Xm-YG9" secondAttribute="centerX" id="RTV-16-JgH"/>
                             <constraint firstAttribute="bottomMargin" secondItem="ftI-4b-ec6" secondAttribute="bottom" constant="8" id="Tjx-wl-zcT"/>
                             <constraint firstItem="d9E-wW-wI6" firstAttribute="leading" secondItem="dHK-z8-Jnz" secondAttribute="leading" id="Y9K-TU-Ynp"/>
@@ -308,10 +334,12 @@
                             <constraint firstItem="lSd-wu-yA8" firstAttribute="top" secondItem="xXR-Xm-YG9" secondAttribute="top" id="chp-uJ-qFm"/>
                             <constraint firstAttribute="trailing" secondItem="lSd-wu-yA8" secondAttribute="trailing" id="e3J-4M-I2O"/>
                             <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="Jwc-VZ-KT1" secondAttribute="trailing" constant="10" id="gBV-ci-tje"/>
+                            <constraint firstItem="kRZ-8E-Lw9" firstAttribute="top" secondItem="Jwc-VZ-KT1" secondAttribute="top" id="iMf-J8-GGT"/>
                             <constraint firstItem="ftI-4b-ec6" firstAttribute="width" secondItem="xXR-Xm-YG9" secondAttribute="width" multiplier="0.2" id="lnI-oC-P0D"/>
                             <constraint firstItem="Jwc-VZ-KT1" firstAttribute="top" secondItem="d9E-wW-wI6" secondAttribute="bottom" constant="10" id="npN-Nm-dv4"/>
                             <constraint firstItem="lSd-wu-yA8" firstAttribute="leading" secondItem="xXR-Xm-YG9" secondAttribute="leading" id="qBH-cK-Elb"/>
-                            <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="d9E-wW-wI6" secondAttribute="trailing" id="v2K-uI-iUp"/>
+                            <constraint firstItem="kRZ-8E-Lw9" firstAttribute="leading" secondItem="dHK-z8-Jnz" secondAttribute="leading" constant="10" id="r5w-A4-zjr"/>
+                            <constraint firstItem="YgL-Em-KWp" firstAttribute="centerX" secondItem="d9E-wW-wI6" secondAttribute="centerX" id="ual-fB-wg7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="v5e-9b-1hb"/>
@@ -319,6 +347,7 @@
                         <outlet property="imageView" destination="MvD-QP-Gfd" id="u1d-Lj-Bw0"/>
                         <outlet property="overlayView" destination="lSd-wu-yA8" id="PU9-Yw-Yx3"/>
                         <outlet property="previewView" destination="d9E-wW-wI6" id="Ovx-uY-CbC"/>
+                        <outlet property="seethroughImage" destination="YgL-Em-KWp" id="YqL-Kp-dee"/>
                         <outlet property="toggleFlashButton" destination="Yos-AQ-cg3" id="ThR-pg-2X2"/>
                     </connections>
                 </viewController>
@@ -355,11 +384,13 @@
         <image name="lasso" catalog="system" width="128" height="118"/>
         <image name="lightbulb.slash.fill" catalog="system" width="113" height="128"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <image name="square.stack" catalog="system" width="113" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
