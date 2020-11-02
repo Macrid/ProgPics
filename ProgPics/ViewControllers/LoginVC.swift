@@ -7,9 +7,10 @@
 
 import UIKit
 import Firebase
+import FirebaseUI
 import CryptoKit
 
-class LoginVC: UIViewController {
+class LoginVC: UIViewController, FUIAuthDelegate {
 
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
@@ -24,7 +25,7 @@ class LoginVC: UIViewController {
       }
     
     @IBAction func doLogin(_ sender: Any) {
-        Auth.auth().signIn(withEmail: emailTextfield.text!, password: PasswordTextField.text!)
+       /* Auth.auth().signIn(withEmail: emailTextfield.text!, password: PasswordTextField.text!)
         { authResult, error in
             if(error == nil)
             {
@@ -35,8 +36,25 @@ class LoginVC: UIViewController {
                 print(error?.localizedDescription)
             }
             
+        }*/
+        
+        if let authUI = FUIAuth.defaultAuthUI() {
+            authUI.providers = [FUIOAuth.appleAuthProvider()]
+            authUI.delegate = self
+            
+            let authViewController = authUI.authViewController()
+            self.present(authViewController, animated: true)
         }
+        
     }
     
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+        if let user = authDataResult?.user {
+        
+            
+            print(user.uid)
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
