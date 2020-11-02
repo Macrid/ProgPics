@@ -59,6 +59,8 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         
         if(cellList[indexPath.row].thumbnailID != nil)
         {
+            cell.thumbnailView.contentMode = .scaleAspectFill
+            
             cell.imageView!.image = nil
             
             let imageFilename = "\(cellList[indexPath.row].thumbnailID!).jpg"
@@ -83,6 +85,10 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
                     }
                 })
             }
+        }
+        else{
+            cell.thumbnailView.image = UIImage(systemName: "questionmark.folder.fill")
+            cell.thumbnailView.contentMode = .scaleAspectFit
         }
 
         return cell

@@ -41,7 +41,7 @@
                             <constraint firstItem="Drv-jI-ZyT" firstAttribute="trailing" secondItem="7Av-bd-Emy" secondAttribute="trailing" constant="20" id="odp-8W-BG7"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Progression Slider" id="Ycn-Et-sQG"/>
+                    <tabBarItem key="tabBarItem" title="Progression Slider" image="slider.horizontal.below.rectangle" catalog="system" id="Ycn-Et-sQG"/>
                     <connections>
                         <outlet property="imageView" destination="2gJ-XB-w3H" id="TeV-Eo-mp7"/>
                         <outlet property="slider" destination="7Av-bd-Emy" id="Kmf-o0-gS9"/>
@@ -74,7 +74,7 @@
                             <constraint firstItem="swR-d7-C1y" firstAttribute="trailing" secondItem="OMT-Tf-LSw" secondAttribute="trailing" id="xYK-jX-meb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Before/After" id="djF-vw-F3V"/>
+                    <tabBarItem key="tabBarItem" title="Beginning and Now" image="square.line.vertical.square.fill.left" catalog="system" id="djF-vw-F3V"/>
                     <connections>
                         <outlet property="imageView" destination="OMT-Tf-LSw" id="v4o-WE-Vfn"/>
                     </connections>
@@ -202,7 +202,7 @@
                             <constraint firstAttribute="trailing" secondItem="d6b-HO-EWq" secondAttribute="trailing" id="teP-5h-9aN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Gallery" id="M1H-cp-K54"/>
+                    <tabBarItem key="tabBarItem" title="Gallery" image="square.grid.3x3.fill" catalog="system" id="M1H-cp-K54"/>
                     <navigationItem key="navigationItem" id="98n-sI-UnT"/>
                     <connections>
                         <outlet property="closeFullscreenButton" destination="Ezp-Ji-sx6" id="5Da-Sx-5qd"/>
@@ -384,6 +384,9 @@
         <image name="lasso" catalog="system" width="128" height="118"/>
         <image name="lightbulb.slash.fill" catalog="system" width="113" height="128"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <image name="slider.horizontal.below.rectangle" catalog="system" width="128" height="115"/>
+        <image name="square.grid.3x3.fill" catalog="system" width="128" height="112"/>
+        <image name="square.line.vertical.square.fill.left" catalog="system" width="128" height="83"/>
         <image name="square.stack" catalog="system" width="113" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">

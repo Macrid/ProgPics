@@ -56,7 +56,8 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
                             captureSession.addOutput(cameraOutput)
                             previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                             previewLayer.frame = previewView.bounds
-                            previewLayer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+                            
+                            previewLayer.videoGravity = AVLayerVideoGravity.resize
                             previewView.layer.addSublayer(previewLayer)
                             captureSession.startRunning()
                         }

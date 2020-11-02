@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import CryptoKit
 
 class LoginVC: UIViewController {
 
@@ -36,5 +37,6 @@ class LoginVC: UIViewController {
             
         }
     }
+    
 }
 
