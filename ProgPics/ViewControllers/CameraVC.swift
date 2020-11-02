@@ -118,6 +118,9 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
             return
         }
         uploadImage(imageView: imageView)
+        
+         self.navigationController?.popViewController(animated: true)
+         self.navigationController?.isNavigationBarHidden = false
     }
     
     @IBAction func cancelPicture(_ sender: Any) {
@@ -199,8 +202,8 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         
         imageRef!.putData(jpegImage!, metadata: nil, completion: {(metadata, error) in
            
-            self.navigationController?.popViewController(animated: true)
-            self.navigationController?.isNavigationBarHidden = false
+           // self.navigationController?.popViewController(animated: true)
+           // self.navigationController?.isNavigationBarHidden = false
             
             guard let metadata = metadata
             else {

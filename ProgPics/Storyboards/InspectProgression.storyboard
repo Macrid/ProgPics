@@ -223,7 +223,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-wW-wI6">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-wW-wI6">
                                 <rect key="frame" x="0.0" y="243.5" width="414" height="517.5"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
