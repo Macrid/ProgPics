@@ -124,7 +124,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="ProgressionsTableView" destination="uaP-vQ-a0N" id="ers-1s-gqn"/>
-                        <segue destination="phH-W8-kb1" kind="showDetail" identifier="segue to new" id="mnv-uY-1pc"/>
+                        <segue destination="phH-W8-kb1" kind="presentation" identifier="segue to new" id="mnv-uY-1pc"/>
                         <segue destination="2V1-Pn-Fik" kind="show" identifier="segue to category" id="jaN-Tb-7ek"/>
                         <segue destination="Ant-dS-vnq" kind="show" identifier="segue to auth" animates="NO" id="Ck5-0R-7IO"/>
                     </connections>
@@ -136,13 +136,13 @@
         <!--New Progression-->
         <scene sceneID="X83-E9-jWP">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="phH-W8-kb1" customClass="NewProgressionVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="phH-W8-kb1" customClass="NewProgressionVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pgc-WR-CM0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VrP-pp-vEa">
-                                <rect key="frame" x="0.0" y="44" width="414" height="1156"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="1146"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNO-LT-c7c">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="584.5"/>

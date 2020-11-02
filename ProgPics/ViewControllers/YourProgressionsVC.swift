@@ -85,10 +85,6 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
             }
         }
 
-        
-        
-        
-       
         return cell
 
     }
@@ -96,7 +92,8 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.row == cellList.count)
         {
-            performSegue(withIdentifier: "segue to new", sender: nil)
+            addNewProg()
+            //performSegue(withIdentifier: "segue to new", sender: nil)
         }
         else
         {
@@ -216,6 +213,32 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         self.ref?.child(Auth.auth().currentUser!.uid).child("Progressions").child(self.cellList[indexPath.row].ID!).removeValue()
 
         self.loadCells()
+    }
+    
+    func addNewProg()
+    {
+        let progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").childByAutoId()
+        
+        let alert = UIAlertController(title: "New Progression", message: "Add a title", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: {(textfield) in})
+        alert.addAction(UIAlertAction(title: "Save", style: .default, handler: {_ in
+            
+            let prog : [String : Any] = ["Progression Title" : alert.textFields!.first?.text!, "Date Started" : self.getTodaysDate()]
+            progRef.setValue(prog)
+            
+            self.loadCells()
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func getTodaysDate() -> String
+    {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        let date = Date()
+        let todaysDate = formatter.string(from: date)
+        return todaysDate
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

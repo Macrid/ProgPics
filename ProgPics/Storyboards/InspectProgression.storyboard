@@ -224,20 +224,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-wW-wI6">
-                                <rect key="frame" x="0.0" y="64" width="414" height="517.5"/>
+                                <rect key="frame" x="0.0" y="243.5" width="414" height="517.5"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d9E-wW-wI6" secondAttribute="height" multiplier="4:5" id="es0-7J-Vec"/>
                                 </constraints>
                             </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YgL-Em-KWp">
-                                <rect key="frame" x="0.0" y="63" width="414" height="518"/>
+                                <rect key="frame" x="0.0" y="242.5" width="414" height="518"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YgL-Em-KWp" secondAttribute="height" multiplier="4:5" id="jeT-QE-ljT"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-AQ-cg3" userLabel="Toggle flash">
-                                <rect key="frame" x="364" y="72.5" width="40" height="43.5"/>
+                                <rect key="frame" x="364" y="252" width="40" height="43.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="dfK-Uv-ITe"/>
                                     <constraint firstAttribute="height" constant="42" id="hmg-sP-Lcf"/>
@@ -261,7 +261,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jwc-VZ-KT1" userLabel="Swap camera">
-                                <rect key="frame" x="355" y="592" width="49" height="38"/>
+                                <rect key="frame" x="355" y="771.5" width="49" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="BGv-c4-VNl"/>
                                     <constraint firstAttribute="width" constant="49" id="TWb-D6-Tr2"/>
@@ -272,7 +272,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kRZ-8E-Lw9" userLabel="Toggle seethrough">
-                                <rect key="frame" x="10" y="590.5" width="38" height="41.5"/>
+                                <rect key="frame" x="10" y="770" width="38" height="41.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gqh-tG-qLv"/>
                                     <constraint firstAttribute="width" constant="38" id="iV4-Gq-LRM"/>
@@ -321,12 +321,12 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="YgL-Em-KWp" secondAttribute="trailing" id="2Zy-jc-rN8"/>
-                            <constraint firstItem="d9E-wW-wI6" firstAttribute="top" secondItem="dHK-z8-Jnz" secondAttribute="top" constant="20" id="4jP-bh-boV"/>
                             <constraint firstAttribute="bottom" secondItem="lSd-wu-yA8" secondAttribute="bottom" id="6je-c1-gGi"/>
                             <constraint firstItem="Yos-AQ-cg3" firstAttribute="top" secondItem="d9E-wW-wI6" secondAttribute="top" constant="10" id="7Dl-jb-V5N"/>
                             <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="Yos-AQ-cg3" secondAttribute="trailing" constant="10" id="81a-NU-1dR"/>
                             <constraint firstItem="YgL-Em-KWp" firstAttribute="leading" secondItem="dHK-z8-Jnz" secondAttribute="leading" id="GMV-HR-UOe"/>
                             <constraint firstItem="YgL-Em-KWp" firstAttribute="centerY" secondItem="d9E-wW-wI6" secondAttribute="centerY" id="LmE-ew-g6R"/>
+                            <constraint firstItem="ftI-4b-ec6" firstAttribute="top" secondItem="d9E-wW-wI6" secondAttribute="bottom" constant="10" id="QKC-hp-jqv"/>
                             <constraint firstItem="ftI-4b-ec6" firstAttribute="centerX" secondItem="xXR-Xm-YG9" secondAttribute="centerX" id="RTV-16-JgH"/>
                             <constraint firstAttribute="bottomMargin" secondItem="ftI-4b-ec6" secondAttribute="bottom" constant="8" id="Tjx-wl-zcT"/>
                             <constraint firstItem="d9E-wW-wI6" firstAttribute="leading" secondItem="dHK-z8-Jnz" secondAttribute="leading" id="Y9K-TU-Ynp"/>
