@@ -14,17 +14,17 @@
             <objects>
                 <viewController title="Progression Slider" id="aga-l1-Cx3" customClass="SliderVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Yv2-d6-APt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Av-bd-Emy">
-                                <rect key="frame" x="18" y="690" width="378" height="31"/>
+                                <rect key="frame" x="18" y="648.5" width="378" height="31"/>
                                 <connections>
                                     <action selector="sliderChange:" destination="aga-l1-Cx3" eventType="valueChanged" id="kbG-xe-4NR"/>
                                 </connections>
                             </slider>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lasso" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2gJ-XB-w3H">
-                                <rect key="frame" x="20" y="216" width="374" height="466.5"/>
+                                <rect key="frame" x="20" y="174.5" width="374" height="466.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2gJ-XB-w3H" secondAttribute="height" multiplier="4:5" id="L36-RO-krr"/>
                                 </constraints>
@@ -56,11 +56,11 @@
             <objects>
                 <viewController title="Before/After" id="Ycn-aC-SNn" customClass="BeforeAfterVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X3T-PL-0J7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OMT-Tf-LSw">
-                                <rect key="frame" x="0.0" y="189.5" width="414" height="517.5"/>
+                                <rect key="frame" x="0.0" y="148" width="414" height="517.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="OMT-Tf-LSw" secondAttribute="height" multiplier="4:5" id="n8l-dl-OgJ"/>
                                 </constraints>
@@ -88,7 +88,7 @@
             <objects>
                 <viewController title="Gallery" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="wMD-kh-fcp" customClass="GalleryVC" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AJf-mO-H2s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WpD-HY-X4X">
@@ -155,7 +155,7 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="d6b-HO-EWq">
-                                <rect key="frame" x="0.0" y="1" width="414" height="893.5"/>
+                                <rect key="frame" x="0.0" y="1" width="414" height="810.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                             </imageView>
@@ -285,7 +285,7 @@
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lSd-wu-yA8">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MvD-QP-Gfd">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MvD-QP-Gfd">
                                         <rect key="frame" x="0.0" y="189.5" width="414" height="517.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="MvD-QP-Gfd" secondAttribute="height" multiplier="4:5" id="mOa-MR-REX"/>
@@ -360,10 +360,12 @@
             <objects>
                 <tabBarController modalPresentationStyle="fullScreen" id="fvO-8Y-vzO" customClass="ProgressTabBarController" customModule="ProgPics" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="rlk-7I-A3X"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Zf2-ip-SBn">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="Zf2-ip-SBn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="1" green="0.5490196078431373" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.30588235289999999" green="0.34901960780000002" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="wMD-kh-fcp" kind="relationship" relationship="viewControllers" id="gd6-RM-CBt"/>

@@ -67,10 +67,6 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 }
             })
         }
-        
-        
-        
-        
         return cell
     }
     
@@ -80,9 +76,6 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            
-        print("clicked")
-        
         fullscreenImageView.isHidden = false
         closeFullscreenButton.isHidden = false
         deleteImageButton.isHidden = false
@@ -91,22 +84,18 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         let cell = imageCollectionView.cellForItem(at: indexPath) as! ThumbnailCollectionViewCell
         fullscreenImageView.image = cell.imageView.image
         selectedImageID = cellList[indexPath.row].ID
-
     }
     
     @IBAction func backFromFullscreen(_ sender: Any) {
         fullscreenImageView.isHidden = true
         closeFullscreenButton.isHidden = true
         deleteImageButton.isHidden = true
-        self.navigationController?.isNavigationBarHidden = false
         self.tabBarController?.tabBar.isHidden = false
+        self.navigationController?.isNavigationBarHidden = false
         fullscreenImageView.image = nil
     }
     
     @IBAction func deleteImage(_ sender: Any) {
-        print(selectedImageID)
-        
-        
         let alert = UIAlertController(title: "Delete", message: "Are you sure?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: {_ in
               
@@ -131,35 +120,20 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
                 
             }))
         self.present(alert, animated: true, completion: nil)
-        
-        
     }
 
     
     override func viewWillAppear(_ animated: Bool) {
-        print("Will called")
         self.cellList.removeAll()
         self.imageCollectionView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("Did called")
         loadCells()
-      /*  for c in self.cellList
-        {
-            let sliderTab = self.tabBarController!.viewControllers![1] as! SliderVC
-            if let imageID = c.ID
-            {
-                sliderTab.imageIDList.append(imageID)
-            }
-            
-        }*/
     }
     
     func loadCells()
     {
-        //self.cellList.removeAll(keepingCapacity: false)
-        
         progRef?.child("Images").observe(.value, with: { snapshot in
             self.cellList.removeAll()
             for p in snapshot.children
@@ -192,25 +166,4 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
             }
         }
     }
-    /*func imageTapped(_ sender: nil) {
-        let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
-        newImageView.frame = UIScreen.main.bounds
-        newImageView.backgroundColor = .black
-        newImageView.contentMode = .scaleAspectFit
-        newImageView.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissFullscreenImage))
-        newImageView.addGestureRecognizer(tap)
-        self.view.addSubview(newImageView)
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    */
-    /*@objc func dismissFullscreenImage(_ sender: UITapGestureRecognizer) {
-        self.navigationController?.isNavigationBarHidden = false
-        self.tabBarController?.tabBar.isHidden = false
-        sender.view?.removeFromSuperview()
-    }
-   */
-    
 }

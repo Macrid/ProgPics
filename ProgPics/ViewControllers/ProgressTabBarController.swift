@@ -12,6 +12,7 @@ class ProgressTabBarController: UITabBarController {
     var progID:String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBar.unselectedItemTintColor = UIColor.white
     }
 
     /*

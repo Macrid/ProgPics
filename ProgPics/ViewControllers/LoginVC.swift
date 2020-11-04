@@ -12,8 +12,20 @@ import CryptoKit
 
 class LoginVC: UIViewController, FUIAuthDelegate {
 
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = true
+        let layer = CAGradientLayer()
+        layer.frame.size = view.frame.size
+        
+        layer.colors = [UIColor.init(red: CGFloat(255/255.0), green: CGFloat(140/255.0), blue: CGFloat(66/255.0), alpha: 1.0).cgColor, UIColor.white.cgColor]
+        
+        
+        self.view.layer.insertSublayer(layer, at: 0)
+        
+        loginButton.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
 
@@ -39,7 +51,8 @@ class LoginVC: UIViewController, FUIAuthDelegate {
         
             
             print(user.uid)
-            self.dismiss(animated: true, completion: nil)
+            performSegue(withIdentifier: "segue to main", sender: nil)
+            //self.dismiss(animated: true, completion: nil)
         }
     }
 }
