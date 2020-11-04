@@ -12,8 +12,6 @@ import CryptoKit
 
 class LoginVC: UIViewController, FUIAuthDelegate {
 
-    @IBOutlet weak var emailTextfield: UITextField!
-    @IBOutlet weak var PasswordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,18 +23,6 @@ class LoginVC: UIViewController, FUIAuthDelegate {
       }
     
     @IBAction func doLogin(_ sender: Any) {
-       /* Auth.auth().signIn(withEmail: emailTextfield.text!, password: PasswordTextField.text!)
-        { authResult, error in
-            if(error == nil)
-            {
-                self.dismiss(animated: true, completion: nil)
-            }
-            else
-            {
-                print(error?.localizedDescription)
-            }
-            
-        }*/
         
         if let authUI = FUIAuth.defaultAuthUI() {
             authUI.providers = [FUIOAuth.appleAuthProvider()]
