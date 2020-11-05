@@ -27,6 +27,14 @@ class BeforeAfterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let layer = CAGradientLayer()
+        layer.frame.size = view.frame.size
+        
+        layer.colors = [UIColor.init(red: CGFloat(78/255.0), green: CGFloat(89/255.0), blue: CGFloat(140/255.0), alpha: 1.0).cgColor, UIColor.white.cgColor]
+        
+        
+        self.view.layer.insertSublayer(layer, at: 0)
+        
         let tabBar = self.tabBarController! as! ProgressTabBarController
         progID = tabBar.progID
         
@@ -40,7 +48,10 @@ class BeforeAfterVC: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        
+        
         loadImages()
+        
         print(firstImageID)
         print(lastImageID)
     }
@@ -108,10 +119,12 @@ class BeforeAfterVC: UIViewController {
     
     func loadImages()
     {
-        
-        var ImageIDs = [String]()
-        
         let galleryTab = self.tabBarController!.viewControllers![0] as! GalleryVC
+        
+        if(galleryTab.cellList.isEmpty)
+        {
+            return
+        }
         
         firstImageID = (galleryTab.cellList.first?.ID)!
         lastImageID = (galleryTab.cellList.last?.ID)!

@@ -26,9 +26,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uaP-vQ-a0N">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uaP-vQ-a0N">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="38I-zC-pQo" customClass="UserCategoryTableViewCell" customModule="ProgPics" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="90"/>
@@ -37,14 +38,20 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4o-52-q3D">
-                                                    <rect key="frame" x="90" y="16" width="299" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4o-52-q3D">
+                                                    <rect key="frame" x="90" y="16" width="45" height="28"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Title">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.30588235289999999" green="0.34901960780000002" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="24" name="Nunito-SemiBold"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ja7-P2-iBk">
-                                                    <rect key="frame" x="90" y="53" width="299" height="21"/>
+                                                    <rect key="frame" x="90" y="53" width="36" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -65,8 +72,6 @@
                                                 <constraint firstItem="c4o-52-q3D" firstAttribute="top" secondItem="Jzu-b0-sdX" secondAttribute="topMargin" constant="5" id="2DF-M0-8nx"/>
                                                 <constraint firstItem="c4o-52-q3D" firstAttribute="leading" secondItem="DdG-gZ-TJ1" secondAttribute="trailing" constant="5" id="2qm-Pm-8eI"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="ja7-P2-iBk" secondAttribute="bottom" constant="5" id="EdP-FT-ec7"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="ja7-P2-iBk" secondAttribute="trailing" constant="5" id="KKr-JH-DT8"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="c4o-52-q3D" secondAttribute="trailing" constant="5" id="TkK-Fj-W8K"/>
                                                 <constraint firstItem="ja7-P2-iBk" firstAttribute="leading" secondItem="DdG-gZ-TJ1" secondAttribute="trailing" constant="5" id="hAJ-vX-TOp"/>
                                                 <constraint firstAttribute="bottom" secondItem="DdG-gZ-TJ1" secondAttribute="bottom" constant="5" id="xp7-Lg-d3E"/>
                                                 <constraint firstItem="DdG-gZ-TJ1" firstAttribute="top" secondItem="Jzu-b0-sdX" secondAttribute="top" constant="5" id="zST-6x-TT5"/>

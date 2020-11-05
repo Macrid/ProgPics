@@ -23,6 +23,14 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let layer = CAGradientLayer()
+        layer.frame.size = view.frame.size
+        
+        layer.colors = [UIColor.init(red: CGFloat(78/255.0), green: CGFloat(89/255.0), blue: CGFloat(140/255.0), alpha: 1.0).cgColor, UIColor.white.cgColor]
+        
+        
+        self.view.layer.insertSublayer(layer, at: 0)
+        
         progressionsTableView.dataSource = self
         progressionsTableView.delegate = self
         
@@ -42,20 +50,30 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 125.0
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        var imageRef = [String]()
         
         if (indexPath.row == cellList.count)
         {
             let cell = tableView.dequeueReusableCell(withIdentifier: "lastCell") as! LastTableViewCell
+            cell.backgroundColor = UIColor.clear
             return cell
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "categoryCell") as! UserCategoryTableViewCell
         
+        cell.backgroundColor = UIColor.clear
+        
         cell.titleTextbox.text = cellList[indexPath.row].title
         cell.dateTextbox.text = cellList[indexPath.row].date
+        cell.titleTextbox.layer.cornerRadius = 5
+        cell.dateTextbox.layer.cornerRadius = 5
+        cell.titleTextbox.layer.masksToBounds = true
+        cell.dateTextbox.layer.masksToBounds = true
+        
         
         if(cellList[indexPath.row].thumbnailID != nil)
         {

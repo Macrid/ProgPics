@@ -16,6 +16,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     var storageRef:StorageReference?
     var cellList = [ThumbnailCollectionViewCell]()
     var selectedImageID:String?
+    let spacing:CGFloat = 5.0
     
     @IBOutlet weak var closeFullscreenButton: UIButton!
     
@@ -25,6 +26,21 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let layer = CAGradientLayer()
+        layer.frame.size = view.frame.size
+        
+        layer.colors = [UIColor.init(red: CGFloat(78/255.0), green: CGFloat(89/255.0), blue: CGFloat(140/255.0), alpha: 1.0).cgColor, UIColor.white.cgColor]
+        
+        
+        self.view.layer.insertSublayer(layer, at: 0)
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
+        self.imageCollectionView?.collectionViewLayout = layout
+        
         progRef = Database.database().reference().child(Auth.auth().currentUser!.uid).child("Progressions").child(progID!)
         storageRef = storage.reference()
         
@@ -72,7 +88,19 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width: Int(collectionView.frame.width/3) - 5, height: Int(collectionView.frame.width/3) - 5)
+                let numberOfItemsPerRow:CGFloat = 3
+                let spacingBetweenCells:CGFloat = 5
+                
+                let totalSpacing = (2 * self.spacing) + ((numberOfItemsPerRow - 1) * spacingBetweenCells) //Amount of total spacing in a row
+                
+                if let collection = self.imageCollectionView{
+                    let width = (collection.bounds.width - totalSpacing)/numberOfItemsPerRow
+                    return CGSize(width: width, height: width)
+                }else{
+                    return CGSize(width: 0, height: 0)
+                }
+        
+       // return CGSize(width: Int(collectionView.frame.width/3) - 5, height: Int(collectionView.frame.width/3) - 5)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -22,6 +22,14 @@ class SliderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let layer = CAGradientLayer()
+        layer.frame.size = view.frame.size
+        
+        layer.colors = [UIColor.init(red: CGFloat(78/255.0), green: CGFloat(89/255.0), blue: CGFloat(140/255.0), alpha: 1.0).cgColor, UIColor.white.cgColor]
+        
+        
+        self.view.layer.insertSublayer(layer, at: 0)
+        
         storageRef = storage.reference()
 
         // Do any additional setup after loading the view.

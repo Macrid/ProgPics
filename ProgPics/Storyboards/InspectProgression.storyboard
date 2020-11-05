@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -93,7 +94,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WpD-HY-X4X">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="xyX-7O-gRB">
                                     <size key="itemSize" width="128" height="128"/>
@@ -144,12 +145,15 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWQ-6T-IRr">
-                                <rect key="frame" x="319" y="718.5" width="75" height="74"/>
+                                <rect key="frame" x="319" y="720" width="75" height="71"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="DVu-4n-Krp"/>
                                     <constraint firstAttribute="height" constant="75" id="pAW-Bm-ziV"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="plus.circle" catalog="system"/>
+                                <color key="tintColor" red="0.30588235289999999" green="0.34901960780000002" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <imageReference key="backgroundImage" image="plus" catalog="system" symbolScale="default"/>
+                                </state>
                                 <connections>
                                     <segue destination="Xzx-qe-V7s" kind="show" identifier="segue to camera" id="tCz-UH-pzl"/>
                                 </connections>
@@ -385,7 +389,7 @@
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="lasso" catalog="system" width="128" height="118"/>
         <image name="lightbulb.slash.fill" catalog="system" width="113" height="128"/>
-        <image name="plus.circle" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="slider.horizontal.below.rectangle" catalog="system" width="128" height="115"/>
         <image name="square.grid.3x3.fill" catalog="system" width="128" height="112"/>
         <image name="square.line.vertical.square.fill.left" catalog="system" width="128" height="83"/>
