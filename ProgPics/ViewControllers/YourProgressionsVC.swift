@@ -18,6 +18,7 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
     var storageRef:StorageReference?
     var cellList = [UserCategoryTableViewCell]()
     
+    @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var progressionsTableView: UITableView!
 
     override func viewDidLoad() {
@@ -29,7 +30,18 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
         layer.colors = [UIColor.init(red: CGFloat(78/255.0), green: CGFloat(89/255.0), blue: CGFloat(140/255.0), alpha: 1.0).cgColor, UIColor.white.cgColor]
         
         
-        self.view.layer.insertSublayer(layer, at: 0)
+       // self.view.layer.insertSublayer(layer, at: 0)
+        
+        self.view.layer.backgroundColor = UIColor.white.cgColor
+        
+        var image = UIImage(named: "ProgPicsTitleVit.png")
+        var titleImageView = UIImageView(image: image)
+        titleImageView.contentMode = .scaleAspectFit
+        
+        
+        
+        self.navigationItem.titleView = titleImageView
+        
         
         progressionsTableView.dataSource = self
         progressionsTableView.delegate = self
@@ -51,7 +63,7 @@ class YourProgressionsVC: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 125.0
+        return 90.0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

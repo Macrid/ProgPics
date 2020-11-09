@@ -17,6 +17,7 @@
 		84324C70251371F4001BD9C5 /* YourProgressionsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84324C6F251371F4001BD9C5 /* YourProgressionsVC.swift */; };
 		8458681F25373B83008E31B6 /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8458681E25373B83008E31B6 /* CameraVC.swift */; };
 		846E61F6253DAD41003E91A2 /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846E61F5253DAD41003E91A2 /* ImageHelper.swift */; };
+		846F5E5D2555731F00A2FC3C /* SignPainter-HouseScript.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 846F5E5C2555731000A2FC3C /* SignPainter-HouseScript.ttf */; };
 		8486445B25220AE400F9C8AD /* ProgressTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445A25220AE400F9C8AD /* ProgressTabBarController.swift */; };
 		8486445F25220E5900F9C8AD /* GalleryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8486445E25220E5900F9C8AD /* GalleryVC.swift */; };
 		8486446B25231AB300F9C8AD /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8486446A25231AB300F9C8AD /* Auth.storyboard */; };
@@ -42,6 +43,7 @@
 		84324C6F251371F4001BD9C5 /* YourProgressionsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourProgressionsVC.swift; sourceTree = "<group>"; };
 		8458681E25373B83008E31B6 /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		846E61F5253DAD41003E91A2 /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		846F5E5C2555731000A2FC3C /* SignPainter-HouseScript.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignPainter-HouseScript.ttf"; sourceTree = "<group>"; };
 		8486445A25220AE400F9C8AD /* ProgressTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTabBarController.swift; sourceTree = "<group>"; };
 		8486445E25220E5900F9C8AD /* GalleryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryVC.swift; sourceTree = "<group>"; };
 		8486446A25231AB300F9C8AD /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				8486446D25231AC500F9C8AD /* Storyboards */,
 				8486447225231E7500F9C8AD /* ViewControllers */,
 				8486447525231E9B00F9C8AD /* Cells */,
+				846F5E5B255572CF00A2FC3C /* Fonts */,
 				84324C3B2510C751001BD9C5 /* AppDelegate.swift */,
 				84324C3D2510C751001BD9C5 /* SceneDelegate.swift */,
 				84324C442510C754001BD9C5 /* Assets.xcassets */,
@@ -104,6 +107,14 @@
 				846E61F5253DAD41003E91A2 /* ImageHelper.swift */,
 			);
 			path = ProgPics;
+			sourceTree = "<group>";
+		};
+		846F5E5B255572CF00A2FC3C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				846F5E5C2555731000A2FC3C /* SignPainter-HouseScript.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		8486446D25231AC500F9C8AD /* Storyboards */ = {
@@ -222,6 +233,7 @@
 				84324C482510C754001BD9C5 /* LaunchScreen.storyboard in Resources */,
 				8496D7CC251DFE8500B3FAB4 /* GoogleService-Info.plist in Resources */,
 				8486446B25231AB300F9C8AD /* Auth.storyboard in Resources */,
+				846F5E5D2555731F00A2FC3C /* SignPainter-HouseScript.ttf in Resources */,
 				84324C452510C754001BD9C5 /* Assets.xcassets in Resources */,
 				84324C432510C751001BD9C5 /* Main.storyboard in Resources */,
 				8486447025231D1800F9C8AD /* InspectProgression.storyboard in Resources */,
