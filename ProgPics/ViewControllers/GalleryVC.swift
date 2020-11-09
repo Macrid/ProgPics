@@ -104,11 +104,11 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.navigationController?.isNavigationBarHidden = true
+        self.tabBarController?.tabBar.isHidden = true
         fullscreenImageView.isHidden = false
         closeFullscreenButton.isHidden = false
         deleteImageButton.isHidden = false
-        self.navigationController?.isNavigationBarHidden = true
-        self.tabBarController?.tabBar.isHidden = true
         let cell = imageCollectionView.cellForItem(at: indexPath) as! ThumbnailCollectionViewCell
         fullscreenImageView.image = cell.imageView.image
         selectedImageID = cellList[indexPath.row].ID

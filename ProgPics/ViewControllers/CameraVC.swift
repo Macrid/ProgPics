@@ -47,6 +47,11 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         captureSession.sessionPreset = AVCaptureSession.Preset.photo
         cameraOutput = AVCapturePhotoOutput()
         
+
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let device = AVCaptureDevice.default(for: AVMediaType.video)
         
         if let input = try? AVCaptureDeviceInput(device: device!) {
@@ -67,7 +72,6 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
                 } else {
                     print("some problem here")
                 }
-
     }
     
     @IBAction func takePicture(_ sender: Any) {
@@ -106,6 +110,8 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         
         
         finalImage = ImageHelper().resizeImage(finalImage, newWidth: 500)
+        
+        finalImage = ImageHelper().cropTo43(image: finalImage)
         
         imageView.image = finalImage
         overlayView.isHidden = false

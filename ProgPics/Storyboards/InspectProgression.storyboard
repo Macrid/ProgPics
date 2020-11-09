@@ -19,15 +19,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Av-bd-Emy">
-                                <rect key="frame" x="18" y="648.5" width="378" height="31"/>
+                                <rect key="frame" x="18" y="664" width="378" height="31"/>
                                 <connections>
                                     <action selector="sliderChange:" destination="aga-l1-Cx3" eventType="valueChanged" id="kbG-xe-4NR"/>
                                 </connections>
                             </slider>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lasso" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2gJ-XB-w3H">
-                                <rect key="frame" x="20" y="174.5" width="374" height="466.5"/>
+                                <rect key="frame" x="20" y="158.5" width="374" height="498"/>
+                                <color key="tintColor" red="1" green="0.54901960780000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="2gJ-XB-w3H" secondAttribute="height" multiplier="4:5" id="L36-RO-krr"/>
+                                    <constraint firstAttribute="width" secondItem="2gJ-XB-w3H" secondAttribute="height" multiplier="3:4" id="L36-RO-krr"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -61,9 +62,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OMT-Tf-LSw">
-                                <rect key="frame" x="0.0" y="148" width="414" height="517.5"/>
+                                <rect key="frame" x="0.0" y="130.5" width="414" height="552"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="OMT-Tf-LSw" secondAttribute="height" multiplier="4:5" id="n8l-dl-OgJ"/>
+                                    <constraint firstAttribute="width" secondItem="OMT-Tf-LSw" secondAttribute="height" multiplier="3:4" id="n8l-dl-OgJ"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -159,28 +160,30 @@
                                 </connections>
                             </button>
                             <imageView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="d6b-HO-EWq">
-                                <rect key="frame" x="0.0" y="1" width="414" height="810.5"/>
+                                <rect key="frame" x="0.0" y="1" width="414" height="885.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ezp-Ji-sx6">
-                                <rect key="frame" x="20" y="46" width="18" height="26.5"/>
+                                <rect key="frame" x="20" y="66" width="18" height="26.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Ezp-Ji-sx6" secondAttribute="height" multiplier="3:5" id="0xy-yG-46T"/>
                                     <constraint firstAttribute="height" constant="30" id="Zn7-Eg-WI3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" red="1" green="0.54901960780000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" backgroundImage="chevron.left" catalog="system"/>
                                 <connections>
                                     <action selector="backFromFullscreen:" destination="wMD-kh-fcp" eventType="touchUpInside" id="wL9-rD-L5K"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liM-XO-dtA" userLabel="Delete Image">
-                                <rect key="frame" x="355" y="43" width="39" height="40.5"/>
+                                <rect key="frame" x="355" y="63" width="39" height="40.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="39" id="UAl-I5-vkH"/>
                                     <constraint firstAttribute="height" constant="40" id="oGD-sr-uCz"/>
                                 </constraints>
+                                <color key="tintColor" red="1" green="0.54901960780000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" backgroundImage="trash" catalog="system"/>
                                 <connections>
                                     <action selector="deleteImage:" destination="wMD-kh-fcp" eventType="touchUpInside" id="oTS-S2-9ut"/>
@@ -190,20 +193,20 @@
                         <viewLayoutGuide key="safeArea" id="Sxo-rd-IE1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="liM-XO-dtA" firstAttribute="top" secondItem="Sxo-rd-IE1" secondAttribute="top" id="0EZ-lx-iNW"/>
+                            <constraint firstItem="liM-XO-dtA" firstAttribute="top" secondItem="Sxo-rd-IE1" secondAttribute="top" constant="20" id="0EZ-lx-iNW"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="liM-XO-dtA" secondAttribute="trailing" constant="20" id="4tn-5E-GHh"/>
                             <constraint firstItem="WpD-HY-X4X" firstAttribute="leading" secondItem="Sxo-rd-IE1" secondAttribute="leading" id="6YR-ba-reZ"/>
-                            <constraint firstAttribute="bottom" secondItem="d6b-HO-EWq" secondAttribute="bottom" id="9Ri-DE-F32"/>
                             <constraint firstItem="Ezp-Ji-sx6" firstAttribute="leading" secondItem="Sxo-rd-IE1" secondAttribute="leading" constant="20" id="Fts-8u-JIH"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="WpD-HY-X4X" secondAttribute="trailing" id="NRd-lD-GLb"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="bottom" secondItem="WpD-HY-X4X" secondAttribute="bottom" id="O0z-vP-fZF"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="tWQ-6T-IRr" secondAttribute="trailing" constant="20" id="Ufk-Fa-Ntt"/>
                             <constraint firstItem="WpD-HY-X4X" firstAttribute="top" secondItem="Sxo-rd-IE1" secondAttribute="top" id="UwP-qR-60H"/>
                             <constraint firstItem="d6b-HO-EWq" firstAttribute="top" secondItem="AJf-mO-H2s" secondAttribute="top" id="Vry-1Y-6Te"/>
-                            <constraint firstItem="Ezp-Ji-sx6" firstAttribute="top" secondItem="Sxo-rd-IE1" secondAttribute="top" id="WbU-Zp-mRR"/>
+                            <constraint firstItem="Ezp-Ji-sx6" firstAttribute="top" secondItem="Sxo-rd-IE1" secondAttribute="top" constant="20" id="WbU-Zp-mRR"/>
                             <constraint firstItem="d6b-HO-EWq" firstAttribute="leading" secondItem="AJf-mO-H2s" secondAttribute="leading" id="glS-QF-wRO"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="bottom" secondItem="tWQ-6T-IRr" secondAttribute="bottom" constant="20" id="nNR-Sq-L5w"/>
                             <constraint firstAttribute="trailing" secondItem="d6b-HO-EWq" secondAttribute="trailing" id="teP-5h-9aN"/>
+                            <constraint firstAttribute="bottom" secondItem="d6b-HO-EWq" secondAttribute="bottom" constant="-75" id="xbf-yr-XFc"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gallery" image="square.grid.3x3.fill" catalog="system" id="M1H-cp-K54"/>
@@ -228,24 +231,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-wW-wI6">
-                                <rect key="frame" x="0.0" y="243.5" width="414" height="517.5"/>
+                                <rect key="frame" x="0.0" y="209" width="414" height="552"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="d9E-wW-wI6" secondAttribute="height" multiplier="4:5" id="es0-7J-Vec"/>
+                                    <constraint firstAttribute="width" secondItem="d9E-wW-wI6" secondAttribute="height" multiplier="3:4" id="es0-7J-Vec"/>
                                 </constraints>
                             </view>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YgL-Em-KWp">
-                                <rect key="frame" x="0.0" y="242.5" width="414" height="518"/>
+                                <rect key="frame" x="0.0" y="208" width="414" height="552.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="YgL-Em-KWp" secondAttribute="height" multiplier="4:5" id="jeT-QE-ljT"/>
+                                    <constraint firstAttribute="width" secondItem="YgL-Em-KWp" secondAttribute="height" multiplier="3:4" id="jeT-QE-ljT"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yos-AQ-cg3" userLabel="Toggle flash">
-                                <rect key="frame" x="364" y="252" width="40" height="43.5"/>
+                                <rect key="frame" x="364" y="217.5" width="40" height="43.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="dfK-Uv-ITe"/>
                                     <constraint firstAttribute="height" constant="42" id="hmg-sP-Lcf"/>
                                 </constraints>
+                                <color key="tintColor" red="1" green="0.54901960780000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" backgroundImage="lightbulb.slash.fill" catalog="system"/>
                                 <connections>
                                     <action selector="toggleFlash:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="fck-1i-MwN"/>
@@ -270,6 +274,7 @@
                                     <constraint firstAttribute="height" constant="40" id="BGv-c4-VNl"/>
                                     <constraint firstAttribute="width" constant="49" id="TWb-D6-Tr2"/>
                                 </constraints>
+                                <color key="tintColor" red="1" green="0.54901960780000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" backgroundImage="camera.rotate.fill" catalog="system"/>
                                 <connections>
                                     <action selector="swapCamera:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="krj-zi-FAb"/>
@@ -281,6 +286,7 @@
                                     <constraint firstAttribute="height" constant="40" id="gqh-tG-qLv"/>
                                     <constraint firstAttribute="width" constant="38" id="iV4-Gq-LRM"/>
                                 </constraints>
+                                <color key="tintColor" red="1" green="0.54901960780000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" backgroundImage="square.stack" catalog="system"/>
                                 <connections>
                                     <action selector="toggleSeethrough:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="ISx-Ad-Ffq"/>
@@ -290,13 +296,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MvD-QP-Gfd">
-                                        <rect key="frame" x="0.0" y="189.5" width="414" height="517.5"/>
+                                        <rect key="frame" x="0.0" y="172" width="414" height="552"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="MvD-QP-Gfd" secondAttribute="height" multiplier="4:5" id="mOa-MR-REX"/>
+                                            <constraint firstAttribute="width" secondItem="MvD-QP-Gfd" secondAttribute="height" multiplier="3:4" id="mOa-MR-REX"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14T-bL-jgF">
                                         <rect key="frame" x="366" y="824" width="34" height="30"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="savePicture:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="zik-w9-ujp"/>
@@ -305,6 +312,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vvH-UB-N7v">
                                         <rect key="frame" x="7" y="52" width="48" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" systemColor="systemRedColor"/>
                                         <state key="normal" title="Cancel"/>
                                         <connections>
                                             <action selector="cancelPicture:" destination="Xzx-qe-V7s" eventType="touchUpInside" id="YBj-s3-mqi"/>
@@ -333,9 +341,8 @@
                             <constraint firstItem="ftI-4b-ec6" firstAttribute="top" secondItem="d9E-wW-wI6" secondAttribute="bottom" constant="10" id="QKC-hp-jqv"/>
                             <constraint firstItem="ftI-4b-ec6" firstAttribute="centerX" secondItem="xXR-Xm-YG9" secondAttribute="centerX" id="RTV-16-JgH"/>
                             <constraint firstAttribute="bottomMargin" secondItem="ftI-4b-ec6" secondAttribute="bottom" constant="8" id="Tjx-wl-zcT"/>
-                            <constraint firstItem="d9E-wW-wI6" firstAttribute="leading" secondItem="dHK-z8-Jnz" secondAttribute="leading" id="Y9K-TU-Ynp"/>
-                            <constraint firstItem="d9E-wW-wI6" firstAttribute="centerX" secondItem="xXR-Xm-YG9" secondAttribute="centerX" id="YIn-mf-DUe"/>
                             <constraint firstItem="lSd-wu-yA8" firstAttribute="top" secondItem="xXR-Xm-YG9" secondAttribute="top" id="chp-uJ-qFm"/>
+                            <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="d9E-wW-wI6" secondAttribute="trailing" id="ckB-L2-Wga"/>
                             <constraint firstAttribute="trailing" secondItem="lSd-wu-yA8" secondAttribute="trailing" id="e3J-4M-I2O"/>
                             <constraint firstItem="dHK-z8-Jnz" firstAttribute="trailing" secondItem="Jwc-VZ-KT1" secondAttribute="trailing" constant="10" id="gBV-ci-tje"/>
                             <constraint firstItem="kRZ-8E-Lw9" firstAttribute="top" secondItem="Jwc-VZ-KT1" secondAttribute="top" id="iMf-J8-GGT"/>
@@ -343,6 +350,7 @@
                             <constraint firstItem="Jwc-VZ-KT1" firstAttribute="top" secondItem="d9E-wW-wI6" secondAttribute="bottom" constant="10" id="npN-Nm-dv4"/>
                             <constraint firstItem="lSd-wu-yA8" firstAttribute="leading" secondItem="xXR-Xm-YG9" secondAttribute="leading" id="qBH-cK-Elb"/>
                             <constraint firstItem="kRZ-8E-Lw9" firstAttribute="leading" secondItem="dHK-z8-Jnz" secondAttribute="leading" constant="10" id="r5w-A4-zjr"/>
+                            <constraint firstItem="d9E-wW-wI6" firstAttribute="leading" secondItem="dHK-z8-Jnz" secondAttribute="leading" id="s74-rD-Jok"/>
                             <constraint firstItem="YgL-Em-KWp" firstAttribute="centerX" secondItem="d9E-wW-wI6" secondAttribute="centerX" id="ual-fB-wg7"/>
                         </constraints>
                     </view>
@@ -397,6 +405,9 @@
         <image name="trash" catalog="system" width="121" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

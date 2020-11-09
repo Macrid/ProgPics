@@ -21,5 +21,19 @@ class ImageHelper
         return newImage!
     }
     
+    func cropTo43(image: UIImage) -> UIImage
+    {
+        let cgimage = image.cgImage!
+        
+        let rect: CGRect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.width*1.33333)
+
+        // Create bitmap image from context using the rect
+        let imageRef: CGImage = cgimage.cropping(to: rect)!
+
+        // Create a new image based on the imageRef and rotate back to the original orientation
+        let image: UIImage = UIImage(cgImage: imageRef, scale: image.scale, orientation: image.imageOrientation)
+
+        return image
+    }
     
 }

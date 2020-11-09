@@ -38,6 +38,7 @@ class SliderVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         imageIDList.removeAll()
         imageList.removeAll()
+        //slider.value = 0
         
         let galleryTab = self.tabBarController!.viewControllers![0] as! GalleryVC
         for c in galleryTab.cellList
@@ -50,15 +51,20 @@ class SliderVC: UIViewController {
             
         }
         
-        slider.maximumValue = Float(imageIDList.count - 1)
-        
         print(imageIDList)
         print(imageIDList.count)
+        print(imageList.count)
         loadImageList()
+        slider.maximumValue = Float(imageIDList.count - 1)
         if(imageList.count != 0)
         {
             imageView.image = imageList[0]
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        slider.value = 0
+        slider.minimumValue = 0
     }
     
     func loadImageList()
@@ -100,10 +106,16 @@ class SliderVC: UIViewController {
     @IBAction func sliderChange(_ sender: Any) {
         if(imageList.count != 0)
         {
-            imageView.image = imageList[Int(slider.value)]  
+            print(slider.value)
+            
+            let sliderVal = Int(slider.value.rounded(.toNearestOrEven))
+            if(sliderVal < imageList.count)
+            {
+                imageView.image = imageList[sliderVal]
+            }
+            
+            
         }
-
-
     }
 
 }
