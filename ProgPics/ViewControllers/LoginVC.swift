@@ -40,7 +40,8 @@ class LoginVC: UIViewController, FUIAuthDelegate {
     @IBAction func doLogin(_ sender: Any) {
         
         if let authUI = FUIAuth.defaultAuthUI() {
-            authUI.providers = [FUIOAuth.appleAuthProvider()]
+            authUI.providers = [FUIOAuth.appleAuthProvider(), FUIEmailAuth()]
+            
             authUI.delegate = self
             
             let authViewController = authUI.authViewController()

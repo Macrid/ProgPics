@@ -63,6 +63,7 @@
                                                 </activityIndicatorView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DdG-gZ-TJ1">
                                                     <rect key="frame" x="10" y="10" width="70" height="70"/>
+                                                    <color key="tintColor" red="1" green="0.54708904110000001" blue="0.25997966610000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="DdG-gZ-TJ1" secondAttribute="height" multiplier="1:1" id="jsU-1K-9z6"/>
                                                     </constraints>
