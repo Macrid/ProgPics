@@ -13,6 +13,7 @@ import CryptoKit
 class LoginVC: UIViewController, FUIAuthDelegate {
 
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var iconImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +21,14 @@ class LoginVC: UIViewController, FUIAuthDelegate {
         let layer = CAGradientLayer()
         layer.frame.size = view.frame.size
         
+        
         layer.colors = [UIColor.init(red: CGFloat(255/255.0), green: CGFloat(140/255.0), blue: CGFloat(66/255.0), alpha: 1.0).cgColor, UIColor.white.cgColor]
         
         
         self.view.layer.insertSublayer(layer, at: 0)
         
         loginButton.layer.cornerRadius = 10
+        iconImageView.layer.cornerRadius = 10
         // Do any additional setup after loading the view.
     }
 

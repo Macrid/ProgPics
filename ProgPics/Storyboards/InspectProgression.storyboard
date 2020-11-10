@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Av-bd-Emy">
-                                <rect key="frame" x="18" y="664" width="378" height="31"/>
+                                <rect key="frame" x="28" y="664" width="358" height="31"/>
                                 <connections>
                                     <action selector="sliderChange:" destination="aga-l1-Cx3" eventType="valueChanged" id="kbG-xe-4NR"/>
                                 </connections>
@@ -35,12 +35,12 @@
                         <viewLayoutGuide key="safeArea" id="Drv-jI-ZyT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="7Av-bd-Emy" firstAttribute="leading" secondItem="Drv-jI-ZyT" secondAttribute="leading" constant="20" id="J1b-XC-6Xh"/>
+                            <constraint firstItem="7Av-bd-Emy" firstAttribute="leading" secondItem="Drv-jI-ZyT" secondAttribute="leading" constant="30" id="J1b-XC-6Xh"/>
                             <constraint firstItem="7Av-bd-Emy" firstAttribute="top" secondItem="2gJ-XB-w3H" secondAttribute="bottom" constant="8" id="Rg9-8C-w6W"/>
                             <constraint firstItem="2gJ-XB-w3H" firstAttribute="centerY" secondItem="Yv2-d6-APt" secondAttribute="centerY" id="Rjv-k6-oBg"/>
                             <constraint firstItem="2gJ-XB-w3H" firstAttribute="leading" secondItem="Drv-jI-ZyT" secondAttribute="leading" constant="20" id="Tdm-ik-ZIf"/>
                             <constraint firstItem="Drv-jI-ZyT" firstAttribute="trailing" secondItem="2gJ-XB-w3H" secondAttribute="trailing" constant="20" id="o9K-kV-u9U"/>
-                            <constraint firstItem="Drv-jI-ZyT" firstAttribute="trailing" secondItem="7Av-bd-Emy" secondAttribute="trailing" constant="20" id="odp-8W-BG7"/>
+                            <constraint firstItem="Drv-jI-ZyT" firstAttribute="trailing" secondItem="7Av-bd-Emy" secondAttribute="trailing" constant="30" id="odp-8W-BG7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Progression Slider" image="slider.horizontal.below.rectangle" catalog="system" id="Ycn-Et-sQG"/>
@@ -232,13 +232,13 @@
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9E-wW-wI6">
                                 <rect key="frame" x="0.0" y="209" width="414" height="552"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="d9E-wW-wI6" secondAttribute="height" multiplier="3:4" id="es0-7J-Vec"/>
                                 </constraints>
                             </view>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="YgL-Em-KWp">
-                                <rect key="frame" x="0.0" y="208" width="414" height="552.5"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YgL-Em-KWp">
+                                <rect key="frame" x="0.0" y="209" width="414" height="552"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="YgL-Em-KWp" secondAttribute="height" multiplier="3:4" id="jeT-QE-ljT"/>
                                 </constraints>
