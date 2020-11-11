@@ -19,27 +19,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Av-bd-Emy">
-                                <rect key="frame" x="28" y="664" width="358" height="31"/>
+                                <rect key="frame" x="28" y="775" width="358" height="31"/>
                                 <connections>
                                     <action selector="sliderChange:" destination="aga-l1-Cx3" eventType="valueChanged" id="kbG-xe-4NR"/>
                                 </connections>
                             </slider>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lasso" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2gJ-XB-w3H">
-                                <rect key="frame" x="20" y="158.5" width="374" height="498"/>
+                                <rect key="frame" x="20.5" y="53.5" width="373" height="720"/>
                                 <color key="tintColor" red="1" green="0.54901960780000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2gJ-XB-w3H" secondAttribute="height" multiplier="3:4" id="L36-RO-krr"/>
-                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Drv-jI-ZyT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2gJ-XB-w3H" firstAttribute="centerX" secondItem="Yv2-d6-APt" secondAttribute="centerX" id="5fg-6G-LUu"/>
+                            <constraint firstItem="2gJ-XB-w3H" firstAttribute="top" secondItem="Drv-jI-ZyT" secondAttribute="top" constant="8" id="CA1-KT-RSI"/>
+                            <constraint firstItem="Drv-jI-ZyT" firstAttribute="bottom" secondItem="7Av-bd-Emy" secondAttribute="bottom" constant="8" id="H6z-7i-7xV"/>
                             <constraint firstItem="7Av-bd-Emy" firstAttribute="leading" secondItem="Drv-jI-ZyT" secondAttribute="leading" constant="30" id="J1b-XC-6Xh"/>
-                            <constraint firstItem="7Av-bd-Emy" firstAttribute="top" secondItem="2gJ-XB-w3H" secondAttribute="bottom" constant="8" id="Rg9-8C-w6W"/>
-                            <constraint firstItem="2gJ-XB-w3H" firstAttribute="centerY" secondItem="Yv2-d6-APt" secondAttribute="centerY" id="Rjv-k6-oBg"/>
-                            <constraint firstItem="2gJ-XB-w3H" firstAttribute="leading" secondItem="Drv-jI-ZyT" secondAttribute="leading" constant="20" id="Tdm-ik-ZIf"/>
-                            <constraint firstItem="Drv-jI-ZyT" firstAttribute="trailing" secondItem="2gJ-XB-w3H" secondAttribute="trailing" constant="20" id="o9K-kV-u9U"/>
+                            <constraint firstItem="Drv-jI-ZyT" firstAttribute="bottom" secondItem="2gJ-XB-w3H" secondAttribute="bottom" constant="40" id="Txz-Kh-4on"/>
+                            <constraint firstItem="2gJ-XB-w3H" firstAttribute="width" secondItem="Yv2-d6-APt" secondAttribute="width" multiplier="0.9" id="cDQ-Pb-fmk"/>
                             <constraint firstItem="Drv-jI-ZyT" firstAttribute="trailing" secondItem="7Av-bd-Emy" secondAttribute="trailing" constant="30" id="odp-8W-BG7"/>
                         </constraints>
                     </view>
@@ -62,18 +60,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OMT-Tf-LSw">
-                                <rect key="frame" x="0.0" y="130.5" width="414" height="552"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="OMT-Tf-LSw" secondAttribute="height" multiplier="3:4" id="n8l-dl-OgJ"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="swR-d7-C1y"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OMT-Tf-LSw" firstAttribute="leading" secondItem="swR-d7-C1y" secondAttribute="leading" id="XXv-Tk-fRk"/>
-                            <constraint firstItem="OMT-Tf-LSw" firstAttribute="centerY" secondItem="X3T-PL-0J7" secondAttribute="centerY" id="dwy-Os-UCw"/>
-                            <constraint firstItem="swR-d7-C1y" firstAttribute="trailing" secondItem="OMT-Tf-LSw" secondAttribute="trailing" id="xYK-jX-meb"/>
+                            <constraint firstItem="swR-d7-C1y" firstAttribute="bottom" secondItem="OMT-Tf-LSw" secondAttribute="bottom" id="RbE-Vf-tis"/>
+                            <constraint firstItem="OMT-Tf-LSw" firstAttribute="top" secondItem="swR-d7-C1y" secondAttribute="top" id="WSu-qi-D3Y"/>
+                            <constraint firstItem="OMT-Tf-LSw" firstAttribute="width" secondItem="X3T-PL-0J7" secondAttribute="width" id="kLw-JH-Fck"/>
+                            <constraint firstItem="OMT-Tf-LSw" firstAttribute="centerX" secondItem="X3T-PL-0J7" secondAttribute="centerX" id="vfc-id-Ci4"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Beginning and Now" image="square.line.vertical.square.fill.left" catalog="system" id="djF-vw-F3V"/>
@@ -117,10 +113,6 @@
                                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6y3-R2-49d">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <gestureRecognizers/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="128" id="02l-7G-6wk"/>
-                                                        <constraint firstAttribute="height" constant="128" id="DZd-yy-w13"/>
-                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <gestureRecognizers/>
@@ -128,6 +120,8 @@
                                                 <constraint firstItem="6y3-R2-49d" firstAttribute="centerX" secondItem="edm-GM-ldm" secondAttribute="centerX" id="IpK-st-Mbg"/>
                                                 <constraint firstAttribute="trailing" secondItem="Rjx-qD-daa" secondAttribute="trailing" id="M3s-Y1-fbU"/>
                                                 <constraint firstAttribute="bottom" secondItem="Rjx-qD-daa" secondAttribute="bottom" id="UXi-Oi-ydM"/>
+                                                <constraint firstItem="6y3-R2-49d" firstAttribute="height" secondItem="edm-GM-ldm" secondAttribute="height" id="UpX-u8-msU"/>
+                                                <constraint firstItem="6y3-R2-49d" firstAttribute="width" secondItem="edm-GM-ldm" secondAttribute="width" id="UxD-hp-P7i"/>
                                                 <constraint firstItem="Rjx-qD-daa" firstAttribute="top" secondItem="edm-GM-ldm" secondAttribute="top" id="bDg-fG-mNb"/>
                                                 <constraint firstItem="Rjx-qD-daa" firstAttribute="leading" secondItem="edm-GM-ldm" secondAttribute="leading" id="fJX-OW-9Fg"/>
                                                 <constraint firstItem="6y3-R2-49d" firstAttribute="centerY" secondItem="edm-GM-ldm" secondAttribute="centerY" id="g2z-fa-fWq"/>
