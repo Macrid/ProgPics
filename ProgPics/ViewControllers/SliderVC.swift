@@ -15,6 +15,7 @@ class SliderVC: UIViewController {
     var imageList = [UIImage]()
     var storage = Storage.storage()
     var storageRef:StorageReference?
+    var timer:Timer!
     
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var imageView: UIImageView!
@@ -29,6 +30,8 @@ class SliderVC: UIViewController {
         
         
         self.view.layer.insertSublayer(layer, at: 0)
+        
+        
         
         storageRef = storage.reference()
 
@@ -107,6 +110,7 @@ class SliderVC: UIViewController {
         if(imageList.count != 0)
         {
             print(slider.value)
+            timer.invalidate()
             
             let sliderVal = Int(slider.value.rounded(.toNearestOrEven))
             if(sliderVal < imageList.count)
@@ -117,5 +121,33 @@ class SliderVC: UIViewController {
             
         }
     }
-
+    
+    @IBAction func playPause(_ sender: Any) {
+        
+        if(timer != nil && timer!.isValid)
+        {
+            timer!.invalidate()
+        }
+        else
+        {
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
+        }
+    }
+    
+    @objc func fireTimer()
+    {
+        if(imageList.count != 0)
+        {
+            print(slider.value)
+            
+            slider.value = slider.value.rounded(.down) + 1
+            let sliderVal = Int(slider.value.rounded(.toNearestOrEven))
+            if(sliderVal < imageList.count)
+            {
+                imageView.image = imageList[sliderVal]
+            }
+            
+            
+        }
+    }
 }

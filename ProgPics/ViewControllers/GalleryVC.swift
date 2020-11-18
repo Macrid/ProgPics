@@ -16,6 +16,7 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     var storageRef:StorageReference?
     var cellList = [ThumbnailCollectionViewCell]()
     var selectedImageID:String?
+    var currentImageNumber:Int?
     let spacing:CGFloat = 5.0
     
     @IBOutlet weak var closeFullscreenButton: UIButton!
@@ -23,6 +24,8 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
     @IBOutlet weak var deleteImageButton: UIButton!
     @IBOutlet weak var fullscreenImageView: UIImageView!
     @IBOutlet weak var imageCollectionView: UICollectionView!
+    @IBOutlet weak var nextImageButton: UIButton!
+    @IBOutlet weak var previousImageButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,18 +112,58 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         fullscreenImageView.isHidden = false
         closeFullscreenButton.isHidden = false
         deleteImageButton.isHidden = false
+        previousImageButton.isHidden = false
+        nextImageButton.isHidden = false
         let cell = imageCollectionView.cellForItem(at: indexPath) as! ThumbnailCollectionViewCell
         fullscreenImageView.image = cell.imageView.image
         selectedImageID = cellList[indexPath.row].ID
+        currentImageNumber = indexPath.row
     }
     
     @IBAction func backFromFullscreen(_ sender: Any) {
         fullscreenImageView.isHidden = true
         closeFullscreenButton.isHidden = true
         deleteImageButton.isHidden = true
+        previousImageButton.isHidden = true
+        nextImageButton.isHidden = true
         self.tabBarController?.tabBar.isHidden = false
         self.navigationController?.isNavigationBarHidden = false
         fullscreenImageView.image = nil
+    }
+    
+    @IBAction func nextImage(_ sender: Any) {
+        if(currentImageNumber == Int(imageCollectionView.numberOfItems(inSection: 0)) - 1)
+        {
+            currentImageNumber = 0
+        }
+        else
+        {
+            currentImageNumber! += 1
+        }
+        
+        let indexPath = IndexPath.init(row: currentImageNumber!, section: 0)
+        
+        let cell = imageCollectionView.cellForItem(at: indexPath) as! ThumbnailCollectionViewCell
+        selectedImageID = cellList[currentImageNumber!].ID
+        fullscreenImageView.image = cell.imageView.image
+    }
+    
+    @IBAction func previousImage(_ sender: Any) {
+        if(currentImageNumber == 0)
+        {
+            currentImageNumber = Int(imageCollectionView.numberOfItems(inSection: 0)) - 1
+        }
+        else
+        {
+            currentImageNumber! -= 1
+        }
+        
+        let indexPath = IndexPath.init(row: currentImageNumber!, section: 0)
+        
+        let cell = imageCollectionView.cellForItem(at: indexPath) as! ThumbnailCollectionViewCell
+        selectedImageID = cellList[currentImageNumber!].ID
+        fullscreenImageView.image = cell.imageView.image
+    
     }
     
     @IBAction func deleteImage(_ sender: Any) {

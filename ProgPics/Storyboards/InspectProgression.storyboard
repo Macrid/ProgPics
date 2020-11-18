@@ -20,14 +20,29 @@
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="7Av-bd-Emy">
                                 <rect key="frame" x="28" y="775" width="358" height="31"/>
+                                <color key="tintColor" red="0.30588235289999999" green="0.34901960780000002" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="sliderChange:" destination="aga-l1-Cx3" eventType="valueChanged" id="kbG-xe-4NR"/>
                                 </connections>
                             </slider>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lasso" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2gJ-XB-w3H">
-                                <rect key="frame" x="20.5" y="53.5" width="373" height="720"/>
+                                <rect key="frame" x="20.5" y="53.5" width="373" height="675"/>
                                 <color key="tintColor" red="1" green="0.54901960780000003" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRE-Yy-Cqn" userLabel="Play/Pause">
+                                <rect key="frame" x="178" y="725" width="58" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="t6e-O9-Tve"/>
+                                    <constraint firstAttribute="width" constant="58" id="uIV-ww-7iQ"/>
+                                </constraints>
+                                <color key="tintColor" red="0.30588235289999999" green="0.34901960780000002" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" backgroundImage="playpause.fill" catalog="system">
+                                    <color key="titleColor" red="0.30588235289999999" green="0.34901960780000002" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="playPause:" destination="aga-l1-Cx3" eventType="touchUpInside" id="YRX-1H-PHJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Drv-jI-ZyT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -36,9 +51,11 @@
                             <constraint firstItem="2gJ-XB-w3H" firstAttribute="top" secondItem="Drv-jI-ZyT" secondAttribute="top" constant="8" id="CA1-KT-RSI"/>
                             <constraint firstItem="Drv-jI-ZyT" firstAttribute="bottom" secondItem="7Av-bd-Emy" secondAttribute="bottom" constant="8" id="H6z-7i-7xV"/>
                             <constraint firstItem="7Av-bd-Emy" firstAttribute="leading" secondItem="Drv-jI-ZyT" secondAttribute="leading" constant="30" id="J1b-XC-6Xh"/>
-                            <constraint firstItem="Drv-jI-ZyT" firstAttribute="bottom" secondItem="2gJ-XB-w3H" secondAttribute="bottom" constant="40" id="Txz-Kh-4on"/>
+                            <constraint firstItem="Drv-jI-ZyT" firstAttribute="bottom" secondItem="2gJ-XB-w3H" secondAttribute="bottom" constant="85" id="Txz-Kh-4on"/>
+                            <constraint firstItem="7Av-bd-Emy" firstAttribute="top" secondItem="DRE-Yy-Cqn" secondAttribute="bottom" constant="8" id="YBF-CC-THG"/>
                             <constraint firstItem="2gJ-XB-w3H" firstAttribute="width" secondItem="Yv2-d6-APt" secondAttribute="width" multiplier="0.9" id="cDQ-Pb-fmk"/>
                             <constraint firstItem="Drv-jI-ZyT" firstAttribute="trailing" secondItem="7Av-bd-Emy" secondAttribute="trailing" constant="30" id="odp-8W-BG7"/>
+                            <constraint firstItem="DRE-Yy-Cqn" firstAttribute="centerX" secondItem="Yv2-d6-APt" secondAttribute="centerX" id="qiY-zQ-NY7"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Progression Slider" image="slider.horizontal.below.rectangle" catalog="system" id="Ycn-Et-sQG"/>
@@ -183,15 +200,43 @@
                                     <action selector="deleteImage:" destination="wMD-kh-fcp" eventType="touchUpInside" id="oTS-S2-9ut"/>
                                 </connections>
                             </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cin-xp-vT0" userLabel="Previous image button">
+                                <rect key="frame" x="8" y="425.5" width="26" height="37.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="26" id="viH-hg-YhQ"/>
+                                    <constraint firstAttribute="height" constant="41" id="wwF-sz-Ym2"/>
+                                </constraints>
+                                <color key="tintColor" red="0.30588235289999999" green="0.34901960780000002" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" backgroundImage="chevron.left" catalog="system"/>
+                                <connections>
+                                    <action selector="previousImage:" destination="wMD-kh-fcp" eventType="touchUpInside" id="LF8-y8-4zo"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cW6-KM-OCg" userLabel="Next image button">
+                                <rect key="frame" x="380" y="425.5" width="26" height="37.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="6cS-e5-doF"/>
+                                    <constraint firstAttribute="width" constant="26" id="mrC-nB-qoz"/>
+                                </constraints>
+                                <color key="tintColor" red="0.30588235289999999" green="0.34901960780000002" blue="0.54901960780000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" backgroundImage="chevron.right" catalog="system"/>
+                                <connections>
+                                    <action selector="nextImage:" destination="wMD-kh-fcp" eventType="touchUpInside" id="Z4Q-fL-Lnx"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sxo-rd-IE1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="liM-XO-dtA" firstAttribute="top" secondItem="Sxo-rd-IE1" secondAttribute="top" constant="20" id="0EZ-lx-iNW"/>
+                            <constraint firstItem="cW6-KM-OCg" firstAttribute="centerY" secondItem="Cin-xp-vT0" secondAttribute="centerY" id="0rA-nv-kad"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="liM-XO-dtA" secondAttribute="trailing" constant="20" id="4tn-5E-GHh"/>
                             <constraint firstItem="WpD-HY-X4X" firstAttribute="leading" secondItem="Sxo-rd-IE1" secondAttribute="leading" id="6YR-ba-reZ"/>
+                            <constraint firstItem="Cin-xp-vT0" firstAttribute="centerY" secondItem="d6b-HO-EWq" secondAttribute="centerY" id="725-3N-fTV"/>
                             <constraint firstItem="d6b-HO-EWq" firstAttribute="centerX" secondItem="Sxo-rd-IE1" secondAttribute="centerX" id="8od-W1-EUv"/>
+                            <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="cW6-KM-OCg" secondAttribute="trailing" constant="8" id="9sn-Ak-UKn"/>
                             <constraint firstItem="Ezp-Ji-sx6" firstAttribute="leading" secondItem="Sxo-rd-IE1" secondAttribute="leading" constant="20" id="Fts-8u-JIH"/>
+                            <constraint firstItem="Cin-xp-vT0" firstAttribute="leading" secondItem="Sxo-rd-IE1" secondAttribute="leading" constant="8" id="LFY-n3-ao5"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="WpD-HY-X4X" secondAttribute="trailing" id="NRd-lD-GLb"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="bottom" secondItem="WpD-HY-X4X" secondAttribute="bottom" id="O0z-vP-fZF"/>
                             <constraint firstItem="Sxo-rd-IE1" firstAttribute="trailing" secondItem="tWQ-6T-IRr" secondAttribute="trailing" constant="20" id="Ufk-Fa-Ntt"/>
@@ -210,6 +255,8 @@
                         <outlet property="deleteImageButton" destination="liM-XO-dtA" id="3Pe-Lo-d81"/>
                         <outlet property="fullscreenImageView" destination="d6b-HO-EWq" id="Re8-fq-Kw2"/>
                         <outlet property="imageCollectionView" destination="WpD-HY-X4X" id="5FQ-1W-hLn"/>
+                        <outlet property="nextImageButton" destination="cW6-KM-OCg" id="i7H-0g-Zeo"/>
+                        <outlet property="previousImageButton" destination="Cin-xp-vT0" id="u1b-BN-vBT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pef-EL-V1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -381,10 +428,12 @@
     <resources>
         <image name="camera.rotate.fill" catalog="system" width="128" height="94"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
+        <image name="chevron.right" catalog="system" width="96" height="128"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="folder.fill" catalog="system" width="128" height="97"/>
         <image name="lasso" catalog="system" width="128" height="118"/>
         <image name="lightbulb.slash.fill" catalog="system" width="113" height="128"/>
+        <image name="playpause.fill" catalog="system" width="128" height="70"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="slider.horizontal.below.rectangle" catalog="system" width="128" height="115"/>
         <image name="square.grid.3x3.fill" catalog="system" width="128" height="112"/>
