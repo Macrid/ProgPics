@@ -68,6 +68,10 @@ class SliderVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         slider.value = 0
         slider.minimumValue = 0
+        if(timer != nil)
+        {
+            timer.invalidate()
+        }
     }
     
     func loadImageList()
