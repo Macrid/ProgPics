@@ -114,7 +114,11 @@ class SliderVC: UIViewController {
         if(imageList.count != 0)
         {
             print(slider.value)
-            timer.invalidate()
+            
+            if(timer != nil)
+            {
+                timer.invalidate()
+            }
             
             let sliderVal = Int(slider.value.rounded(.toNearestOrEven))
             if(sliderVal < imageList.count)

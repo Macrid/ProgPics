@@ -109,7 +109,7 @@ class CameraVC: UIViewController, AVCapturePhotoCaptureDelegate {
         }
         
         
-        finalImage = ImageHelper().resizeImage(finalImage, newWidth: 500)
+        finalImage = ImageHelper().resizeImage(finalImage, newWidth: 1000)
         
         finalImage = ImageHelper().cropTo43(image: finalImage)
         
