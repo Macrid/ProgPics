@@ -60,32 +60,41 @@ class GalleryVC: UIViewController, UICollectionViewDelegate, UICollectionViewDat
         
         cell.imageView.image = nil
         
-        let imageFilename = "\(cellList[indexPath.row].ID!).jpg"
         
-        let tempFile = try! URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageFilename)
+        DispatchQueue.global().async {
+            let imageFilename = "\(self.cellList[indexPath.row].ID!).jpg"
+            
+            let tempFile = try! URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(imageFilename)
 
-        if(FileManager.default.fileExists(atPath: tempFile.path))
-        {
-            let imageData = try? Data(contentsOf: tempFile)
+            if(FileManager.default.fileExists(atPath: tempFile.path))
+            {
+                DispatchQueue.main.async {
+                    let imageData = try? Data(contentsOf: tempFile)
 
-            cellList[indexPath.row].image = UIImage(data: imageData!)
-            cell.imageView.image = UIImage(data: imageData!)
-        } else {
-            storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
-                if let error = error {
-                    print(imageFilename)
-                    print("Error bildhämt")
-                    
+                    self.cellList[indexPath.row].image = UIImage(data: imageData!)
+                    cell.imageView.image = UIImage(data: imageData!)
                 }
-                else {
-                    try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
-                    
-                    
-                    self.cellList[indexPath.row].image = UIImage(data: data!)
-                    cell.imageView.image = UIImage(data: data!)
-                }
-            })
+            } else {
+                self.storageRef?.child(Auth.auth().currentUser!.uid).child(imageFilename).getData(maxSize: 10 * 1024 * 1024, completion: {data, error in
+                    if let error = error {
+                        print(imageFilename)
+                        print("Error bildhämt")
+                        self.imageCollectionView.reloadItems(at: [indexPath])
+                    }
+                    else {
+                        DispatchQueue.main.async {
+                            try? data?.write(to: URL(fileURLWithPath: tempFile.path), options: [.atomicWrite])
+                            
+                            
+                            self.cellList[indexPath.row].image = UIImage(data: data!)
+                            cell.imageView.image = UIImage(data: data!)
+                        }
+
+                    }
+                })
+            }
         }
+
         return cell
     }
     
