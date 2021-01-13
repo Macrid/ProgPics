@@ -5,6 +5,7 @@ ProgPics lets you make your own categories for the different things you want to 
 All pictures taken will be safely stored in the cloud with servers provided by Google Firebase. You can access your progressions on all your devices by logging in to your account.
 
 Version History
+
 1.3 Dec 31, 2020
 - Image quality improved
 
